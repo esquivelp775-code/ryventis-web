@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none';">
+  <meta name="description" content="Quiénes somos — Ryventis Solutions. Agencia de inteligencia artificial para PYMEs en Puebla, México. Automatizaciones, chatbots y agentes de IA.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ryventis Solutions">
+  <meta property="og:title" content="Nosotros — Ryventis Solutions">
+  <meta property="og:description" content="Somos una agencia de IA especializada en implementar soluciones que hacen funcionar negocios solos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryventis.mx/nosotros.html">
+  <meta property="og:image" content="https://ryventis.mx/assets/img/og/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://ryventis.mx/nosotros.html">
+  <title>Nosotros — Ryventis Solutions</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — RYVENTIS SOLUTIONS
+    ============================================================ */
+    :root {
+      --bg:          #0A0A0F;
+      --surface:     #111118;
+      --surface-2:   #1C1C28;
+      --accent:      #00E5CC;
+      --accent-dark: #00B8A3;
+      --depth:       #7C3AED;
+      --text:        #F0F0F8;
+      --muted:       #8888A8;
+      --border:      rgba(0, 229, 204, 0.10);
+      --border-dim:  rgba(255,255,255,0.06);
+
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --max-w: 1180px;
+      --nav-h: 68px;
+      --radius: 12px;
+      --radius-lg: 16px;
+      --gap: 1.5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+      animation: pageIn 400ms ease forwards;
+    }
+
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ---- Scroll reveal ---- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ---- Tipografía ---- */
+    h1, h2, h3 {
+      font-family: var(--font-head);
+      line-height: 1.05;
+      letter-spacing: 0.04em;
+    }
+    h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 800; }
+    h2 { font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 800; }
+    h3 { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; }
+    p  { font-size: 1rem; line-height: 1.85; color: var(--muted); font-weight: 300; }
+    a  { color: inherit; text-decoration: none; }
+
+    /* ---- Layout ---- */
+    .wrap    { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+    .wrap-sm { max-width: 760px; margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+    .section { padding: clamp(80px, 12vw, 140px) 0; }
+
+    /* ---- Label / eyebrow ---- */
+    .label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    .accent-line {
+      display: inline-block;
+      width: 32px; height: 2px;
+      background: var(--accent);
+      vertical-align: middle;
+      margin-right: 12px;
+    }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body); font-weight: 500; font-size: 0.9rem;
+      padding: 14px 32px; border-radius: 4px;
+      border: 1px solid transparent; cursor: pointer;
+      transition: all 200ms ease-out;
+      white-space: nowrap; letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary:hover {
+      background: var(--accent-dark); border-color: var(--accent-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 12px 40px rgba(0,229,204,0.22);
+    }
+    .btn-ghost {
+      background: transparent; color: var(--text);
+      border-color: rgba(255,255,255,0.18);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+    .btn-sm { padding: 10px 20px; font-size: 0.82rem; }
+
+    /* ---- Divider ---- */
+    .rule { width: 100%; height: 1px; background: var(--border-dim); }
+
+    /* ================================================================
+       NAVIGATION
+    ================================================================ */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(10,10,15,0.72);
+      border-bottom: 1px solid var(--border-dim);
+      transition: background 200ms ease-out, border-color 200ms ease-out;
+    }
+    .nav.scrolled {
+      background: rgba(10,10,15,0.94);
+      border-bottom-color: rgba(255,255,255,0.09);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo {
+      font-family: var(--font-head); font-weight: 800; font-size: 1.1rem;
+      letter-spacing: -0.01em; color: var(--text);
+    }
+    .nav-logo .accent { color: var(--accent); }
+    .nav-links {
+      display: flex; align-items: center; gap: 40px;
+      list-style: none;
+    }
+    .nav-link {
+      font-size: 0.85rem; font-weight: 400; color: var(--muted);
+      transition: color 200ms ease-out; letter-spacing: 0.01em;
+    }
+    .nav-link:hover { color: var(--text); }
+    .nav-link.active { color: var(--accent); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+
+    /* Mobile hamburger */
+    .nav-hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .nav-hamburger span {
+      display: block; width: 22px; height: 1.5px;
+      background: var(--text); transition: all 200ms ease-out;
+    }
+
+    /* Mobile drawer */
+    .nav-drawer {
+      display: none;
+      position: fixed; inset: 0; background: var(--bg); z-index: 1000;
+      flex-direction: column; align-items: flex-start; justify-content: center;
+      padding: 48px;
+      gap: 8px;
+    }
+    .nav-drawer.open { display: flex; }
+    .nav-drawer .nav-link {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(2rem, 8vw, 3.5rem); color: var(--text);
+      transition: color 200ms ease-out; line-height: 1.15;
+    }
+    .nav-drawer .nav-link:hover,
+    .nav-drawer .nav-link.active { color: var(--accent); }
+    .nav-drawer-close {
+      position: absolute; top: 24px; right: 28px;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.6rem; cursor: pointer; font-family: var(--font-head);
+      transition: color 200ms ease-out;
+    }
+    .nav-drawer-close:hover { color: var(--text); }
+
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta .btn-ghost { display: none; }
+      .nav-hamburger { display: flex; }
+    }
+    @media (max-width: 640px) {
+      .nav-cta .btn-primary { display: none; }
+    }
+
+    /* ================================================================
+       HERO
+    ================================================================ */
+    .hero {
+      min-height: 88vh;
+      padding-top: 160px;
+      padding-bottom: clamp(80px, 12vw, 140px);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+    }
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 55% 50% at 75% 20%, rgba(124,58,237,0.18) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 15% 80%, rgba(0,229,204,0.07) 0%, transparent 60%),
+        var(--bg);
+    }
+    /* Subtle grid texture */
+    .hero-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 80%);
+      -webkit-mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, black 0%, transparent 80%);
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0; right: 0; height: 200px;
+      background: linear-gradient(to bottom, transparent, var(--bg));
+    }
+    .hero-content { position: relative; z-index: 1; width: 100%; }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 32px;
+    }
+    .hero-title {
+      max-width: 900px;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+    .hero-title .line-muted { color: var(--muted); }
+    .hero-subtitle {
+      font-size: clamp(1rem, 1.8vw, 1.2rem);
+      line-height: 1.75;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 600px;
+    }
+
+    /* ================================================================
+       SECTION: QUIÉNES SOMOS
+    ================================================================ */
+    .quienes {
+      padding: clamp(80px, 12vw, 140px) 0;
+    }
+    .quienes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(48px, 6vw, 96px);
+      align-items: start;
+    }
+    .quienes-left {
+      position: sticky;
+      top: calc(var(--nav-h) + 32px);
+    }
+    .quienes-section-label {
+      margin-bottom: 24px;
+      display: flex; align-items: center; gap: 0;
+    }
+    .quienes-title { margin-bottom: 0; color: var(--text); }
+    .quienes-right p + p { margin-top: 20px; }
+    .quienes-right p {
+      font-size: clamp(1rem, 1.6vw, 1.1rem);
+      line-height: 1.85;
+    }
+    /* Highlight text */
+    .text-accent { color: var(--accent); font-weight: 400; }
+
+    @media (max-width: 860px) {
+      .quienes-grid { grid-template-columns: 1fr; }
+      .quienes-left { position: static; }
+    }
+
+    /* ================================================================
+       SECTION: POR QUÉ RYVENTIS — editorial etymology
+    ================================================================ */
+    .etymology {
+      padding: clamp(80px, 12vw, 140px) 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border-dim);
+      border-bottom: 1px solid var(--border-dim);
+      overflow: hidden;
+    }
+    .etymology-inner { position: relative; }
+    .etymology-label { margin-bottom: 56px; }
+
+    /* Large decorative word behind */
+    .etymology-bg-word {
+      position: absolute;
+      top: -0.15em;
+      right: -0.05em;
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(8rem, 22vw, 20rem);
+      line-height: 1;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0,229,204,0.06);
+      letter-spacing: 0.04em;
+      pointer-events: none;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    .etymology-parts {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+    .etymology-part {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 0 40px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--border-dim);
+      align-items: baseline;
+    }
+    .etymology-part:last-child { border-bottom: none; }
+    .etymology-part-label {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      line-height: 1;
+      letter-spacing: 0.04em;
+    }
+    .etymology-part-label.ry   { color: var(--accent); }
+    .etymology-part-label.ventis { color: var(--depth); }
+    .etymology-part-label.solutions { color: var(--muted); font-size: clamp(1.5rem, 3vw, 2.5rem); }
+    .etymology-part-text {
+      padding-top: 4px;
+    }
+    .etymology-part-text strong {
+      display: block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .etymology-part-text p {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+    }
+
+    /* Bottom declaration */
+    .etymology-declaration {
+      margin-top: 64px;
+      padding: 40px 48px;
+      background: var(--surface-2);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-dim);
+      position: relative;
+      z-index: 1;
+      max-width: 820px;
+    }
+    .etymology-declaration p {
+      font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+      line-height: 1.8;
+      color: var(--muted);
+    }
+    .etymology-declaration p strong { color: var(--text); font-weight: 400; }
+
+    @media (max-width: 640px) {
+      .etymology-part {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+      .etymology-declaration { padding: 28px 24px; }
+      .etymology-bg-word { display: none; }
+    }
+
+    /* ================================================================
+       SECTION: FILOSOFÍA — manifesto full-width
+    ================================================================ */
+    .manifesto {
+      padding: clamp(100px, 16vw, 180px) 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .manifesto-bg {
+      position: absolute; inset: 0;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 50%, rgba(124,58,237,0.12) 0%, transparent 65%),
+        var(--bg);
+    }
+    .manifesto-bg::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+    .manifesto-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .manifesto-label { margin-bottom: 40px; }
+    .manifesto-quote {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.6rem, 4.5vw, 3.8rem);
+      line-height: 1.12;
+      letter-spacing: 0.04em;
+      color: var(--text);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .manifesto-quote .highlight {
+      background: linear-gradient(135deg, var(--accent), var(--depth));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .manifesto-sub {
+      margin-top: 32px;
+      font-size: clamp(1rem, 1.6vw, 1.1rem);
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* ================================================================
+       SECTION: PRINCIPIOS — numbered editorial rows
+    ================================================================ */
+    .principles {
+      padding: clamp(80px, 12vw, 140px) 0;
+      border-top: 1px solid var(--border-dim);
+    }
+    .principles-header {
+      display: flex; align-items: flex-end; justify-content: space-between;
+      gap: 32px;
+      margin-bottom: clamp(56px, 8vw, 96px);
+    }
+    .principles-title { color: var(--text); }
+    .principles-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 300;
+      white-space: nowrap;
+      padding-bottom: 8px;
+    }
+
+    .principles-list { display: flex; flex-direction: column; }
+    .principle-row {
+      display: grid;
+      grid-template-columns: 72px 1fr;
+      gap: 0 48px;
+      padding: 40px 0;
+      border-top: 1px solid var(--border-dim);
+      align-items: start;
+      transition: border-color 200ms ease-out;
+    }
+    .principle-row:hover { border-top-color: rgba(0,229,204,0.25); }
+    .principle-num {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--border-dim);
+      line-height: 1;
+      letter-spacing: 0.04em;
+      padding-top: 4px;
+      transition: color 200ms ease-out;
+    }
+    .principle-row:hover .principle-num { color: rgba(0,229,204,0.3); }
+    .principle-body {}
+    .principle-title {
+      font-family: var(--font-head);
+      font-weight: 700;
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      letter-spacing: 0.04em;
+      color: var(--text);
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    .principle-desc {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 620px;
+    }
+    .principle-tag {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      opacity: 0.7;
+    }
+
+    @media (max-width: 640px) {
+      .principle-row { grid-template-columns: 48px 1fr; gap: 0 24px; }
+      .principles-header { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ================================================================
+       SECTION: CIERRE — final call to action
+    ================================================================ */
+    .closing {
+      padding: clamp(100px, 16vw, 180px) 0;
+      background: var(--surface);
+      border-top: 1px solid var(--border-dim);
+      position: relative;
+      overflow: hidden;
+    }
+    .closing-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 50% 80% at 50% 100%, rgba(124,58,237,0.1) 0%, transparent 70%);
+    }
+    .closing-inner {
+      position: relative; z-index: 1;
+      text-align: center;
+    }
+    .closing-statement {
+      font-family: var(--font-head);
+      font-weight: 800;
+      font-size: clamp(1.4rem, 3.5vw, 3rem);
+      letter-spacing: 0.04em;
+      line-height: 1.12;
+      color: var(--text);
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .closing-statement em {
+      font-style: italic;
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .closing-tagline {
+      font-size: clamp(1rem, 1.6vw, 1.1rem);
+      color: var(--accent);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: 0.02em;
+      margin-bottom: 56px;
+    }
+    .closing-cta-label {
+      font-size: 0.95rem;
+      color: var(--muted);
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .closing-btn-wrap {
+      display: flex; align-items: center; justify-content: center; gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    .footer {
+      background: var(--bg);
+      border-top: 1px solid var(--border-dim);
+      padding: clamp(40px, 6vw, 64px) 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo {
+      font-family: var(--font-head); font-weight: 800; font-size: 1rem;
+      letter-spacing: -0.01em; color: var(--text);
+    }
+    .footer-logo .accent { color: var(--accent); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+    .footer-link {
+      font-size: 0.82rem; color: var(--muted);
+      transition: color 200ms ease-out;
+    }
+    .footer-link:hover { color: var(--text); }
+    .footer-copy {
+      font-size: 0.78rem; color: var(--muted); font-weight: 300;
+      width: 100%; text-align: center; opacity: 0.6;
+      margin-top: 8px;
+    }
+
+    /* ================================================================
+       FLOATING WHATSAPP
+    ================================================================ */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 52px; height: 52px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      z-index: 998;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+    }
+    .wa-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
+    }
+    .wa-float svg { width: 26px; height: 26px; }
+
+    @media (max-width: 640px) {
+      .wa-float { bottom: 20px; right: 20px; width: 46px; height: 46px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ================================================================
+       NAVIGATION
+  ================================================================ -->
+  <nav class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a href="index.html" class="nav-logo">Ryventis<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="como-funciona.html" class="nav-link">Cómo funciona</a></li>
+        <li><a href="nosotros.html" class="nav-link active">Nosotros</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://wa.me/522271200295" class="btn btn-ghost btn-sm" rel="noopener noreferrer">WhatsApp</a>
+        <a href="contacto.html" class="btn btn-primary btn-sm">Agenda diagnóstico</a>
+      </div>
+      <button class="nav-hamburger" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <button class="nav-drawer-close" id="navClose" aria-label="Cerrar menú">✕</button>
+      <a href="servicios.html" class="nav-link">Servicios</a>
+      <a href="como-funciona.html" class="nav-link">Cómo funciona</a>
+      <a href="nosotros.html" class="nav-link active">Nosotros</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+      <a href="contacto.html" class="btn btn-primary" style="margin-top:32px;display:inline-flex;">Agenda diagnóstico</a>
+    </div>
+  </nav>
+
+  <!-- ================================================================
+       HERO
+  ================================================================ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="wrap hero-content">
+      <div class="hero-eyebrow reveal" data-delay="0">
+        <span class="accent-line"></span>
+        <span class="label">Sobre nosotros</span>
+      </div>
+      <h1 class="hero-title reveal" data-delay="80">
+        Inteligencia<br>
+        <span class="line-muted">en movimiento.</span>
+      </h1>
+      <p class="hero-subtitle reveal" data-delay="180">
+        Somos una agencia de inteligencia artificial especializada en implementar soluciones que hacen funcionar negocios solos.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SECTION 1: QUIÉNES SOMOS
+  ================================================================ -->
+  <section class="quienes section">
+    <div class="wrap">
+      <div class="quienes-grid">
+        <!-- Left col: sticky title -->
+        <div class="quienes-left reveal-left" data-delay="0">
+          <div class="quienes-section-label">
+            <span class="accent-line"></span>
+            <span class="label">Quiénes somos</span>
+          </div>
+          <h2 class="quienes-title">La agencia<br>que construye.</h2>
+        </div>
+        <!-- Right col: body copy -->
+        <div class="quienes-right reveal" data-delay="100">
+          <p>
+            Ryventis Solutions es una agencia de IA para empresas que quieren crecer sin depender de procesos manuales. Diseñamos, construimos e implementamos sistemas de automatización, chatbots y agentes de inteligencia artificial adaptados exactamente a la operación de cada cliente.
+          </p>
+          <p>
+            No somos consultores que entregan reportes. Somos implementadores: <span class="text-accent">llegamos, entendemos, construimos y nos quedamos para que funcione.</span>
+          </p>
+          <p>
+            Trabajamos con PYMEs en Puebla que saben que hay una forma más eficiente de operar — y que solo necesitan a alguien que lo construya para ellas sin complicaciones ni tecnicismos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="rule"></div>
+
+  <!-- ================================================================
+       SECTION 2: POR QUÉ RYVENTIS — etymology editorial
+  ================================================================ -->
+  <section class="etymology">
+    <div class="wrap etymology-inner">
+      <!-- Background decorative word -->
+      <div class="etymology-bg-word" aria-hidden="true">Ryventis</div>
+
+      <div class="etymology-label reveal" data-delay="0">
+        <span class="accent-line"></span>
+        <span class="label">El nombre</span>
+      </div>
+
+      <div class="etymology-parts">
+
+        <div class="etymology-part reveal" data-delay="0">
+          <div class="etymology-part-label ry">Ry</div>
+          <div class="etymology-part-text">
+            <strong>Ritmo operativo</strong>
+            <p>Representa el ritmo de un negocio bien engranado — cada proceso en su momento, sin fricciones ni esperas.</p>
+          </div>
+        </div>
+
+        <div class="etymology-part reveal" data-delay="80">
+          <div class="etymology-part-label ventis">ventis</div>
+          <div class="etymology-part-text">
+            <strong>Del latín <em>Ventus</em> — fuerza y dirección</strong>
+            <p>La energía que da movimiento y rumbo a lo que antes era estático. Sin dirección, el ritmo no lleva a ningún lado.</p>
+          </div>
+        </div>
+
+        <div class="etymology-part reveal" data-delay="160">
+          <div class="etymology-part-label solutions">Solutions</div>
+          <div class="etymology-part-text">
+            <strong>El destino</strong>
+            <p>Resultados concretos y medibles. No tecnología por tecnología — soluciones que transforman la operación de un negocio real.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="etymology-declaration reveal" data-delay="240">
+        <p>
+          Una empresa sin estructura es caos. <strong>Ryventis ordena ese caos, le da ritmo y una dirección clara.</strong> El nombre no es un accidente — es una declaración de lo que hacemos.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SECTION 3: FILOSOFÍA — manifesto
+  ================================================================ -->
+  <section class="manifesto">
+    <div class="manifesto-bg"></div>
+    <div class="wrap manifesto-inner">
+      <div class="manifesto-label reveal" data-delay="0">
+        <span class="accent-line"></span>
+        <span class="label">Lo que creemos</span>
+      </div>
+      <h2 class="manifesto-quote reveal" data-delay="80">
+        No vendemos software.<br>
+        <span class="highlight">Ordenamos el flujo</span> de tu operación<br>
+        y le damos dirección para que tu negocio<br>
+        funcione con la precisión de uno grande.
+      </h2>
+      <p class="manifesto-sub reveal" data-delay="200">
+        Eso es lo que hacemos en cada proyecto. Sin excepción.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SECTION 4: PRINCIPIOS — numbered editorial rows
+  ================================================================ -->
+  <section class="principles">
+    <div class="wrap">
+      <div class="principles-header reveal" data-delay="0">
+        <h2 class="principles-title">Cómo<br>trabajamos.</h2>
+        <span class="principles-meta">5 principios · No negociables</span>
+      </div>
+
+      <div class="principles-list">
+
+        <div class="principle-row reveal" data-delay="0">
+          <div class="principle-num">01</div>
+          <div class="principle-body">
+            <div class="principle-title">Diagnóstico antes que propuesta</div>
+            <p class="principle-desc">
+              Nunca llegamos con una solución preconcebida. Primero entendemos cómo opera tu negocio, luego diseñamos. Esto garantiza que lo que construimos tiene sentido para tu operación específica — no para la del cliente anterior.
+            </p>
+            <span class="principle-tag">Siempre el primer paso</span>
+          </div>
+        </div>
+
+        <div class="principle-row reveal" data-delay="60">
+          <div class="principle-num">02</div>
+          <div class="principle-body">
+            <div class="principle-title">Sin tecnicismos con el cliente</div>
+            <p class="principle-desc">
+              Hablamos de resultados, no de tecnología. No importa qué herramientas estén funcionando detrás — lo que importa es cuánto tiempo ahorrás, cuánto dinero generás y qué errores ya no van a volver a pasar.
+            </p>
+            <span class="principle-tag">En cada entrega y cada reporte</span>
+          </div>
+        </div>
+
+        <div class="principle-row reveal" data-delay="120">
+          <div class="principle-num">03</div>
+          <div class="principle-body">
+            <div class="principle-title">QA obligatorio, no negociable</div>
+            <p class="principle-desc">
+              Todo lo que entregamos pasa por verificación completa antes de salir al mundo. Simulamos fallas, casos extremos y errores humanos. Preferimos tardar un día más que lanzar algo que falle frente a tus clientes.
+            </p>
+            <span class="principle-tag">10 puntos de verificación en cada proyecto</span>
+          </div>
+        </div>
+
+        <div class="principle-row reveal" data-delay="180">
+          <div class="principle-num">04</div>
+          <div class="principle-body">
+            <div class="principle-title">Resultados medibles, no funciones de catálogo</div>
+            <p class="principle-desc">
+              El éxito no es cuántas funciones tiene el sistema — es cuánto mejoró tu operación. Definimos métricas de éxito antes de construir y las validamos al entregar. Si no se puede medir, no lo prometemos.
+            </p>
+            <span class="principle-tag">ROI definido antes de iniciar</span>
+          </div>
+        </div>
+
+        <div class="principle-row reveal" data-delay="240">
+          <div class="principle-num">05</div>
+          <div class="principle-body">
+            <div class="principle-title">Tecnología que se adapta, no al revés</div>
+            <p class="principle-desc">
+              Muchos integradores adaptan el negocio a la herramienta. Nosotros adaptamos la herramienta al negocio. Si algo se puede resolver de forma simple, lo resolvemos simple. La complejidad que no sirve de nada es un error, no un logro.
+            </p>
+            <span class="principle-tag">Simplicidad como virtud técnica</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       SECTION 5: CIERRE
+  ================================================================ -->
+  <section class="closing">
+    <div class="closing-bg"></div>
+    <div class="wrap closing-inner">
+      <p class="closing-tagline reveal" data-delay="0">"Tecnología que trabaja para ti"</p>
+      <h2 class="closing-statement reveal" data-delay="80">
+        <em>Ryventis Solutions:</em><br>
+        Tecnología que piensa,<br>soluciones que ejecutan.
+      </h2>
+      <p class="closing-cta-label reveal" data-delay="180">
+        ¿Querés conocer cómo aplicamos esto a tu negocio?
+      </p>
+      <div class="closing-btn-wrap reveal" data-delay="240">
+        <a href="contacto.html" class="btn btn-primary">Agenda una conversación &rarr;</a>
+        <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================
+       FOOTER
+  ================================================================ -->
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div class="footer-logo">Ryventis<span class="accent">.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Aviso legal</a>
+        <a href="index.html" class="footer-link">Privacidad</a>
+        <a href="https://linkedin.com" class="footer-link" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://tiktok.com" class="footer-link" rel="noopener noreferrer">TikTok</a>
+        <a href="https://instagram.com" class="footer-link" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <p class="footer-copy">© 2026 Ryventis Solutions</p>
+    </div>
+  </footer>
+
+  <!-- ================================================================
+       FLOATING WHATSAPP
+  ================================================================ -->
+  <a
+    class="wa-float"
+    href="https://wa.me/522271200295?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios."
+    rel="noopener noreferrer"
+    aria-label="Contactar por WhatsApp"
+    target="_blank"
+  >
+    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.504L4 29l7.734-1.798A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="white"/>
+      <path d="M21.707 18.507c-.31-.155-1.833-.904-2.117-.007-.282.093-.744.904-.913 1.086-.17.182-.34.204-.65.068-.31-.136-1.31-.483-2.494-1.537-.921-.82-1.544-1.834-1.724-2.144-.18-.31-.019-.477.135-.63.138-.138.31-.36.465-.54.155-.18.206-.31.31-.515.103-.206.05-.386-.026-.54-.077-.156-.913-2.2-1.25-3.01-.33-.79-.665-.684-.913-.697-.236-.012-.503-.015-.77-.015-.267 0-.7.1-1.068.515-.367.414-1.4 1.368-1.4 3.336s1.433 3.87 1.633 4.136c.2.265 2.822 4.31 6.836 6.044.955.412 1.7.659 2.281.844.959.305 1.832.262 2.522.159.769-.115 2.366-.967 2.7-1.9.334-.934.334-1.735.234-1.9-.1-.165-.367-.265-.677-.42z" fill="#25D366"/>
+    </svg>
+  </a>
+
+  <!-- ================================================================
+       JAVASCRIPT
+  ================================================================ -->
+  <script>
+    // ---- Nav scroll state ----
+    (function () {
+      var nav = document.getElementById('nav');
+      function onScroll() {
+        if (window.scrollY > 12) {
+          nav.classList.add('scrolled');
+        } else {
+          nav.classList.remove('scrolled');
+        }
+      }
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    })();
+
+    // ---- Mobile drawer ----
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var drawer = document.getElementById('navDrawer');
+      var close  = document.getElementById('navClose');
+
+      toggle.addEventListener('click', function () {
+        drawer.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+      function closeDrawer() {
+        drawer.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      close.addEventListener('click', closeDrawer);
+      drawer.addEventListener('click', function (e) {
+        if (e.target === drawer) closeDrawer();
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeDrawer();
+      });
+    })();
+
+    // ---- Scroll reveal ----
+    (function () {
+      var els = document.querySelectorAll('.reveal, .reveal-left');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            var d = parseInt(entry.target.dataset.delay) || 0;
+            setTimeout(function () {
+              entry.target.classList.add('visible');
+            }, d);
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>

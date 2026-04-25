@@ -1,0 +1,1279 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none';">
+  <meta name="description" content="Ryventis Solutions — Implementamos chatbots, automatizaciones y agentes de IA adaptados a tu empresa. Sin tecnicismos, sin complicaciones.">
+  <meta name="keywords" content="inteligencia artificial empresas, chatbot WhatsApp, automatización n8n México, agencia IA">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ryventis Solutions">
+  <meta property="og:title" content="Ryventis Solutions — IA que trabaja para ti">
+  <meta property="og:description" content="Operaciones que funcionan solas. Chatbots, automatizaciones y agentes de IA adaptados a tu empresa.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ryventis.mx">
+  <meta property="og:image" content="https://ryventis.mx/assets/img/og/og-cover.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://ryventis.mx">
+  <title>Ryventis Solutions — Tecnología que trabaja para ti</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Ryventis Solutions",
+    "description": "Agencia de Inteligencia Artificial para empresas",
+    "url": "https://ryventis.mx",
+    "telephone": "+52-222-000-0000",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Puebla",
+      "addressRegion": "PUE",
+      "addressCountry": "MX"
+    },
+    "priceRange": "$$",
+    "serviceType": ["Chatbot WhatsApp", "Automatización de procesos", "Agente autónomo IA", "Análisis de datos"]
+  }
+  </script>
+
+  <style>
+    /* ============================================================
+       DESIGN SYSTEM — RYVENTIS SOLUTIONS · Paleta Original
+    ============================================================ */
+    :root {
+      /* Paleta de marca */
+      --bg:          #0A0A0F;
+      --surface:     #111118;
+      --surface-2:   #1C1C28;
+      --accent:      #00E5CC;
+      --accent-dark: #00B8A3;
+      --depth:       #7C3AED;
+      --text:        #F0F0F8;
+      --muted:       #8888A8;
+      --border:      rgba(0, 229, 204, 0.10);
+      --border-dim:  rgba(255,255,255,0.06);
+
+      --font-head: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+
+      --max-w: 1180px;
+      --nav-h: 68px;
+      --radius: 4px;
+      --gap: 1.5rem;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-weight: 400;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ---- Tipografía editorial ---- */
+    h1, h2, h3 { font-family: var(--font-head); line-height: 1.08; letter-spacing: -0.02em; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 800; }
+    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; }
+    h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 700; }
+    p  { font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    a  { color: inherit; text-decoration: none; }
+
+    /* ---- Layout ---- */
+    .wrap  { max-width: var(--max-w); margin: 0 auto; padding: 0 clamp(24px, 5vw, 64px); }
+    .section { padding: clamp(80px, 12vw, 160px) 0; }
+
+    /* ---- Divisores ---- */
+    .rule { width: 100%; height: 1px; background: var(--border-dim); }
+
+    /* ---- Label / eyebrow ---- */
+    .label {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ---- Accent line ---- */
+    .accent-line { display: inline-block; width: 32px; height: 2px; background: var(--accent); vertical-align: middle; margin-right: 12px; }
+
+    /* ---- Buttons ---- */
+    .btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body); font-weight: 500; font-size: 0.9rem;
+      padding: 14px 32px; border-radius: var(--radius);
+      border: 1px solid transparent; cursor: pointer; transition: all 0.22s ease;
+      white-space: nowrap; letter-spacing: 0.01em;
+    }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 40px rgba(0,229,204,0.22); }
+    .btn-outline { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.18); }
+    .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ---- Imagen genérica ---- */
+    .img-block {
+      width: 100%; border-radius: var(--radius);
+      overflow: hidden; position: relative;
+      background: var(--surface-2);
+    }
+    .img-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    /* Placeholder visual cuando no hay imagen real */
+    .img-placeholder {
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 12px;
+      color: var(--muted); font-size: 0.8rem;
+      font-family: var(--font-body); letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .img-placeholder svg { opacity: 0.3; }
+
+    /* ================================================================
+       NAVEGACIÓN
+    ================================================================ */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      height: var(--nav-h);
+      display: flex; align-items: center;
+      transition: background 0.3s, border-bottom 0.3s;
+    }
+    nav.scrolled {
+      background: rgba(10, 10, 15, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-dim);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      width: 100%;
+    }
+    .nav-logo {
+      font-family: var(--font-head); font-weight: 800; font-size: 1.1rem;
+      letter-spacing: -0.01em; color: var(--text);
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 400; color: var(--muted);
+      transition: color 0.2s; letter-spacing: 0.01em;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-cta { display: flex; align-items: center; gap: 16px; }
+
+    /* Mobile nav */
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      background: none; border: none; cursor: pointer; padding: 8px;
+    }
+    .hamburger span { display: block; width: 22px; height: 1.5px; background: var(--text); transition: all 0.2s; }
+    .drawer {
+      display: none; position: fixed; inset: 0; background: var(--bg); z-index: 1000;
+      flex-direction: column; align-items: flex-start; justify-content: center;
+      padding: 48px;
+    }
+    .drawer.open { display: flex; }
+    .drawer-close {
+      position: absolute; top: 24px; right: 24px;
+      background: none; border: none; color: var(--muted);
+      font-size: 1.5rem; cursor: pointer; font-family: var(--font-head);
+    }
+    .drawer a {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(2rem, 8vw, 3.5rem); color: var(--text);
+      transition: color 0.2s; line-height: 1.1;
+    }
+    .drawer a:hover { color: var(--accent); }
+
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta .btn-outline { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ================================================================
+       HERO
+    ================================================================ */
+    #hero {
+      min-height: 100svh;
+      display: flex; flex-direction: column; justify-content: flex-end;
+      padding-top: var(--nav-h);
+      position: relative; overflow: hidden;
+    }
+
+    /* Imagen de fondo del hero */
+    .hero-bg {
+      position: absolute; inset: 0; z-index: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%; object-fit: cover;
+      filter: brightness(0.35);
+    }
+    /* Gradiente sobre la imagen para que el texto sea legible */
+    .hero-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, var(--bg) 18%, transparent 60%);
+    }
+    /* Si no hay imagen, fondo sólido con textura sutil */
+    .hero-bg-fallback {
+      position: absolute; inset: 0; z-index: 0;
+      background:
+        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(124,58,237,0.14) 0%, transparent 70%),
+        radial-gradient(ellipse 50% 40% at 20% 70%, rgba(0,229,204,0.06) 0%, transparent 60%),
+        var(--bg);
+    }
+
+    .hero-content {
+      position: relative; z-index: 1;
+      padding-bottom: clamp(60px, 10vw, 120px);
+    }
+    .hero-eyebrow {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      max-width: 840px;
+      margin-bottom: 32px;
+    }
+    .hero-title em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      max-width: 520px;
+      font-size: 1.05rem;
+      margin-bottom: 48px;
+    }
+    .hero-actions { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+
+    /* ================================================================
+       STATS BAR
+    ================================================================ */
+    #stats {
+      border-top: 1px solid var(--border-dim);
+      border-bottom: 1px solid var(--border-dim);
+      padding: 40px 0;
+    }
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+    }
+    .stat-item {
+      padding: 0 32px;
+      border-right: 1px solid var(--border-dim);
+    }
+    .stat-item:first-child { padding-left: 0; }
+    .stat-item:last-child { border-right: none; }
+    .stat-number {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3rem); letter-spacing: -0.03em;
+      color: var(--text); line-height: 1;
+    }
+    .stat-number span { color: var(--accent); }
+    .stat-label {
+      font-size: 0.8rem; color: var(--muted); margin-top: 6px;
+      font-weight: 400; letter-spacing: 0.02em;
+    }
+
+    @media (max-width: 700px) {
+      .stats-grid { grid-template-columns: 1fr 1fr; gap: 32px 0; }
+      .stat-item { border-right: none; }
+      .stat-item:nth-child(odd) { padding-left: 0; }
+    }
+
+    /* ================================================================
+       SECCIÓN IMAGEN GRANDE + TEXTO (Editorial — Article style)
+    ================================================================ */
+    .editorial-block {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px);
+      align-items: center;
+    }
+    .editorial-block.reverse { direction: rtl; }
+    .editorial-block.reverse > * { direction: ltr; }
+    .editorial-text { display: flex; flex-direction: column; gap: 24px; }
+    .editorial-text p { max-width: 440px; }
+    .editorial-img {
+      aspect-ratio: 4/5;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 780px) {
+      .editorial-block { grid-template-columns: 1fr; direction: ltr; }
+      .editorial-img { aspect-ratio: 16/9; }
+    }
+
+    /* ================================================================
+       SERVICIOS — LISTA EDITORIAL
+    ================================================================ */
+    .services-list {
+      display: flex; flex-direction: column;
+    }
+    .service-row {
+      display: grid; grid-template-columns: 40px 1fr auto;
+      align-items: start; gap: 32px;
+      padding: 36px 0;
+      border-bottom: 1px solid var(--border-dim);
+      cursor: default;
+      transition: background 0.18s;
+    }
+    .service-row:first-child { border-top: 1px solid var(--border-dim); }
+    .service-row:hover { background: rgba(255,255,255,0.02); }
+    .service-num {
+      font-family: var(--font-head); font-size: 0.75rem;
+      color: var(--muted); font-weight: 700; padding-top: 4px;
+    }
+    .service-body { flex: 1; }
+    .service-name {
+      font-family: var(--font-head); font-weight: 800;
+      font-size: clamp(1.1rem, 2vw, 1.35rem); letter-spacing: -0.01em;
+      color: var(--text); margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .service-row:hover .service-name { color: var(--accent); }
+    .service-desc { font-size: 0.9rem; color: var(--muted); font-weight: 300; max-width: 540px; }
+    .service-price {
+      font-family: var(--font-head); font-weight: 700;
+      font-size: 0.95rem; color: var(--accent); text-align: right;
+      white-space: nowrap; padding-top: 4px;
+    }
+    .service-price small { font-family: var(--font-body); font-size: 0.72rem; color: var(--muted); display: block; font-weight: 300; }
+
+    @media (max-width: 640px) {
+      .service-row { grid-template-columns: 32px 1fr; }
+      .service-price { display: none; }
+    }
+
+    /* ================================================================
+       IMAGEN FULL-WIDTH (entre secciones — Article style)
+    ================================================================ */
+    .full-img {
+      width: 100%;
+      aspect-ratio: 21/9;
+      overflow: hidden; position: relative;
+      background: var(--surface);
+    }
+    .full-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block;
+    }
+
+    /* ================================================================
+       PROCESO — PASOS
+    ================================================================ */
+    .process-steps {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 0; position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute; top: 18px; left: 0; right: 0; height: 1px;
+      background: var(--border-dim);
+    }
+    .step {
+      padding: 0 24px;
+      padding-top: 48px;
+      position: relative;
+    }
+    .step-dot {
+      position: absolute; top: 12px; left: 24px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--surface-2); border: 2px solid var(--border-dim);
+      transition: all 0.3s;
+    }
+    .step:first-child { padding-left: 0; }
+    .step:first-child .step-dot { left: 0; }
+    .step:hover .step-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 14px rgba(0,229,204,0.4); }
+    .step-num { font-size: 0.7rem; color: var(--muted); font-weight: 500; letter-spacing: 0.1em; margin-bottom: 10px; }
+    .step-title { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+    .step-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    @media (max-width: 860px) {
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .process-steps::before { display: none; }
+      .step { padding: 20px; border-top: 1px solid var(--border-dim); }
+      .step-dot { position: static; margin-bottom: 12px; }
+    }
+    @media (max-width: 500px) {
+      .process-steps { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       PRECIOS
+    ================================================================ */
+    .pricing-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px;
+      background: var(--border-dim);
+      border: 1px solid var(--border-dim);
+    }
+    .price-card {
+      background: var(--bg); padding: 48px 36px;
+      position: relative; overflow: hidden;
+      transition: background 0.22s;
+    }
+    .price-card:hover { background: var(--surface); }
+    .price-card.featured {
+      background: var(--surface);
+    }
+    .price-card.featured::before {
+      content: 'Más popular';
+      position: absolute; top: 0; left: 0; right: 0;
+      background: var(--accent); color: var(--bg);
+      font-family: var(--font-body); font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      text-align: center; padding: 7px;
+    }
+    .price-badge {
+      display: inline-block;
+      font-size: 0.7rem; font-weight: 500; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted);
+      margin-bottom: 24px;
+    }
+    .price-service { font-family: var(--font-head); font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; }
+    .price-desc { font-size: 0.85rem; color: var(--muted); font-weight: 300; margin-bottom: 32px; min-height: 50px; }
+    .price-amount {
+      font-family: var(--font-head); font-size: 2.2rem; font-weight: 800;
+      color: var(--text); letter-spacing: -0.03em; line-height: 1;
+    }
+    .price-amount sup { font-size: 1rem; font-weight: 400; vertical-align: top; margin-top: 8px; }
+    .price-period { font-size: 0.8rem; color: var(--muted); margin-top: 6px; margin-bottom: 32px; }
+    .price-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 36px; }
+    .price-features li {
+      font-size: 0.85rem; color: var(--muted); font-weight: 300;
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .price-features li::before { content: '—'; color: var(--accent); flex-shrink: 0; font-weight: 700; }
+    .founders-note {
+      margin-top: 48px; padding: 28px 32px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; gap: 20px;
+    }
+    .founders-note .label { white-space: nowrap; }
+    .founders-note p { font-size: 0.85rem; margin: 0; }
+
+    @media (max-width: 860px) {
+      .pricing-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================================
+       SECTORES
+    ================================================================ */
+    .sectors-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 1px; background: var(--border-dim);
+      border: 1px solid var(--border-dim);
+    }
+    .sector-card {
+      background: var(--bg); padding: 40px 28px;
+      transition: background 0.2s;
+    }
+    .sector-card:hover { background: var(--surface); }
+    .sector-icon { font-size: 1.6rem; margin-bottom: 16px; opacity: 0.8; }
+    .sector-name { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+    .sector-roi { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
+
+    @media (max-width: 760px) { .sectors-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 440px) { .sectors-grid { grid-template-columns: 1fr; } }
+
+    /* ================================================================
+       CONTACTO
+    ================================================================ */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 96px);
+      align-items: start;
+    }
+    .contact-info { display: flex; flex-direction: column; gap: 32px; }
+    .contact-detail { display: flex; flex-direction: column; gap: 4px; }
+    .contact-detail .label { margin-bottom: 4px; }
+    .contact-detail a, .contact-detail span { font-size: 1rem; color: var(--text); font-weight: 300; }
+    .contact-detail a:hover { color: var(--accent); }
+
+    .form { display: flex; flex-direction: column; gap: 20px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; }
+    .form-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+    .form-input, .form-select, .form-textarea {
+      background: var(--surface); border: 1px solid var(--border-dim);
+      color: var(--text); font-family: var(--font-body); font-size: 0.9rem; font-weight: 300;
+      padding: 14px 18px; border-radius: var(--radius);
+      outline: none; transition: border-color 0.2s; width: 100%;
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--muted); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--accent); }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-select { appearance: none; cursor: pointer; }
+
+    @media (max-width: 720px) { .contact-grid { grid-template-columns: 1fr; } }
+
+    /* ================================================================
+       FOOTER
+    ================================================================ */
+    footer {
+      border-top: 1px solid var(--border-dim);
+      padding: 48px 0;
+    }
+    .footer-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 24px;
+    }
+    .footer-logo { font-family: var(--font-head); font-weight: 800; font-size: 1rem; }
+    .footer-logo span { color: var(--accent); }
+    .footer-links { display: flex; gap: 32px; flex-wrap: wrap; }
+    .footer-links a { font-size: 0.82rem; color: var(--muted); transition: color 0.2s; font-weight: 300; }
+    .footer-links a:hover { color: var(--text); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
+
+    /* ================================================================
+       FLOTANTE WHATSAPP
+    ================================================================ */
+    .wsp-float {
+      position: fixed; bottom: 28px; right: 28px; z-index: 990;
+      width: 52px; height: 52px; border-radius: 50%;
+      background: #25D366; display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wsp-float:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
+    .wsp-float svg { width: 26px; height: 26px; }
+
+    /* ================================================================
+       UTILIDADES EXTRA
+    ================================================================ */
+    .text-accent { color: var(--accent); }
+    .mt-4 { margin-top: 16px; }
+    .mt-8 { margin-top: 32px; }
+    .mt-12 { margin-top: 48px; }
+
+    /* Scroll reveal — gestionado por el sistema unificado al final del CSS */
+
+    /* ================================================================
+       MODALES LEGALES
+    ================================================================ */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(10px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.28s ease;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-panel {
+      background: var(--surface);
+      width: 100%; max-width: 800px; max-height: 86vh;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid var(--border-dim); border-bottom: none;
+      display: flex; flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.open .modal-panel { transform: translateY(0); }
+    .modal-header {
+      padding: 22px 32px;
+      border-bottom: 1px solid var(--border-dim);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .modal-header h3 { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; }
+    .modal-close {
+      background: none; border: none; color: var(--muted);
+      cursor: pointer; font-size: 1.3rem; line-height: 1;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; transition: color 0.18s, background 0.18s;
+    }
+    .modal-close:hover { color: var(--text); background: var(--surface-2); }
+    .modal-body { padding: 28px 32px; overflow-y: auto; flex: 1; }
+    .modal-body .modal-meta { font-size: 0.72rem; color: var(--muted); margin-bottom: 28px; letter-spacing: 0.04em; }
+    .modal-body h2 { font-size: 1.4rem; margin-bottom: 6px; }
+    .modal-body h3 { font-size: 0.9rem; color: var(--accent); margin: 24px 0 8px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
+    .modal-body p { font-size: 0.875rem; color: var(--muted); margin-bottom: 10px; line-height: 1.75; }
+    .modal-body ul { padding-left: 18px; margin-bottom: 12px; }
+    .modal-body ul li { font-size: 0.875rem; color: var(--muted); margin-bottom: 5px; line-height: 1.65; }
+    .modal-body strong { color: var(--text); font-weight: 500; }
+    .modal-body hr { border: none; border-top: 1px solid var(--border-dim); margin: 18px 0; }
+    .modal-body table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.82rem; }
+    .modal-body table th { text-align: left; color: var(--accent); border-bottom: 1px solid var(--border-dim); padding: 8px 10px; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .modal-body table td { color: var(--muted); padding: 8px 10px; border-bottom: 1px solid var(--border-dim); }
+    .modal-drag { width: 40px; height: 4px; background: var(--border-dim); border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
+    @media (max-width: 640px) {
+      .modal-body { padding: 20px; }
+      .modal-header { padding: 18px 20px; }
+    }
+
+    /* ================================================================
+       PAGE-IN + SCROLL REVEAL SYSTEM
+    ================================================================ */
+    body { animation: pageIn 400ms ease forwards; }
+    @keyframes pageIn { from { opacity:0; } to { opacity:1; } }
+
+    .reveal       { opacity:0; transform:translateY(24px); transition:opacity 600ms ease,transform 600ms ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    .reveal-left  { opacity:0; transform:translateX(-24px); transition:opacity 600ms ease,transform 600ms ease; }
+    .reveal-left.visible { opacity:1; transform:translateX(0); }
+    .reveal-right { opacity:0; transform:translateX(24px); transition:opacity 600ms ease,transform 600ms ease; }
+    .reveal-right.visible { opacity:1; transform:translateX(0); }
+    @media (prefers-reduced-motion:reduce) {
+      .reveal,.reveal-left,.reveal-right { opacity:1!important;transform:none!important;transition:none!important; }
+    }
+
+    /* Always-on nav blur */
+    nav { backdrop-filter:blur(20px); }
+
+    /* Hero slogan pill */
+    .hero-slogan {
+      display:inline-block; font-size:0.72rem; letter-spacing:0.15em;
+      text-transform:uppercase; color:var(--accent); opacity:0.85;
+      margin-bottom:14px;
+    }
+
+    /* Benefits grid — replaces stats */
+    #benefits { padding:clamp(60px,8vw,100px) 0; }
+    .benefits-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:24px; }
+    .benefit-card {
+      background:var(--surface); border:1px solid var(--border);
+      border-radius:16px; padding:32px 28px;
+      transition:border-color 200ms,transform 200ms,box-shadow 200ms;
+    }
+    .benefit-card:hover {
+      border-color:rgba(0,229,204,0.4);
+      transform:translateY(-6px);
+      box-shadow:0 20px 60px rgba(0,229,204,0.08);
+    }
+    .benefit-icon { color:var(--accent); margin-bottom:20px; }
+    .benefit-card h3 { font-size:1.05rem; font-weight:700; margin-bottom:10px; letter-spacing:0.02em; }
+    .benefit-card p  { font-size:0.875rem; line-height:1.65; color:var(--muted); }
+    @media(max-width:860px){ .benefits-grid{grid-template-columns:repeat(2,1fr);} }
+    @media(max-width:500px){ .benefits-grid{grid-template-columns:1fr;} }
+
+    /* Service row — prices shown on servicios.html, hidden here */
+    .service-price { display:none; }
+
+    /* Row 06 custom CTA inline */
+    .service-cta-inline { display:flex; align-items:center; padding:24px 32px 24px 0; }
+    @media(max-width:700px){ .service-cta-inline { padding:0 0 24px 0; } }
+
+    /* Service row 06 custom */
+    .service-row-custom {
+      border-top:1px solid rgba(0,229,204,0.15);
+      background:rgba(0,229,204,0.03);
+    }
+    .service-row-custom .service-num { color:var(--accent); }
+
+    /* Process note */
+    .proceso-note {
+      color:var(--muted); font-size:0.875rem; text-align:center;
+      border-top:1px solid var(--border-dim); padding-top:32px;
+      margin-top:48px; max-width:600px; margin-left:auto; margin-right:auto;
+      line-height:1.7;
+    }
+
+    /* Prices simple block */
+    .precios-simple {
+      text-align:center; max-width:640px; margin:0 auto;
+      padding:24px 0 40px;
+    }
+    .precios-simple .section-sub {
+      color:var(--muted); font-size:1.05rem; line-height:1.75;
+      margin-bottom:40px; margin-top:16px;
+    }
+
+    /* Sector problem text */
+    .sector-problem {
+      font-size:0.82rem; color:var(--muted); line-height:1.55;
+      margin-top:8px;
+    }
+
+    /* h1/h2 slight positive letter-spacing (editorial) */
+    h1 { letter-spacing:0.02em; }
+    h2 { letter-spacing:0.02em; }
+
+  </style>
+</head>
+<body>
+
+<!-- ================================================================
+     NAVEGACIÓN
+================================================================ -->
+<nav id="nav">
+  <div class="wrap nav-inner">
+    <a class="nav-logo" href="/">Ryventis<span>.</span></a>
+
+    <div class="nav-links">
+      <a href="servicios.html">Servicios</a>
+      <a href="como-funciona.html">Cómo funciona</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </div>
+
+    <div class="nav-cta">
+      <a href="https://wa.me/522271200295?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20gratuito" class="btn btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+      <a href="contacto.html" class="btn btn-primary">Agenda diagnóstico</a>
+    </div>
+
+    <button class="hamburger" onclick="openDrawer()" aria-label="Menú">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Drawer móvil -->
+<div class="drawer" id="drawer">
+  <button class="drawer-close" onclick="closeDrawer()">✕</button>
+  <nav style="display:flex;flex-direction:column;gap:16px;">
+    <a href="servicios.html" onclick="closeDrawer()">Servicios</a>
+    <a href="como-funciona.html" onclick="closeDrawer()">Cómo funciona</a>
+    <a href="nosotros.html" onclick="closeDrawer()">Nosotros</a>
+    <a href="contacto.html" onclick="closeDrawer()">Contacto</a>
+  </nav>
+  <a href="contacto.html" class="btn btn-primary mt-12" onclick="closeDrawer()">Agenda diagnóstico gratis</a>
+</div>
+
+<!-- ================================================================
+     HERO
+================================================================ -->
+<section id="hero">
+
+  <div class="hero-bg">
+    <img src="assets/img/hero/hero-main.jpg" alt="Equipo Ryventis trabajando con IA" fetchpriority="high">
+  </div>
+
+  <div class="wrap hero-content">
+    <span class="hero-slogan">Tecnología que piensa, soluciones que ejecutan.</span>
+    <div class="hero-eyebrow">
+      <span class="accent-line"></span>
+      <span class="label">Inteligencia artificial para empresas</span>
+    </div>
+
+    <h1 class="hero-title">
+      Tu negocio,<br>
+      operando <em>solo</em>.
+    </h1>
+
+    <p class="hero-sub">
+      Implementamos chatbots, automatizaciones y agentes de IA adaptados a tu negocio. Sin tecnicismos, sin complicaciones.
+    </p>
+
+    <div class="hero-actions">
+      <a href="contacto.html" class="btn btn-primary">Diagnóstico gratuito →</a>
+      <a href="servicios.html" class="btn btn-outline">Ver servicios</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     BENEFICIOS
+================================================================ -->
+<section id="benefits">
+  <div class="wrap">
+    <div class="benefits-grid">
+
+      <div class="benefit-card reveal" data-delay="0">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <h3>Automatización real</h3>
+        <p>Procesos que corren solos sin supervisión constante</p>
+      </div>
+
+      <div class="benefit-card reveal" data-delay="80">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <h3>Respuesta inmediata</h3>
+        <p>Tus clientes atendidos al instante, sin importar la hora</p>
+      </div>
+
+      <div class="benefit-card reveal" data-delay="160">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Decisiones con datos</h3>
+        <p>Información clara para actuar, no solo para reportar</p>
+      </div>
+
+      <div class="benefit-card reveal" data-delay="240">
+        <div class="benefit-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        </div>
+        <h3>Adaptado a ti</h3>
+        <p>Cada solución diseñada desde tu operación, no desde una plantilla</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECCIÓN EDITORIAL — QUÉ HACEMOS (con imagen lateral)
+================================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div class="editorial-block reveal">
+
+      <!-- IMAGEN LATERAL — Coloca en assets/img/servicios/editorial-01.jpg -->
+      <!-- Recomendado: foto de alguien usando WhatsApp en un negocio, o pantalla de dashboard -->
+      <!-- Dimensiones sugeridas: 800×1000px (vertical) -->
+      <div class="img-block editorial-img">
+        <img src="assets/img/servicios/editorial-01.jpg" alt="IA trabajando en negocio" style="width:100%;height:100%;object-fit:cover;">
+      </div>
+
+      <div class="editorial-text">
+        <span class="label"><span class="accent-line"></span>Por qué Ryventis</span>
+        <h2>No vendemos software.<br>Entregamos resultados.</h2>
+        <p>
+          La mayoría de las agencias de IA te venden plataformas complicadas que tu equipo nunca usa. Nosotros nos sentamos contigo, entendemos tu operación y construimos el sistema exacto que necesitas.
+        </p>
+        <p>
+          Entregamos resultados medibles, no promesas de tecnología.
+        </p>
+        <a href="contacto.html" class="btn btn-primary mt-4">Empieza gratis →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- IMAGEN FULL-WIDTH (entre secciones, estilo editorial Article) -->
+<!-- Coloca en assets/img/hero/banner-01.jpg — formato horizontal, 1920×600px -->
+<!-- Puede ser: oficina, equipo trabajando, ciudad de Puebla, dashboard en pantalla -->
+<div class="full-img">
+  <img src="assets/img/hero/banner-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;">
+</div>
+
+<!-- ================================================================
+     SERVICIOS
+================================================================ -->
+<section id="servicios" class="section">
+  <div class="wrap">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:64px;" class="reveal">
+      <div>
+        <span class="label"><span class="accent-line"></span>Servicios</span>
+        <h2 class="mt-4">Todo lo que<br>tu negocio necesita.</h2>
+      </div>
+      <p style="align-self:end;">Desde un chatbot básico hasta un agente autónomo que califica leads, agenda citas y hace seguimiento sin que toques nada.</p>
+    </div>
+
+    <div class="services-list reveal">
+
+      <div class="service-row">
+        <div class="service-num">01</div>
+        <div class="service-body">
+          <div class="service-name">Chatbot Inteligente</div>
+          <div class="service-desc">Atención 24/7 en WhatsApp y web. Responde preguntas, califica leads y agenda citas automáticamente.</div>
+        </div>
+        <div class="service-price">$9,500 MXN<small>+ $2,500/mes</small></div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">02</div>
+        <div class="service-body">
+          <div class="service-name">Automatización de Procesos</div>
+          <div class="service-desc">Conecta tus herramientas (WhatsApp, Google Sheets, CRM) para que los procesos se ejecuten solos — sin intervención manual.</div>
+        </div>
+        <div class="service-price">$8,000 MXN<small>+ $2,000/mes</small></div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">03</div>
+        <div class="service-body">
+          <div class="service-name">Agente Autónomo de Ventas</div>
+          <div class="service-desc">Un agente que califica, hace seguimiento y escala al humano solo cuando es necesario. Ideal para inmobiliarias y clínicas.</div>
+        </div>
+        <div class="service-price">$18,000 MXN<small>+ $4,500/mes</small></div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">04</div>
+        <div class="service-body">
+          <div class="service-name">Análisis de Datos con IA</div>
+          <div class="service-desc">Dashboard interactivo con KPIs clave y alertas automáticas. Decisiones en segundos, no en horas.</div>
+        </div>
+        <div class="service-price">$12,000 MXN<small>+ $2,800/mes</small></div>
+      </div>
+
+      <div class="service-row">
+        <div class="service-num">05</div>
+        <div class="service-body">
+          <div class="service-name">Pack Starter IA</div>
+          <div class="service-desc">Chatbot + automatización en un solo paquete. La forma más rápida de ver resultados reales en tu negocio.</div>
+        </div>
+        <div class="service-price">$16,000 MXN<small>+ $3,500/mes</small></div>
+      </div>
+
+      <div class="service-row service-row-custom">
+        <div class="service-num">06</div>
+        <div class="service-body">
+          <div class="service-name">¿Tu solución no está aquí?</div>
+          <div class="service-desc">Compártenos tu situación. Analizamos tu operación y diseñamos una solución desde cero, adaptada exactamente a lo que tu negocio necesita.</div>
+        </div>
+        <div class="service-cta-inline">
+          <a href="contacto.html" class="btn btn-outline">Cuéntanos tu caso →</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================================
+     PROCESO
+================================================================ -->
+<section id="proceso" class="section">
+  <div class="wrap">
+    <div style="margin-bottom:80px;" class="reveal">
+      <span class="label"><span class="accent-line"></span>Cómo funciona</span>
+      <h2 class="mt-4">De diagnóstico<br>a solución activa.</h2>
+    </div>
+    <div class="process-steps reveal" id="proceso-steps">
+      <div class="step">
+        <div class="step-dot"></div>
+        <div class="step-num">01 — Diagnóstico</div>
+        <div class="step-title">Entendemos tu negocio</div>
+        <div class="step-text">60 minutos contigo para mapear procesos, cuellos de botella y oportunidades reales de automatización.</div>
+      </div>
+      <div class="step">
+        <div class="step-dot"></div>
+        <div class="step-num">02 — Blueprint</div>
+        <div class="step-title">Diseñamos la solución</div>
+        <div class="step-text">Entregamos un mapa del sistema antes de escribir una línea de código. Tú apruebas antes de que empecemos.</div>
+      </div>
+      <div class="step">
+        <div class="step-dot"></div>
+        <div class="step-num">03 — Build</div>
+        <div class="step-title">Construimos y probamos</div>
+        <div class="step-text">Desarrollo con 10 puntos de control de calidad. Nada se entrega sin pasar todas las pruebas.</div>
+      </div>
+      <div class="step">
+        <div class="step-dot"></div>
+        <div class="step-num">04 — Deploy</div>
+        <div class="step-title">Lanzamos en vivo</div>
+        <div class="step-text">El sistema queda activo, capacitamos a tu equipo y monitoreamos los primeros 7 días sin costo adicional.</div>
+      </div>
+      <div class="step">
+        <div class="step-dot"></div>
+        <div class="step-num">05 — Retención</div>
+        <div class="step-title">Crecemos contigo</div>
+        <div class="step-text">Soporte mensual, ajustes, reportes y nuevas automatizaciones a medida que tu negocio crece.</div>
+      </div>
+    </div>
+    <p class="proceso-note reveal">Los tiempos de implementación varían según la complejidad de cada proyecto. En el diagnóstico inicial te damos una estimación concreta para tu caso.</p>
+  </div>
+</section>
+
+<!-- ================================================================
+     PRECIOS
+================================================================ -->
+<section id="precios" class="section" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="precios-simple">
+      <span class="label reveal"><span class="accent-line"></span>Inversión</span>
+      <h2 class="mt-4 reveal" data-delay="80">Los precios se adaptan<br>a cada proyecto.</h2>
+      <p class="section-sub reveal" data-delay="160">Cada empresa tiene necesidades distintas. El costo de tu solución depende del alcance, la complejidad y los sistemas que ya tienes en funcionamiento. El diagnóstico siempre es gratuito.</p>
+      <a href="contacto.html" class="btn btn-primary reveal" data-delay="240">Solicita tu diagnóstico sin costo →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTORES
+================================================================ -->
+<section class="section">
+  <div class="wrap">
+    <div style="margin-bottom:56px;" class="reveal">
+      <span class="label"><span class="accent-line"></span>Sectores</span>
+      <h2 class="mt-4">Trabajamos con<br>negocios como el tuyo.</h2>
+    </div>
+    <div class="sectors-grid reveal">
+      <div class="sector-card">
+        <div class="sector-icon">🏥</div>
+        <div class="sector-name">Clínicas y consultorios</div>
+        <div class="sector-problem">Citas perdidas, seguimiento manual y pacientes sin respuesta en tiempo real</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🏠</div>
+        <div class="sector-name">Inmobiliarias</div>
+        <div class="sector-problem">Leads que se enfrían antes de recibir una primera respuesta</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">🔧</div>
+        <div class="sector-name">Talleres mecánicos</div>
+        <div class="sector-problem">Citas sin confirmar y clientes sin seguimiento post-visita</div>
+      </div>
+      <div class="sector-card">
+        <div class="sector-icon">📊</div>
+        <div class="sector-name">Despachos contables</div>
+        <div class="sector-problem">Documentos repetitivos y comunicación reactiva que consume horas</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CONTACTO
+================================================================ -->
+<section id="contacto" class="section" style="background:var(--surface);">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <span class="label"><span class="accent-line"></span>Contacto</span>
+        <h2>Agenda una cita sin<br>compromiso y sin costo.</h2>
+        <p>En 60 minutos identificamos exactamente qué puedes automatizar y cómo hacerlo.</p>
+
+        <div class="contact-detail">
+          <span class="label">WhatsApp</span>
+          <a href="https://wa.me/522271200295" target="_blank" rel="noopener noreferrer">+52 227 120 0295</a>
+        </div>
+        <div class="contact-detail">
+          <span class="label">Correo</span>
+          <a href="mailto:ryventis.solutions@gmail.com">ryventis.solutions@gmail.com</a>
+        </div>
+        <div class="contact-detail">
+          <span class="label">Atención</span>
+          <span>Presencial y remota</span>
+        </div>
+
+        <!-- LOGOS DE CLIENTES (cuando los tengas) -->
+        <!-- Coloca logos en assets/img/clientes/ -->
+        <!-- Ejemplo: <img src="assets/img/clientes/cliente-01.png" alt="Cliente 1" style="height:32px;opacity:0.5;filter:grayscale(1)"> -->
+      </div>
+
+      <div class="reveal" style="transition-delay:0.15s">
+        <form class="form" onsubmit="sendToWhatsApp(event)">
+          <div class="form-group">
+            <label class="form-label">Tu nombre</label>
+            <input type="text" class="form-input" id="f-name" placeholder="Juan García" required maxlength="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Negocio</label>
+            <input type="text" class="form-input" id="f-biz" placeholder="Clínica San Rafael" required maxlength="100">
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Qué necesitas?</label>
+            <select class="form-select form-input" id="f-service">
+              <option value="">Selecciona un servicio</option>
+              <option>Chatbot Inteligente</option>
+              <option>Automatización de procesos</option>
+              <option>Agente Autónomo</option>
+              <option>Pack Starter IA</option>
+              <option>No sé aún — quiero el diagnóstico</option>
+              <option>Mi caso no está en la lista — quiero describir mi situación</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">¿Cuál es tu mayor problema hoy?</label>
+            <textarea class="form-textarea" id="f-msg" placeholder="Ej: Pierdo clientes porque no respondo rápido en WhatsApp..." maxlength="500"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Enviar por WhatsApp →</button>
+          <p style="font-size:0.78rem;text-align:center;margin-top:8px;">Te respondemos en menos de 2 horas en horario laboral.</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     MODAL — AVISO LEGAL
+================================================================ -->
+<div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="modal-aviso-title">
+  <div class="modal-panel">
+    <div class="modal-drag"></div>
+    <div class="modal-header">
+      <h3 id="modal-aviso-title">Aviso Legal</h3>
+      <button class="modal-close" onclick="closeModal('modal-aviso')" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-meta">Versión 2.0 · Última actualización: 22 de abril de 2026</p>
+
+      <h3>1. Titular del sitio web</h3>
+      <p>El sitio web <strong>ryventis.mx</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, México. Correo de contacto: <strong>contacto@ryventis.mx</strong></p>
+
+      <h3>2. Objeto del sitio</h3>
+      <p>El sitio ryventis.mx tiene carácter <strong>informativo y comercial</strong>. Permite conocer los servicios de automatización con inteligencia artificial que ofrece Ryventis Solutions a pequeñas y medianas empresas, y facilita el contacto comercial. No constituye una oferta contractual vinculante. Los precios y condiciones mostrados son referenciales y están sujetos a confirmación mediante propuesta formal.</p>
+
+      <h3>3. Propiedad intelectual</h3>
+      <p>Todos los elementos del sitio, incluyendo el nombre comercial <strong>Ryventis Solutions</strong>, el tagline <em>"Tecnología que trabaja para ti"</em>, el logotipo, textos, imágenes, videos, diseños y código, son propiedad exclusiva de Ryventis Solutions o se utilizan bajo licencia, y están protegidos por la legislación mexicana de derechos de autor y propiedad industrial.</p>
+      <p><strong>Queda expresamente prohibido</strong> reproducir, distribuir, modificar, adaptar o comunicar públicamente cualquier contenido del sitio sin autorización previa y por escrito de Ryventis Solutions.</p>
+
+      <h3>4. Limitación de responsabilidad</h3>
+      <p><strong>Resultados:</strong> Ryventis no garantiza resultados específicos sin que previamente se haya realizado un diagnóstico formal y se hayan establecido métricas de referencia por escrito. Todo resultado proyectado en propuestas comerciales representa una estimación, no una promesa contractual.</p>
+      <p><strong>Disponibilidad:</strong> Las interrupciones de servicio atribuibles a terceros (Anthropic, Twilio, Google, Railway, etc.) no generan responsabilidad para Ryventis, sin perjuicio de las obligaciones de soporte establecidas en el contrato de servicio.</p>
+      <p><strong>Contenido de terceros:</strong> El sitio puede contener enlaces a recursos externos. Ryventis no asume responsabilidad por su contenido, políticas de privacidad o funcionamiento.</p>
+
+      <h3>5. Titularidad del código entregado al cliente</h3>
+      <p>Salvo pacto en contrario establecido por escrito: el código, flujos de automatización, configuraciones de bots y demás entregables digitales desarrollados específicamente para un cliente son propiedad del cliente una vez liquidado el <strong>100% del pago acordado</strong>. Los componentes reutilizables, plantillas, prompts base y metodologías propietarias de Ryventis conservan su titularidad en Ryventis Solutions.</p>
+
+      <h3>6. Política de uso aceptable</h3>
+      <p>Al interactuar con los servicios de Ryventis usted se compromete a no utilizar los sistemas para enviar spam o contenido ilegal, no intentar comprometer la seguridad de la infraestructura, y no utilizar los bots para finalidades distintas a las acordadas. El incumplimiento faculta a Ryventis para suspender el servicio sin responsabilidad.</p>
+
+      <h3>7. Protección de datos personales</h3>
+      <p>El tratamiento de datos personales recabados a través de ryventis.mx se rige por la <strong>Política de Privacidad</strong> de Ryventis Solutions, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
+
+      <h3>8. Ley aplicable y jurisdicción</h3>
+      <p>Este Aviso Legal se rige por las leyes de los <strong>Estados Unidos Mexicanos</strong>. Para cualquier controversia, las partes se someten expresamente a la jurisdicción de los <strong>Tribunales competentes de la ciudad de Puebla de Zaragoza, Puebla, México</strong>, renunciando a cualquier otro fuero.</p>
+
+      <h3>9. Contacto</h3>
+      <p><strong>Ryventis Solutions</strong> · contacto@ryventis.mx · Puebla de Zaragoza, Puebla, México · ryventis.mx</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     MODAL — POLÍTICA DE PRIVACIDAD
+================================================================ -->
+<div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true" aria-labelledby="modal-privacidad-title">
+  <div class="modal-panel">
+    <div class="modal-drag"></div>
+    <div class="modal-header">
+      <h3 id="modal-privacidad-title">Política de Privacidad</h3>
+      <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-meta">Versión 2.0 · Última actualización: 22 de abril de 2026 · Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
+
+      <h3>1. Responsable del tratamiento</h3>
+      <p><strong>Ryventis Solutions</strong> — Puebla de Zaragoza, Puebla, México · contacto@ryventis.mx · Agencia de implementación de inteligencia artificial para PYMEs.</p>
+
+      <h3>2. Datos personales que recabamos</h3>
+      <p><strong>Datos de identificación:</strong> nombre completo, correo electrónico, número de teléfono (incluyendo WhatsApp), nombre o razón social de su empresa y cargo.</p>
+      <p><strong>Datos operativos (solo clientes activos):</strong> información del negocio necesaria para configurar las soluciones contratadas (horarios, flujos de trabajo, accesos autorizados expresamente).</p>
+      <p><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, páginas visitadas y duración de visita (vía cookies analíticas).</p>
+      <p><strong>No recabamos</strong> datos sensibles (salud, biométricos, genéticos, creencias religiosas, afiliación política, preferencia sexual u origen racial).</p>
+
+      <h3>3. Finalidades del tratamiento</h3>
+      <p><strong>Finalidades primarias:</strong> atender solicitudes de cotización, realizar diagnóstico operativo previo a la propuesta, formalizar y ejecutar el contrato de servicios, configurar y mantener los servicios contratados, y emitir facturación.</p>
+      <p><strong>Finalidades secundarias (puede oponerse en cualquier momento):</strong> envío de comunicaciones sobre nuevos servicios, invitación a eventos y solicitud de testimonio. Para oponerse: envíe correo a contacto@ryventis.mx con asunto <em>"Oposición a finalidades secundarias"</em>.</p>
+
+      <h3>4. Transferencia de datos</h3>
+      <p>Ryventis Solutions <strong>no vende, cede ni transfiere</strong> sus datos con fines comerciales propios. Sus datos pueden compartirse únicamente con los siguientes proveedores bajo acuerdos de confidencialidad:</p>
+      <table>
+        <tr><th>Proveedor</th><th>Finalidad</th></tr>
+        <tr><td>Anthropic (Claude API)</td><td>Procesamiento de lenguaje natural para bots</td></tr>
+        <tr><td>n8n GmbH</td><td>Orquestación de flujos de automatización</td></tr>
+        <tr><td>Supabase Inc.</td><td>Almacenamiento de datos de configuración</td></tr>
+        <tr><td>Google LLC</td><td>Integración con Google Calendar y Gmail</td></tr>
+        <tr><td>Twilio Inc.</td><td>Envío de mensajes vía WhatsApp Business API</td></tr>
+        <tr><td>Railway Corp.</td><td>Hospedaje de infraestructura de bots</td></tr>
+      </table>
+
+      <h3>5. Derechos ARCO</h3>
+      <p>Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar y Oponerse</strong> al tratamiento de sus datos. Envíe su solicitud a <strong>contacto@ryventis.mx</strong> con asunto <em>"Solicitud ARCO"</em>, incluyendo nombre completo, datos de contacto, copia de identificación oficial y descripción del derecho a ejercer. Responderemos en un máximo de <strong>20 días hábiles</strong>.</p>
+
+      <h3>6. Uso de cookies</h3>
+      <p><strong>Cookies necesarias:</strong> para el funcionamiento básico del sitio (sesión, seguridad). No pueden desactivarse.</p>
+      <p><strong>Cookies analíticas:</strong> para medir tráfico y comportamiento de visitantes de forma agregada (sin identificación individual). Puede desactivarlas desde la configuración de su navegador.</p>
+
+      <h3>7. Tratamiento automatizado con inteligencia artificial</h3>
+      <p>Para la prestación de nuestros servicios, Ryventis utiliza la API de Claude de Anthropic. Los prompts y configuraciones pueden contener fragmentos de información del negocio que usted nos proporcione. Dicha información se almacena por un período máximo de <strong>12 meses</strong> desde la terminación del contrato, tras lo cual se elimina de forma permanente. Anthropic declara que no utiliza datos de la API para entrenar sus modelos por defecto.</p>
+      <p>Si prefiere configuración sin uso de IA generativa, puede solicitarlo a contacto@ryventis.mx — evaluaremos la viabilidad técnica caso por caso.</p>
+
+      <h3>8. Seguridad de los datos</h3>
+      <p>Implementamos comunicaciones cifradas mediante HTTPS/TLS, acceso restringido por personal autorizado, controles de acceso basados en roles, y almacenamiento en infraestructura con certificaciones de seguridad reconocidas. En caso de brecha de seguridad, le notificaremos en los plazos establecidos por la legislación aplicable.</p>
+
+      <h3>9. Cambios a esta política</h3>
+      <p>Ryventis se reserva el derecho de modificar esta Política en cualquier momento. Los cambios serán publicados en ryventis.mx. Para cambios sustanciales, le notificaremos por correo con al menos 30 días de anticipación.</p>
+
+      <h3>10. Ley aplicable y autoridad competente</h3>
+      <p>Esta política se rige por la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>. La autoridad competente para atender quejas es el <strong>INAI</strong> (inai.org.mx).</p>
+
+      <p style="margin-top:24px;font-size:0.75rem;color:var(--muted);">Ryventis Solutions · Puebla, México · contacto@ryventis.mx · ryventis.mx</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================================================
+     FOOTER
+================================================================ -->
+<footer>
+  <div class="wrap footer-inner">
+    <span class="footer-logo">Ryventis<span>.</span></span>
+    <div class="footer-links">
+      <a href="#" onclick="openModal('modal-aviso');return false;">Aviso legal</a>
+      <a href="#" onclick="openModal('modal-privacidad');return false;">Privacidad</a>
+      <a href="https://www.linkedin.com/in/ryventis-solutions-7b1504405/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://www.tiktok.com/@ryventis.solution?_r=1&_t=ZS-95lJy5jKBBl" target="_blank" rel="noopener noreferrer">TikTok</a>
+      <a href="https://www.instagram.com/ryventis_ia" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </div>
+    <span class="footer-copy">© 2026 Ryventis Solutions</span>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a class="wsp-float" href="https://wa.me/522271200295?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%20el%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.36.63 4.57 1.73 6.49L3 29l6.72-1.7C11.53 28.39 13.72 29 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm6.42 18.42c-.27.76-1.56 1.45-2.14 1.54-.56.08-1.27.12-2.05-.13-.47-.15-1.08-.35-1.85-.69-3.25-1.4-5.37-4.68-5.53-4.9-.16-.22-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4l.61.01c.2.01.46-.07.72.55.27.63.92 2.24.99 2.4.08.16.13.35.03.56-.1.21-.15.34-.3.52-.15.18-.32.4-.45.54-.15.15-.31.31-.13.61.18.3.8 1.32 1.72 2.13 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.77-.9.98-1.21.2-.31.41-.26.69-.16.28.1 1.79.84 2.1.99.31.15.52.22.6.35.08.13.08.76-.19 1.52z"/>
+  </svg>
+</a>
+
+<!-- ================================================================
+     JAVASCRIPT
+================================================================ -->
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+  }, { passive: true });
+
+  // Drawer móvil
+  function openDrawer()  { document.getElementById('drawer').classList.add('open'); document.body.style.overflow = 'hidden'; }
+  function closeDrawer() { document.getElementById('drawer').classList.remove('open'); document.body.style.overflow = ''; }
+
+  // Formulario → WhatsApp (con sanitización de inputs)
+  function sanitize(str) {
+    return String(str).replace(/[<>"'`\\]/g, '').trim().substring(0, 500);
+  }
+  function sendToWhatsApp(e) {
+    e.preventDefault();
+    const name    = sanitize(document.getElementById('f-name').value);
+    const biz     = sanitize(document.getElementById('f-biz').value);
+    const service = sanitize(document.getElementById('f-service').value);
+    const msg     = sanitize(document.getElementById('f-msg').value);
+    if (!name || !biz) { alert('Por favor ingresa tu nombre y el nombre de tu negocio.'); return; }
+    const text = `Hola, soy ${name} de ${biz}.\n\nServicio de interés: ${service || 'Sin especificar'}\n\nMi mayor problema hoy: ${msg || '(sin detalle adicional)'}`;
+    window.open(`https://wa.me/522271200295?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
+  }
+
+  // Scroll reveal — fade + slide, con stagger por data-delay
+  (function () {
+    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+    if (!revealEls.length) return;
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const delay = parseInt(entry.target.dataset.delay) || 0;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => obs.observe(el));
+  })();
+
+  // Modales legales
+  function openModal(id) {
+    const m = document.getElementById(id);
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(() => m.querySelector('.modal-close').focus(), 50);
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(m => {
+    m.addEventListener('click', e => { if (e.target === m) closeModal(m.id); });
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+  });
+</script>
+</body>
+</html>

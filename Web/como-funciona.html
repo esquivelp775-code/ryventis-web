@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-Content-Type-Options" content="nosniff">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none';">
+  <title>Cómo funciona — Ryventis Solutions</title>
+  <meta name="description" content="Conoce la metodología de Ryventis Solutions: diagnóstico, blueprint, construcción, despliegue y retención. Cada proyecto sigue un proceso estructurado con QA obligatorio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ===========================
+       RESET & BASE
+    =========================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0A0A0F;
+      color: #F0F0F8;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 400;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      animation: pageIn 400ms ease forwards;
+    }
+    @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ===========================
+       REVEAL ANIMATIONS
+    =========================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal-left.visible { opacity: 1; transform: translateX(0); }
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(24px);
+      transition: opacity 600ms ease, transform 600ms ease;
+    }
+    .reveal-right.visible { opacity: 1; transform: translateX(0); }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal, .reveal-left, .reveal-right {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+    }
+
+    /* ===========================
+       TYPOGRAPHY
+    =========================== */
+    h1, h2, h3, h4 {
+      font-family: 'Syne', sans-serif;
+      letter-spacing: 0.04em;
+      line-height: 1.15;
+    }
+    .accent { color: #00E5CC; }
+    .muted { color: #8888A8; }
+
+    /* ===========================
+       BUTTONS
+    =========================== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #00E5CC;
+      color: #0A0A0F;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      transition: background 200ms ease-out, transform 200ms ease-out;
+      border: none;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary:hover {
+      background: #00B8A3;
+      transform: translateY(-1px);
+    }
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #F0F0F8;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 12px 24px;
+      border-radius: 12px;
+      text-decoration: none;
+      border: 1px solid rgba(240, 240, 248, 0.15);
+      transition: border-color 200ms ease-out, background 200ms ease-out;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-ghost:hover {
+      border-color: rgba(240, 240, 248, 0.35);
+      background: rgba(240, 240, 248, 0.05);
+    }
+    .btn-sm { padding: 9px 18px; font-size: 0.85rem; }
+
+    /* ===========================
+       NAVIGATION
+    =========================== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(10, 10, 15, 0.75);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 32px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.35rem;
+      color: #F0F0F8;
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      list-style: none;
+      margin-left: auto;
+    }
+    .nav-link {
+      color: #8888A8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      padding: 8px 14px;
+      border-radius: 8px;
+      transition: color 200ms ease-out, background 200ms ease-out;
+    }
+    .nav-link:hover { color: #F0F0F8; background: rgba(255, 255, 255, 0.05); }
+    .nav-link.active { color: #00E5CC; }
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      margin-left: auto;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: #F0F0F8;
+      border-radius: 2px;
+      transition: transform 200ms ease-out, opacity 200ms ease-out;
+    }
+    .nav-drawer {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 24px 28px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .nav-drawer .nav-link {
+      padding: 12px 16px;
+      border-radius: 10px;
+    }
+    .nav-drawer.open { display: flex; }
+
+    /* ===========================
+       HERO
+    =========================== */
+    .hero {
+      padding-top: 160px;
+      padding-bottom: 100px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(0, 229, 204, 0.08) 0%, transparent 70%),
+                  radial-gradient(ellipse 60% 40% at 80% 60%, rgba(124, 58, 237, 0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 32px;
+      position: relative;
+    }
+    .hero-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #00E5CC;
+      background: rgba(0, 229, 204, 0.08);
+      border: 1px solid rgba(0, 229, 204, 0.2);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 32px;
+    }
+    .hero-label-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #00E5CC;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: #F0F0F8;
+      margin-bottom: 24px;
+      line-height: 1.1;
+    }
+    .hero-subtitle {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      color: #8888A8;
+      font-weight: 300;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       SECTIONS — GENERAL
+    =========================== */
+    section { padding: 96px 32px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #00E5CC;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 800;
+      color: #F0F0F8;
+      margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.05rem;
+      color: #8888A8;
+      max-width: 600px;
+      line-height: 1.7;
+    }
+    .section-header { margin-bottom: 64px; }
+
+    /* ===========================
+       TIMELINE — 5 STEPS
+    =========================== */
+    .timeline-section { background: #111118; }
+    .timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 28px;
+      top: 28px;
+      bottom: 28px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(0, 229, 204, 0.6), rgba(124, 58, 237, 0.3), rgba(0, 229, 204, 0.1));
+    }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 60px 1fr;
+      gap: 32px;
+      padding-bottom: 56px;
+      position: relative;
+    }
+    .timeline-item:last-child { padding-bottom: 0; }
+    .timeline-marker {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+    .timeline-number {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #1C1C28;
+      border: 2px solid rgba(0, 229, 204, 0.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #00E5CC;
+      letter-spacing: 0.04em;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+      transition: border-color 200ms ease-out, background 200ms ease-out;
+    }
+    .timeline-item:hover .timeline-number {
+      background: rgba(0, 229, 204, 0.1);
+      border-color: #00E5CC;
+    }
+    .timeline-content {
+      padding-top: 10px;
+      padding-bottom: 8px;
+    }
+    .timeline-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #8888A8;
+      background: rgba(136, 136, 168, 0.08);
+      border: 1px solid rgba(136, 136, 168, 0.15);
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 14px;
+    }
+    .timeline-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #F0F0F8;
+      margin-bottom: 14px;
+    }
+    .timeline-body {
+      font-size: 1rem;
+      color: #8888A8;
+      line-height: 1.75;
+      max-width: 680px;
+    }
+    .timeline-note {
+      margin-top: 48px;
+      padding: 20px 28px;
+      background: rgba(0, 229, 204, 0.04);
+      border: 1px solid rgba(0, 229, 204, 0.12);
+      border-radius: 12px;
+      color: #8888A8;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+    .timeline-note strong { color: #F0F0F8; }
+
+    /* ===========================
+       PRINCIPLES — 4 CARDS
+    =========================== */
+    .principles-section { background: #0A0A0F; }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+    .principle-card {
+      background: #111118;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 36px 32px;
+      transition: border-color 200ms ease-out, transform 200ms ease-out;
+      position: relative;
+      overflow: hidden;
+    }
+    .principle-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 204, 0.4), transparent);
+      opacity: 0;
+      transition: opacity 200ms ease-out;
+    }
+    .principle-card:hover {
+      border-color: rgba(0, 229, 204, 0.15);
+      transform: translateY(-2px);
+    }
+    .principle-card:hover::before { opacity: 1; }
+    .principle-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(0, 229, 204, 0.08);
+      border: 1px solid rgba(0, 229, 204, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+    .principle-icon svg { width: 20px; height: 20px; }
+    .principle-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #F0F0F8;
+      margin-bottom: 14px;
+    }
+    .principle-body {
+      font-size: 0.92rem;
+      color: #8888A8;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       TIMING SECTION
+    =========================== */
+    .timing-section { background: #111118; }
+    .timing-inner {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timing-blocks {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 40px;
+    }
+    .timing-block {
+      display: grid;
+      grid-template-columns: 28px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+    .timing-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #00E5CC;
+      margin-top: 8px;
+      flex-shrink: 0;
+    }
+    .timing-text {
+      font-size: 1rem;
+      color: #8888A8;
+      line-height: 1.72;
+    }
+    .timing-text strong { color: #F0F0F8; font-weight: 500; }
+    .timing-divider {
+      height: 1px;
+      background: rgba(255, 255, 255, 0.06);
+      margin: 32px 0;
+    }
+    .timing-highlight {
+      padding: 28px 32px;
+      background: rgba(124, 58, 237, 0.06);
+      border: 1px solid rgba(124, 58, 237, 0.15);
+      border-radius: 14px;
+      color: #8888A8;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-top: 32px;
+    }
+    .timing-highlight strong { color: #F0F0F8; }
+
+    /* ===========================
+       BOTTOM CTA
+    =========================== */
+    .cta-section {
+      background: #0A0A0F;
+      text-align: center;
+    }
+    .cta-box {
+      background: #111118;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 72px 48px;
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0, 229, 204, 0.5), transparent);
+    }
+    .cta-glow {
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(0, 229, 204, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .cta-box h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 800;
+      color: #F0F0F8;
+      margin-bottom: 16px;
+    }
+    .cta-box p {
+      font-size: 1rem;
+      color: #8888A8;
+      max-width: 480px;
+      margin: 0 auto 36px;
+      line-height: 1.7;
+    }
+
+    /* ===========================
+       FOOTER
+    =========================== */
+    .footer {
+      background: #0A0A0F;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 40px 32px;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-logo {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800;
+      font-size: 1.1rem;
+      color: #F0F0F8;
+      letter-spacing: 0.04em;
+    }
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-link {
+      color: #8888A8;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: color 200ms ease-out;
+    }
+    .footer-link:hover { color: #F0F0F8; }
+    .footer-copy {
+      color: #8888A8;
+      font-size: 0.82rem;
+    }
+
+    /* ===========================
+       WHATSAPP FLOAT
+    =========================== */
+    .wa-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
+      z-index: 200;
+      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
+    }
+    .wa-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
+    }
+
+    /* ===========================
+       RESPONSIVE
+    =========================== */
+    @media (max-width: 860px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-hamburger { display: flex; }
+      .nav-inner { gap: 0; }
+      section { padding: 72px 24px; }
+      .principles-grid { grid-template-columns: 1fr; }
+      .cta-box { padding: 48px 28px; }
+      .footer-inner { flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+      .timeline::before { left: 26px; }
+      .timing-inner { max-width: 100%; }
+    }
+    @media (max-width: 640px) {
+      .hero { padding-top: 130px; padding-bottom: 72px; }
+      .hero-inner { padding: 0 20px; }
+      section { padding: 56px 20px; }
+      .timeline-item { grid-template-columns: 52px 1fr; gap: 20px; }
+      .timeline-number { width: 48px; height: 48px; font-size: 0.78rem; }
+      .timeline::before { left: 24px; }
+      .principle-card { padding: 28px 24px; }
+      .cta-box { padding: 40px 20px; border-radius: 14px; }
+      .timing-text { font-size: 0.95rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========================
+       NAVIGATION
+  ========================= -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">Ryventis<span class="accent">.</span></a>
+      <ul class="nav-links">
+        <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+        <li><a href="como-funciona.html" class="nav-link active">Cómo funciona</a></li>
+        <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+        <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="https://wa.me/522271200295" class="btn-ghost btn-sm" rel="noopener noreferrer">WhatsApp</a>
+        <a href="contacto.html" class="btn-primary btn-sm">Agenda diagnóstico</a>
+      </div>
+      <button class="nav-hamburger" id="navToggle" aria-label="Menú">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-drawer" id="navDrawer">
+      <a href="servicios.html" class="nav-link">Servicios</a>
+      <a href="como-funciona.html" class="nav-link active">Cómo funciona</a>
+      <a href="nosotros.html" class="nav-link">Nosotros</a>
+      <a href="contacto.html" class="nav-link">Contacto</a>
+      <a href="contacto.html" class="btn-primary" style="margin-top:24px;display:inline-flex;">Agenda diagnóstico</a>
+    </div>
+  </nav>
+
+  <!-- ========================
+       HERO
+  ========================= -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-label reveal" data-delay="0">
+        <span class="hero-label-dot"></span>
+        Proceso
+      </div>
+      <h1 class="reveal" data-delay="80">
+        Nada se entrega sin probarse primero.
+      </h1>
+      <p class="hero-subtitle reveal" data-delay="160">
+        Cada proyecto sigue una metodología estructurada que garantiza que lo que construimos funciona exactamente como lo planeamos — antes de tocarte un solo proceso real.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================
+       SECTION 1: LOS 5 PASOS
+  ========================= -->
+  <section class="timeline-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Metodología</div>
+        <h2 class="section-title">De diagnóstico a solución activa.</h2>
+        <p class="section-subtitle">El proceso es el mismo en todos los proyectos. La personalización está en los detalles de cada etapa.</p>
+      </div>
+
+      <div class="timeline">
+
+        <!-- PASO 01 -->
+        <div class="timeline-item reveal" data-delay="0">
+          <div class="timeline-marker">
+            <div class="timeline-number">01</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge">60 minutos &middot; gratuito</div>
+            <h3 class="timeline-title">Diagnóstico</h3>
+            <p class="timeline-body">
+              Nos sentamos contigo — presencial o remoto — y auditamos cómo funciona tu operación hoy. No preguntamos qué querés automatizar; preguntamos dónde se pierde más tiempo, dinero y energía. Salimos con un mapa claro de los 3 a 5 procesos con mayor retorno de mejora.
+            </p>
+          </div>
+        </div>
+
+        <!-- PASO 02 -->
+        <div class="timeline-item reveal" data-delay="80">
+          <div class="timeline-marker">
+            <div class="timeline-number">02</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge">Diseño y aprobación</div>
+            <h3 class="timeline-title">Blueprint</h3>
+            <p class="timeline-body">
+              Con el mapa en mano, diseñamos la solución completa: qué herramientas se conectan, cómo fluye la información, qué pasa cuando algo falla, y cómo interactúa el equipo con el sistema. Te presentamos el blueprint y lo aprobás antes de que empiece la construcción. Sin sorpresas.
+            </p>
+          </div>
+        </div>
+
+        <!-- PASO 03 -->
+        <div class="timeline-item reveal" data-delay="160">
+          <div class="timeline-marker">
+            <div class="timeline-number">03</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge">QA en cada paso</div>
+            <h3 class="timeline-title">Build + QA</h3>
+            <p class="timeline-body">
+              Construimos con 10 puntos de verificación obligatorios distribuidos a lo largo del proceso. No esperamos al final para probar — verificamos en cada paso. Esto incluye pruebas con datos reales, escenarios de error, y validación funcional completa antes de continuar.
+            </p>
+          </div>
+        </div>
+
+        <!-- PASO 04 -->
+        <div class="timeline-item reveal" data-delay="240">
+          <div class="timeline-marker">
+            <div class="timeline-number">04</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge">Monitoreo activo 7 días</div>
+            <h3 class="timeline-title">Deploy</h3>
+            <p class="timeline-body">
+              Lanzamos el sistema en vivo con monitoreo activo durante los primeros 7 días. Cualquier ajuste necesario — de comportamiento, flujo o integración — se resuelve durante este período sin costo adicional. El sistema no se considera entregado hasta que funciona en condiciones reales.
+            </p>
+          </div>
+        </div>
+
+        <!-- PASO 05 -->
+        <div class="timeline-item reveal" data-delay="320">
+          <div class="timeline-marker">
+            <div class="timeline-number">05</div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-badge">Mensual y continuo</div>
+            <h3 class="timeline-title">Retención</h3>
+            <p class="timeline-body">
+              El trabajo no termina con el lanzamiento. Cada mes revisamos el desempeño del sistema, ajustamos flujos según cómo evoluciona tu operación, y te entregamos un reporte de actividad. El objetivo es que el sistema mejore con el tiempo, no que se quede estático.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="timeline-note reveal" data-delay="400">
+        <strong>Sobre los tiempos:</strong> Los plazos de implementación varían según la complejidad de cada proyecto. En el diagnóstico inicial te damos una estimación concreta para tu caso específico.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       SECTION 2: PRINCIPIOS
+  ========================= -->
+  <section class="principles-section">
+    <div class="section-inner">
+      <div class="section-header reveal">
+        <div class="section-label">Fundamentos</div>
+        <h2 class="section-title">Principios que guían cada decisión.</h2>
+      </div>
+
+      <div class="principles-grid">
+
+        <!-- Card 1 -->
+        <div class="principle-card reveal" data-delay="0">
+          <div class="principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E5CC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <div class="principle-title">Diagnóstico antes que propuesta</div>
+          <p class="principle-body">
+            Nunca llegamos con una solución predefinida. El diagnóstico es el único punto de partida válido. Esto nos permite recomendar lo que realmente necesitás, no lo que está de moda.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="principle-card reveal" data-delay="80">
+          <div class="principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E5CC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 11l3 3L22 4"/>
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+            </svg>
+          </div>
+          <div class="principle-title">QA obligatorio, no opcional</div>
+          <p class="principle-body">
+            Las pruebas no son un paso que se puede omitir cuando hay presión de tiempo. Cada entregable pasa por verificación completa antes de salir al mundo. Esto protege tu operación y nuestra reputación.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="principle-card reveal" data-delay="160">
+          <div class="principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E5CC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 20V10"/>
+              <path d="M12 20V4"/>
+              <path d="M6 20v-6"/>
+            </svg>
+          </div>
+          <div class="principle-title">Soporte post-entrega activo</div>
+          <p class="principle-body">
+            Entregamos sistemas, no archivos. Eso significa que estamos disponibles después del lanzamiento, monitoreamos el desempeño y realizamos los ajustes necesarios. Un sistema que nadie mantiene se convierte en un problema.
+          </p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="principle-card reveal" data-delay="240">
+          <div class="principle-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#00E5CC" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+            </svg>
+          </div>
+          <div class="principle-title">Tecnología al servicio del negocio</div>
+          <p class="principle-body">
+            No implementamos tecnología por el hecho de ser nueva o innovadora. Cada herramienta que integramos tiene un propósito claro en el flujo de tu operación. Si algo se puede resolver con menos complejidad, lo resolvemos así.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       SECTION 3: TIEMPOS
+  ========================= -->
+  <section class="timing-section">
+    <div class="section-inner">
+      <div class="timing-inner">
+        <div class="section-label reveal">Plazos</div>
+        <h2 class="section-title reveal" data-delay="40">Los tiempos dependen del proyecto.</h2>
+
+        <div class="timing-blocks">
+          <div class="timing-block reveal" data-delay="80">
+            <div class="timing-dot" style="margin-top:10px;"></div>
+            <p class="timing-text">
+              No existe una respuesta universal porque cada proyecto tiene una complejidad diferente. <strong>Un chatbot básico y un agente autónomo con múltiples integraciones tienen tiempos de implementación muy distintos.</strong>
+            </p>
+          </div>
+
+          <div class="timing-block reveal" data-delay="160">
+            <div class="timing-dot" style="margin-top:10px;"></div>
+            <p class="timing-text">
+              Lo que sí es constante: <strong>el diagnóstico inicial toma 60 minutos.</strong> En esa sesión ya podemos darte una estimación realista del tiempo y los recursos que requiere tu proyecto específico.
+            </p>
+          </div>
+
+          <div class="timing-block reveal" data-delay="240">
+            <div class="timing-dot" style="margin-top:10px;"></div>
+            <p class="timing-text">
+              Preferimos darte una estimación honesta después de entender tu caso, que prometerte un plazo que no podemos garantizar.
+            </p>
+          </div>
+        </div>
+
+        <div class="timing-highlight reveal" data-delay="320">
+          <strong>El diagnóstico es gratuito y sin compromiso.</strong> Si al final del diagnóstico decidís que no es el momento, no hay ninguna obligación. La sesión de todas formas te deja con un mapa claro de oportunidades para tu operación.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       BOTTOM CTA
+  ========================= -->
+  <section class="cta-section">
+    <div class="section-inner">
+      <div class="cta-box reveal">
+        <div class="cta-glow"></div>
+        <h2>Empieza con el diagnóstico.</h2>
+        <p>60 minutos, sin costo, sin compromiso. Salís con claridad sobre qué se puede automatizar y cuánto vale.</p>
+        <a href="contacto.html" class="btn-primary">
+          Agenda tu diagnóstico gratuito
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       FOOTER
+  ========================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">Ryventis<span class="accent">.</span></div>
+      <div class="footer-links">
+        <a href="index.html" class="footer-link">Aviso legal</a>
+        <a href="index.html" class="footer-link">Privacidad</a>
+        <a href="https://linkedin.com" class="footer-link" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://tiktok.com" class="footer-link" rel="noopener noreferrer">TikTok</a>
+        <a href="https://instagram.com" class="footer-link" rel="noopener noreferrer">Instagram</a>
+      </div>
+      <p class="footer-copy">© 2026 Ryventis Solutions</p>
+    </div>
+  </footer>
+
+  <!-- ========================
+       WHATSAPP FLOAT
+  ========================= -->
+  <a href="https://wa.me/522271200295?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios." class="wa-float" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.12 1.531 5.845L.044 23.956l6.275-1.464A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 0 1-5.006-1.369l-.359-.213-3.724.869.937-3.629-.233-.372A9.79 9.79 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
+    </svg>
+  </a>
+
+  <!-- ========================
+       JAVASCRIPT
+  ========================= -->
+  <script>
+    // Mobile nav toggle
+    (function () {
+      var toggle = document.getElementById('navToggle');
+      var drawer = document.getElementById('navDrawer');
+      if (toggle && drawer) {
+        toggle.addEventListener('click', function () {
+          drawer.classList.toggle('open');
+        });
+      }
+    })();
+
+    // Scroll reveal
+    (function () {
+      var els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (i) {
+          if (i.isIntersecting) {
+            var d = parseInt(i.target.dataset.delay) || 0;
+            setTimeout(function () { i.target.classList.add('visible'); }, d);
+            obs.unobserve(i.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      els.forEach(function (el) { obs.observe(el); });
+    })();
+  </script>
+
+</body>
+</html>
