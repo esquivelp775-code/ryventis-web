@@ -1,0 +1,2 @@
+- [Puebla Market Patterns](project_puebla_market.md) — Patrones de mercado y sectores con mayor densidad de prospectos calificados en Puebla
+- [Negocios Contactados](project_negocios_contactados.md) — Registro de negocios ya prospectados para evitar duplicar outreach

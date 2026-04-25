@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aviso Legal — Ryventis Solutions</title>
+  <meta name="description" content="Aviso Legal de Ryventis Solutions. Condiciones de uso del sitio web ryventis.mx conforme a la legislación mexicana vigente.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg-main: #0A0A0F;
+      --bg-surface: #111118;
+      --bg-card: #1C1C28;
+      --cyan: #00E5CC;
+      --cyan-dark: #00B8A3;
+      --violet: #7C3AED;
+      --text: #F0F0F8;
+      --text-muted: #8888A8;
+      --border: rgba(255,255,255,0.07);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg-main);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      min-height: 100vh;
+    }
+
+    /* NAV */
+    .top-nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Syne', sans-serif; font-weight: 800; font-size: 20px;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--cyan); }
+    .nav-back {
+      font-size: 13px; color: var(--text-muted); text-decoration: none;
+      display: flex; align-items: center; gap: 6px;
+      transition: color 0.2s;
+    }
+    .nav-back:hover { color: var(--cyan); }
+    .nav-back::before { content: "←"; font-size: 16px; }
+
+    /* HERO BAND */
+    .page-hero {
+      background: linear-gradient(135deg, rgba(0,229,204,0.04) 0%, rgba(124,58,237,0.04) 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 56px 24px 48px;
+      text-align: center;
+    }
+    .page-label {
+      display: inline-block; margin-bottom: 16px;
+      padding: 4px 14px; border-radius: 100px;
+      background: rgba(0,229,204,0.08); border: 1px solid rgba(0,229,204,0.25);
+      font-size: 12px; font-weight: 500; color: var(--cyan); letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .page-title {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: clamp(28px, 5vw, 42px); color: var(--text);
+      margin-bottom: 12px;
+    }
+    .page-subtitle { font-size: 15px; color: var(--text-muted); max-width: 520px; margin: 0 auto; }
+    .page-updated {
+      margin-top: 16px; font-size: 13px; color: var(--text-muted);
+    }
+    .page-updated strong { color: var(--text); }
+
+    /* MAIN CONTENT */
+    .content-wrapper {
+      max-width: 820px; margin: 0 auto;
+      padding: 56px 24px 80px;
+    }
+
+    /* TABLE OF CONTENTS */
+    .toc {
+      background: var(--bg-surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 24px 28px;
+      margin-bottom: 48px;
+    }
+    .toc-title {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 14px; color: var(--text-muted); letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 14px;
+    }
+    .toc ol { padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+    .toc a { font-size: 14px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .toc a:hover { color: var(--cyan); }
+
+    /* SECTIONS */
+    .legal-section { margin-bottom: 48px; }
+    .legal-section h2 {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 20px; color: var(--text);
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 20px;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-num {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 28px; height: 28px; min-width: 28px; border-radius: 50%;
+      background: rgba(0,229,204,0.1); border: 1px solid rgba(0,229,204,0.25);
+      font-size: 12px; font-weight: 700; color: var(--cyan);
+    }
+    .legal-section p { font-size: 15px; color: var(--text-muted); margin-bottom: 14px; }
+    .legal-section p:last-child { margin-bottom: 0; }
+    .legal-section ul, .legal-section ol {
+      padding-left: 20px; display: flex; flex-direction: column; gap: 8px;
+      margin-bottom: 14px;
+    }
+    .legal-section li { font-size: 15px; color: var(--text-muted); }
+    .legal-section strong { color: var(--text); }
+    .legal-section a { color: var(--cyan); text-decoration: none; }
+    .legal-section a:hover { text-decoration: underline; }
+
+    /* INFO BOX */
+    .info-box {
+      background: rgba(0,229,204,0.04); border: 1px solid rgba(0,229,204,0.15);
+      border-radius: 10px; padding: 18px 20px;
+      margin: 20px 0;
+    }
+    .info-box p { margin: 0; font-size: 14px; }
+
+    /* DATA TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    .data-table th, .data-table td {
+      padding: 12px 16px; text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .data-table th {
+      font-family: 'Syne', sans-serif; font-weight: 700;
+      font-size: 12px; color: var(--text-muted); letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: var(--bg-surface);
+    }
+    .data-table td { color: var(--text-muted); }
+    .data-table td strong { color: var(--text); }
+
+    /* FOOTER */
+    .page-footer {
+      background: var(--bg-surface); border-top: 1px solid var(--border);
+      padding: 32px 24px; text-align: center;
+    }
+    .footer-logo-text {
+      font-family: 'Syne', sans-serif; font-weight: 800;
+      font-size: 18px; color: var(--text); margin-bottom: 6px;
+    }
+    .footer-logo-text span { color: var(--cyan); }
+    .page-footer p { font-size: 13px; color: var(--text-muted); margin-bottom: 12px; }
+    .footer-nav { display: flex; justify-content: center; gap: 24px; flex-wrap: wrap; }
+    .footer-nav a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+    .footer-nav a:hover { color: var(--cyan); }
+
+    @media (max-width: 640px) {
+      .content-wrapper { padding: 36px 16px 60px; }
+      .page-hero { padding: 40px 16px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="top-nav">
+    <a href="index.html" class="nav-logo">Ryventis <span>Solutions</span></a>
+    <a href="index.html" class="nav-back">Regresar al inicio</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="page-hero">
+    <span class="page-label">Documento legal</span>
+    <h1 class="page-title">Aviso Legal</h1>
+    <p class="page-subtitle">Condiciones de uso del sitio web <strong>ryventis.mx</strong> y de los servicios prestados por Ryventis Solutions.</p>
+    <p class="page-updated">Última actualización: <strong>15 de abril de 2026</strong></p>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-wrapper">
+
+    <!-- TOC -->
+    <div class="toc">
+      <p class="toc-title">Índice</p>
+      <ol>
+        <li><a href="#titular">Datos del titular y responsable</a></li>
+        <li><a href="#objeto">Objeto y ámbito de aplicación</a></li>
+        <li><a href="#condiciones">Condiciones de acceso y uso</a></li>
+        <li><a href="#propiedad-intelectual">Propiedad intelectual e industrial</a></li>
+        <li><a href="#responsabilidad">Limitación de responsabilidad</a></li>
+        <li><a href="#enlaces">Política de enlaces y contenido de terceros</a></li>
+        <li><a href="#cookies">Cookies y tecnologías de rastreo</a></li>
+        <li><a href="#servicios">Descripción de los servicios</a></li>
+        <li><a href="#modificaciones">Modificaciones del aviso legal</a></li>
+        <li><a href="#jurisdiccion">Legislación aplicable y jurisdicción</a></li>
+      </ol>
+    </div>
+
+    <!-- 1. TITULAR -->
+    <section class="legal-section" id="titular">
+      <h2><span class="section-num">1</span> Datos del titular y responsable</h2>
+      <p>En cumplimiento con la <strong>Ley de Comercio Electrónico, Comunicaciones y Comercio Electrónico</strong> y demás legislación mexicana aplicable, se pone a disposición del usuario la siguiente información:</p>
+      <table class="data-table">
+        <tr><th>Campo</th><th>Dato</th></tr>
+        <tr><td><strong>Nombre comercial</strong></td><td>Ryventis Solutions</td></tr>
+        <tr><td><strong>Representante legal</strong></td><td>Pablo (Fundador y CEO)</td></tr>
+        <tr><td><strong>Domicilio</strong></td><td>Puebla, Puebla, México</td></tr>
+        <tr><td><strong>Correo electrónico</strong></td><td><a href="mailto:contacto@ryventis.mx">contacto@ryventis.mx</a></td></tr>
+        <tr><td><strong>Sitio web</strong></td><td>ryventis.mx</td></tr>
+        <tr><td><strong>Actividad principal</strong></td><td>Agencia de Inteligencia Artificial para PYMES</td></tr>
+      </table>
+    </section>
+
+    <!-- 2. OBJETO -->
+    <section class="legal-section" id="objeto">
+      <h2><span class="section-num">2</span> Objeto y ámbito de aplicación</h2>
+      <p>El presente Aviso Legal regula el acceso, navegación y uso del sitio web <strong>ryventis.mx</strong> (en adelante, el "Sitio Web") y de todos los subdominios o páginas vinculadas al mismo, titularidad de Ryventis Solutions.</p>
+      <p>El acceso y uso del Sitio Web implica la <strong>aceptación expresa, plena y sin reservas</strong> de todas las disposiciones incluidas en el presente Aviso Legal, en la Política de Privacidad y en cualquier otro aviso o condición particular que resulte de aplicación. Si el usuario no está de acuerdo con alguna de estas disposiciones, deberá abstenerse de acceder y/o utilizar el Sitio Web.</p>
+      <div class="info-box">
+        <p><strong>Nota importante:</strong> Ryventis Solutions se reserva el derecho de modificar, actualizar o eliminar la información contenida en el Sitio Web sin previo aviso y sin asumir responsabilidad alguna por ello.</p>
+      </div>
+    </section>
+
+    <!-- 3. CONDICIONES DE USO -->
+    <section class="legal-section" id="condiciones">
+      <h2><span class="section-num">3</span> Condiciones de acceso y uso</h2>
+      <p>El usuario se compromete a utilizar el Sitio Web y sus contenidos de conformidad con la legislación vigente en los Estados Unidos Mexicanos, el presente Aviso Legal, la moral y las buenas costumbres generalmente aceptadas y el orden público.</p>
+      <p>Queda expresamente prohibido:</p>
+      <ul>
+        <li>Reproducir, duplicar, copiar, vender, revender o explotar de cualquier manera el contenido del Sitio Web sin autorización escrita de Ryventis Solutions.</li>
+        <li>Usar el Sitio Web con fines ilícitos, ilegales, contrarios a las disposiciones del presente Aviso Legal o que lesionen derechos o intereses de terceros.</li>
+        <li>Transmitir virus, troyanos, gusanos, bombas lógicas o cualquier otro programa malicioso que pudiera dañar el Sitio Web o los sistemas de terceros.</li>
+        <li>Intentar acceder sin autorización a cualquier parte del Sitio Web, servidor, base de datos o sistema informático relacionado.</li>
+        <li>Realizar ataques de denegación de servicio (DoS/DDoS) o cualquier acción que interrumpa o degrade la disponibilidad del Sitio Web.</li>
+        <li>Suplantar la identidad de Ryventis Solutions o de cualquier otra persona o entidad.</li>
+        <li>Recopilar datos personales de otros usuarios sin su consentimiento.</li>
+      </ul>
+      <p>Ryventis Solutions se reserva el derecho de restringir o denegar el acceso al Sitio Web a cualquier usuario que incumpla las presentes condiciones, sin necesidad de previo aviso.</p>
+    </section>
+
+    <!-- 4. PROPIEDAD INTELECTUAL -->
+    <section class="legal-section" id="propiedad-intelectual">
+      <h2><span class="section-num">4</span> Propiedad intelectual e industrial</h2>
+      <p>Todos los contenidos del Sitio Web, incluyendo pero no limitados a: textos, imágenes, fotografías, gráficos, logos, iconos, botones, archivos de software, combinaciones de colores, estructuras, diseño y demás elementos que conforman el Sitio Web, son <strong>propiedad exclusiva de Ryventis Solutions</strong> o de sus licenciantes, y están protegidos por las leyes mexicanas e internacionales de propiedad intelectual, incluyendo:</p>
+      <ul>
+        <li><strong>Ley Federal del Derecho de Autor</strong> (LFDA)</li>
+        <li><strong>Ley de la Propiedad Industrial</strong></li>
+        <li>Tratados internacionales aplicables suscritos por México</li>
+      </ul>
+      <p>El nombre comercial "Ryventis Solutions", el dominio <strong>ryventis.mx</strong> y todos los signos distintivos utilizados en el Sitio Web son marcas, nombres comerciales o denominaciones de origen cuya titularidad corresponde a Ryventis Solutions.</p>
+      <p>Queda estrictamente prohibida la reproducción total o parcial, transformación, distribución, comunicación pública, puesta a disposición y, en general, cualquier otra forma de explotación del contenido del Sitio Web sin autorización previa y por escrito de Ryventis Solutions. El incumplimiento de esta prohibición podrá dar lugar al ejercicio de las acciones legales pertinentes.</p>
+      <p>Se permite la <strong>reproducción parcial con fines no comerciales</strong> únicamente cuando se haga mención expresa de la fuente y se incluya un enlace activo al Sitio Web.</p>
+    </section>
+
+    <!-- 5. RESPONSABILIDAD -->
+    <section class="legal-section" id="responsabilidad">
+      <h2><span class="section-num">5</span> Limitación de responsabilidad</h2>
+      <p>Ryventis Solutions no garantiza la disponibilidad, continuidad ni infalibilidad del funcionamiento del Sitio Web. En consecuencia, Ryventis Solutions <strong>no se responsabiliza</strong> por:</p>
+      <ul>
+        <li>Errores u omisiones en los contenidos del Sitio Web.</li>
+        <li>Interrupciones del servicio o daños causados por fallos en la red de Internet, en el servidor de alojamiento o en cualquier otro elemento técnico ajeno a Ryventis Solutions.</li>
+        <li>La presencia de virus u otros elementos lesivos en los contenidos transmitidos, difundidos, almacenados, puestos a disposición o accesibles a través del Sitio Web, si Ryventis Solutions ha adoptado todas las medidas tecnológicas necesarias para prevenir su existencia y transmisión.</li>
+        <li>Los daños que pudieran derivarse del uso indebido del Sitio Web por parte del usuario.</li>
+        <li>La veracidad, exactitud o actualidad de la información contenida en sitios web de terceros enlazados desde el Sitio Web.</li>
+      </ul>
+      <p>El usuario acepta que el uso del Sitio Web es bajo su propia responsabilidad y riesgo.</p>
+    </section>
+
+    <!-- 6. ENLACES -->
+    <section class="legal-section" id="enlaces">
+      <h2><span class="section-num">6</span> Política de enlaces y contenido de terceros</h2>
+      <p>El Sitio Web puede contener enlaces a páginas web de terceros. Dichos enlaces se proporcionan únicamente para facilitar la navegación del usuario. <strong>Ryventis Solutions no controla, patrocina ni respalda</strong> los contenidos de dichos sitios web ni asume responsabilidad alguna por:</p>
+      <ul>
+        <li>Los contenidos, servicios, productos o información de los sitios de terceros enlazados.</li>
+        <li>Las políticas de privacidad o prácticas de seguridad de dichos sitios.</li>
+        <li>Cualquier daño o perjuicio que pudiera derivarse del acceso a dichos sitios.</li>
+      </ul>
+      <p>Si el usuario desea establecer un enlace hacia el Sitio Web desde su propia página web, deberá solicitar autorización previa por escrito a través de <a href="mailto:contacto@ryventis.mx">contacto@ryventis.mx</a>. En todo caso, el enlace deberá dirigirse a la página principal del Sitio Web y no podrá realizarse de forma que induzca a error sobre la existencia de una relación comercial entre la parte enlazante y Ryventis Solutions.</p>
+    </section>
+
+    <!-- 7. COOKIES -->
+    <section class="legal-section" id="cookies">
+      <h2><span class="section-num">7</span> Cookies y tecnologías de rastreo</h2>
+      <p>El Sitio Web puede utilizar <strong>cookies</strong> y tecnologías similares para mejorar la experiencia del usuario. En particular:</p>
+      <ul>
+        <li><strong>Cookies técnicas o esenciales:</strong> Necesarias para el funcionamiento básico del Sitio Web. No requieren consentimiento expreso.</li>
+        <li><strong>Cookies analíticas:</strong> Permiten medir y analizar el comportamiento de los usuarios para mejorar el funcionamiento del Sitio Web.</li>
+        <li><strong>Cookies de personalización:</strong> Permiten recordar las preferencias del usuario.</li>
+      </ul>
+      <p>El usuario puede configurar su navegador para rechazar o eliminar las cookies. Sin embargo, la desactivación de ciertas cookies puede afectar el funcionamiento óptimo del Sitio Web.</p>
+      <p>Para más información sobre el tratamiento de datos personales, consulta nuestra <a href="politica-privacidad.html" target="_blank">Política de Privacidad</a>.</p>
+    </section>
+
+    <!-- 8. SERVICIOS -->
+    <section class="legal-section" id="servicios">
+      <h2><span class="section-num">8</span> Descripción de los servicios</h2>
+      <p>A través del Sitio Web, Ryventis Solutions ofrece información sobre los siguientes servicios de inteligencia artificial para PYMES:</p>
+      <ul>
+        <li>Chatbots inteligentes para WhatsApp y web</li>
+        <li>Automatización de procesos con IA (n8n / Make)</li>
+        <li>Agentes autónomos de ventas y soporte</li>
+        <li>Análisis de datos con inteligencia artificial</li>
+        <li>Consultoría en adopción de IA</li>
+        <li>Pack Starter IA</li>
+      </ul>
+      <p>La información publicada en el Sitio Web tiene carácter <strong>meramente informativo</strong>. La contratación efectiva de cualquier servicio está sujeta a la formalización de un contrato de servicios entre el cliente y Ryventis Solutions, con los términos, condiciones y precios acordados por escrito entre las partes.</p>
+      <p>Ryventis Solutions se reserva el derecho de modificar los servicios ofrecidos, sus características y precios, sin previo aviso. Los precios indicados en el Sitio Web son orientativos y pueden variar según el diagnóstico específico de cada cliente.</p>
+    </section>
+
+    <!-- 9. TRATAMIENTO DE DATOS POR ALGORITMOS DE IA -->
+    <section class="legal-section" id="tratamiento-ia">
+      <h2><span class="section-num">9</span> Tratamiento de Datos por Algoritmos de Inteligencia Artificial</h2>
+      <p>Ryventis Solutions utiliza modelos de lenguaje de gran escala (<em>Large Language Models</em>, LLM) y otros algoritmos de inteligencia artificial en la prestación de sus servicios. De conformidad con la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong> y sus disposiciones reglamentarias, se informa al usuario lo siguiente:</p>
+      <ul>
+        <li><strong>Datos procesados:</strong> Los datos personales y de negocio que el cliente proporcione (incluyendo conversaciones, nombres, números de teléfono, descripciones de procesos y cualquier otro dato capturado por los sistemas automatizados) podrán ser procesados por algoritmos de IA para generar respuestas, clasificar leads, agendar citas u otras funcionalidades contratadas.</li>
+        <li><strong>Finalidad del tratamiento algorítmico:</strong> El procesamiento por IA tiene como única finalidad la prestación del servicio contratado por el cliente. No se utilizan los datos para entrenar modelos propietarios de Ryventis Solutions sin consentimiento expreso y por escrito del titular.</li>
+        <li><strong>Proveedores de IA:</strong> Los modelos de IA utilizados son provistos por terceros especializados. Ryventis Solutions selecciona únicamente proveedores que cumplan con estándares de privacidad y seguridad equivalentes o superiores a los exigidos por la normativa mexicana aplicable.</li>
+        <li><strong>Derecho de exclusión:</strong> El titular de los datos puede solicitar en cualquier momento que sus datos personales <strong>no sean procesados mediante algoritmos de inteligencia artificial</strong>. Para ejercer este derecho, deberá enviar una solicitud escrita a <a href="mailto:contacto@ryventis.mx">contacto@ryventis.mx</a>. Ryventis Solutions responderá en un plazo máximo de 20 días hábiles conforme a la LFPDPPP.</li>
+        <li><strong>Retención de prompts:</strong> Los textos o mensajes enviados a los sistemas automatizados de Ryventis Solutions podrán ser almacenados con fines de auditoría, mejora del servicio y cumplimiento legal, por un período máximo de 12 meses, salvo disposición contractual distinta.</li>
+      </ul>
+    </section>
+
+    <!-- 10. PROPIEDAD INTELECTUAL DEL CÓDIGO GENERADO POR IA -->
+    <section class="legal-section" id="propiedad-codigo-ia">
+      <h2><span class="section-num">10</span> Propiedad Intelectual de Código y Automatizaciones Generadas con IA</h2>
+      <p>Los flujos de automatización, bots, scripts, integraciones de API y cualquier otro entregable técnico desarrollado por Ryventis Solutions para un cliente específico se rigen por las siguientes condiciones de titularidad:</p>
+      <ul>
+        <li><strong>Propiedad del cliente:</strong> A partir de la entrega formal y documentada del proyecto, y siempre que el cliente haya cumplido con la totalidad de los pagos acordados, el código y los flujos entregados son de <strong>propiedad exclusiva del cliente</strong>. El cliente tiene derecho a modificar, distribuir y explotar comercialmente dichos entregables.</li>
+        <li><strong>Derechos de Ryventis Solutions:</strong> Ryventis Solutions conserva el derecho irrevocable de utilizar la metodología, arquitectura técnica y conocimiento adquirido durante el proyecto como <strong>referencia metodológica anonimizada</strong> para proyectos futuros, sin revelar datos confidenciales ni identificar al cliente.</li>
+        <li><strong>Herramientas de terceros:</strong> Los entregables pueden incluir flujos construidos sobre plataformas de terceros (n8n, Make, WhatsApp Business API, Google Calendar, entre otras). El cliente es responsable de mantener vigentes las licencias necesarias para el uso de dichas plataformas. Ryventis Solutions no garantiza la disponibilidad continua de servicios de terceros.</li>
+        <li><strong>IA generativa:</strong> Cuando se utilicen herramientas de generación de código asistida por IA en el desarrollo de un proyecto, Ryventis Solutions garantiza que el código entregado ha sido revisado, validado y adaptado por un profesional humano antes de su entrega. Las partes reconocen que la titularidad del código generado por IA y revisado por humanos es, en el marco del ordenamiento jurídico mexicano actual, un área en evolución normativa.</li>
+      </ul>
+    </section>
+
+    <!-- 11. LÍMITES DE RESPONSABILIDAD POR ALUCINACIONES DE MODELOS LLM -->
+    <section class="legal-section" id="responsabilidad-llm">
+      <h2><span class="section-num">11</span> Límites de Responsabilidad por Imprecisiones de Modelos de Lenguaje (LLM)</h2>
+      <p>Los modelos de lenguaje de gran escala (LLM) utilizados en los servicios de Ryventis Solutions son tecnologías probabilísticas que, por su naturaleza, pueden generar respuestas inexactas, incompletas o no verificadas, fenómeno conocido técnicamente como <em>«alucinación»</em>. Se establece lo siguiente:</p>
+      <ul>
+        <li><strong>Revisión humana obligatoria:</strong> Todos los entregables finales dirigidos al cliente pasan por un proceso de revisión humana por parte del equipo de Ryventis Solutions antes de su entrega. Ningún output de un modelo de IA se entrega sin validación profesional previa.</li>
+        <li><strong>Operación en producción:</strong> Una vez que un sistema automatizado entra en producción y opera de forma autónoma, las respuestas generadas por el componente de IA son en tiempo real y pueden contener imprecisiones. El cliente acepta este riesgo inherente a la tecnología al contratar el servicio.</li>
+        <li><strong>Exclusión de responsabilidad:</strong> Ryventis Solutions no será responsable de pérdidas económicas, daños directos o indirectos, ni consecuencias negativas derivadas de decisiones tomadas por el cliente, sus empleados o sus clientes finales basándose exclusivamente en outputs de un modelo de lenguaje, sin mediar validación humana de las partes involucradas.</li>
+        <li><strong>Recomendación de supervisión:</strong> Para sectores regulados (salud, legal, financiero), Ryventis Solutions recomienda expresamente implementar capas adicionales de supervisión humana sobre los outputs de IA y no sustituir con IA decisiones que requieran criterio profesional certificado.</li>
+        <li><strong>Mejora continua:</strong> Ryventis Solutions se compromete a notificar al cliente cuando identifique patrones sistemáticos de imprecisión en los modelos de IA utilizados en su servicio contratado, y a proponer ajustes correctivos en un plazo razonable.</li>
+      </ul>
+    </section>
+
+    <!-- 12. MODIFICACIONES -->
+    <section class="legal-section" id="modificaciones">
+      <h2><span class="section-num">12</span> Modificaciones del Aviso Legal</h2>
+      <p>Ryventis Solutions se reserva el derecho de <strong>actualizar, modificar o eliminar</strong> la información contenida en el presente Aviso Legal en cualquier momento y sin previo aviso. Los cambios serán efectivos desde el momento de su publicación en el Sitio Web.</p>
+      <p>Se recomienda al usuario revisar periódicamente este Aviso Legal para mantenerse informado de las condiciones de uso aplicables. El uso continuado del Sitio Web tras la publicación de modificaciones implica la aceptación de las nuevas condiciones.</p>
+    </section>
+
+    <!-- 13. JURISDICCIÓN -->
+    <section class="legal-section" id="jurisdiccion">
+      <h2><span class="section-num">13</span> Legislación aplicable y jurisdicción</h2>
+      <p>El presente Aviso Legal se rige e interpreta de conformidad con las leyes de los <strong>Estados Unidos Mexicanos</strong>, siendo especialmente aplicables:</p>
+      <ul>
+        <li><strong>Código de Comercio</strong></li>
+        <li><strong>Ley Federal de Protección al Consumidor</strong></li>
+        <li><strong>Ley Federal del Derecho de Autor</strong></li>
+        <li><strong>Ley de la Propiedad Industrial</strong></li>
+        <li><strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares</strong> (LFPDPPP)</li>
+        <li><strong>Código Civil Federal</strong></li>
+      </ul>
+      <p>Para la resolución de cualquier controversia que pudiera derivarse del acceso o uso del Sitio Web, las partes se someten expresamente a la <strong>jurisdicción de los tribunales competentes de la ciudad de Puebla, Puebla, México</strong>, con renuncia expresa a cualquier otro fuero que pudiera corresponderles.</p>
+      <div class="info-box">
+        <p>Para cualquier consulta legal, puedes contactarnos en: <a href="mailto:contacto@ryventis.mx"><strong>contacto@ryventis.mx</strong></a></p>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="footer-logo-text">Ryventis <span>Solutions</span></div>
+    <p>© 2026 Ryventis Solutions. Todos los derechos reservados. Puebla, México.</p>
+    <nav class="footer-nav">
+      <a href="index.html">Inicio</a>
+      <a href="aviso-legal.html">Aviso Legal</a>
+      <a href="politica-privacidad.html">Política de Privacidad</a>
+      <a href="mailto:contacto@ryventis.mx">Contacto</a>
+    </nav>
+  </footer>
+
+</body>
+</html>

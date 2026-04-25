@@ -1,0 +1,11 @@
+# Herramientas de Agentes e IA
+Anthropic-Cybersecurity-Skills/
+browser-use/
+everything-claude-contexts/
+superpowers/
+claude-mem/
+
+# Archivos de sistema y entorno
+node_modules/
+.env
+.DS_Store
