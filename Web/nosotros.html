@@ -20,7 +20,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 
   <style>
     /* ============================================================
@@ -38,7 +38,7 @@
       --border:      rgba(0, 229, 204, 0.10);
       --border-dim:  rgba(255,255,255,0.06);
 
-      --font-head: 'Syne', sans-serif;
+      --font-head: 'Plus Jakarta Sans', sans-serif;
       --font-body: 'DM Sans', sans-serif;
 
       --max-w: 1180px;
@@ -648,6 +648,53 @@
       .wa-float { bottom: 20px; right: 20px; width: 46px; height: 46px; }
     }
 
+  
+    /* --- Modales legales --- */
+    .modal-overlay {
+      position: fixed; inset: 0; z-index: 2000;
+      background: rgba(0,0,0,0.82);
+      backdrop-filter: blur(10px);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.28s ease;
+      display: flex; align-items: flex-end; justify-content: center;
+    }
+    .modal-overlay.open { opacity: 1; pointer-events: all; }
+    .modal-panel {
+      background: #111118;
+      width: 100%; max-width: 800px; max-height: 86vh;
+      border-radius: 10px 10px 0 0;
+      border: 1px solid rgba(255,255,255,0.06); border-bottom: none;
+      display: flex; flex-direction: column;
+      transform: translateY(100%);
+      transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .modal-overlay.open .modal-panel { transform: translateY(0); }
+    .modal-header {
+      padding: 22px 32px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      display: flex; align-items: center; justify-content: space-between;
+      flex-shrink: 0;
+    }
+    .modal-header h3 { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; color: #F0F0F8; }
+    .modal-close {
+      background: none; border: none; color: #8888A8;
+      cursor: pointer; font-size: 1.3rem; line-height: 1;
+      width: 34px; height: 34px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%; transition: color 0.18s, background 0.18s;
+    }
+    .modal-close:hover { color: #F0F0F8; background: #1C1C28; }
+    .modal-body { padding: 28px 32px; overflow-y: auto; flex: 1; }
+    .modal-body .modal-meta { font-size: 0.72rem; color: #8888A8; margin-bottom: 28px; letter-spacing: 0.04em; }
+    .modal-body h3 { font-size: 0.9rem; color: #00E5CC; margin: 24px 0 8px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
+    .modal-body p { font-size: 0.875rem; color: #8888A8; margin-bottom: 10px; line-height: 1.75; }
+    .modal-body strong { color: #F0F0F8; font-weight: 500; }
+    .modal-body table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.82rem; }
+    .modal-body table th { text-align: left; color: #00E5CC; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 8px 10px; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
+    .modal-body table td { color: #8888A8; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .modal-drag { width: 40px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
+    @media (max-width: 640px) { .modal-body { padding: 20px; } .modal-header { padding: 18px 20px; } }
+
   </style>
 </head>
 <body>
@@ -901,15 +948,86 @@
   <!-- ================================================================
        FOOTER
   ================================================================ -->
-  <footer class="footer">
+  
+<!-- Modal: Aviso Legal -->
+<div class="modal-overlay" id="modal-aviso" role="dialog" aria-modal="true" aria-labelledby="modal-aviso-title">
+  <div class="modal-panel">
+    <div class="modal-drag"></div>
+    <div class="modal-header">
+      <h3 id="modal-aviso-title">Aviso Legal</h3>
+      <button class="modal-close" onclick="closeModal('modal-aviso')" aria-label="Cerrar">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 22 de abril de 2026</p>
+      <h3>1. Titular del sitio web</h3>
+      <p>El sitio web <strong>ryventis.mx</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, Mexico. Correo: <strong>contacto@ryventis.mx</strong></p>
+      <h3>2. Objeto del sitio</h3>
+      <p>El sitio ryventis.mx tiene caracter <strong>informativo y comercial</strong>. Facilita el contacto comercial y no constituye una oferta contractual vinculante.</p>
+      <h3>3. Propiedad intelectual</h3>
+      <p>Todos los elementos del sitio son propiedad exclusiva de Ryventis Solutions o se utilizan bajo licencia, protegidos por la legislacion mexicana.</p>
+      <h3>4. Limitacion de responsabilidad</h3>
+      <p>Ryventis no garantiza resultados especificos sin diagnostico formal previo. Las interrupciones atribuibles a terceros no generan responsabilidad para Ryventis.</p>
+      <h3>5. Titularidad del codigo entregado</h3>
+      <p>El codigo y entregables desarrollados para un cliente son propiedad del cliente una vez liquidado el <strong>100% del pago acordado</strong>.</p>
+      <h3>6. Proteccion de datos personales</h3>
+      <p>El tratamiento de datos personales se rige por la <strong>Politica de Privacidad</strong> de Ryventis Solutions, conforme a la LFPDPPP.</p>
+      <h3>7. Ley aplicable y jurisdiccion</h3>
+      <p>Este Aviso Legal se rige por las leyes de los <strong>Estados Unidos Mexicanos</strong>. Controversias: Tribunales de <strong>Puebla de Zaragoza, Puebla, Mexico</strong>.</p>
+      <h3>8. Contacto</h3>
+      <p><strong>Ryventis Solutions</strong> - contacto@ryventis.mx - Puebla de Zaragoza, Puebla, Mexico</p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal: Politica de Privacidad -->
+<div class="modal-overlay" id="modal-privacidad" role="dialog" aria-modal="true" aria-labelledby="modal-privacidad-title">
+  <div class="modal-panel">
+    <div class="modal-drag"></div>
+    <div class="modal-header">
+      <h3 id="modal-privacidad-title">Politica de Privacidad</h3>
+      <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 22 de abril de 2026 - Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
+      <h3>1. Responsable del tratamiento</h3>
+      <p><strong>Ryventis Solutions</strong> - Puebla de Zaragoza, Puebla, Mexico - contacto@ryventis.mx</p>
+      <h3>2. Datos personales que recabamos</h3>
+      <p><strong>Datos de identificacion:</strong> nombre, correo, telefono, razon social y cargo.</p>
+      <p><strong>No recabamos</strong> datos sensibles (salud, biometricos, creencias religiosas, afiliacion politica).</p>
+      <h3>3. Finalidades del tratamiento</h3>
+      <p><strong>Primarias:</strong> atender solicitudes, realizar diagnostico, formalizar contrato y emitir facturacion.</p>
+      <p><strong>Secundarias (puede oponerse):</strong> comunicaciones sobre nuevos servicios. Oposicion: contacto@ryventis.mx</p>
+      <h3>4. Transferencia de datos</h3>
+      <p>Ryventis <strong>no vende ni transfiere</strong> sus datos. Solo con proveedores bajo confidencialidad:</p>
+      <table>
+        <tr><th>Proveedor</th><th>Finalidad</th></tr>
+        <tr><td>Anthropic (Claude API)</td><td>Procesamiento de lenguaje natural</td></tr>
+        <tr><td>n8n GmbH</td><td>Orquestacion de flujos</td></tr>
+        <tr><td>Supabase Inc.</td><td>Almacenamiento de configuracion</td></tr>
+        <tr><td>Google LLC</td><td>Integracion con Calendar y Gmail</td></tr>
+        <tr><td>Twilio Inc.</td><td>Mensajes via WhatsApp Business API</td></tr>
+        <tr><td>Railway Corp.</td><td>Hospedaje de infraestructura</td></tr>
+      </table>
+      <h3>5. Derechos ARCO</h3>
+      <p>Puede <strong>Acceder, Rectificar, Cancelar y Oponerse</strong> al tratamiento. Solicitud a <strong>contacto@ryventis.mx</strong>, asunto "Solicitud ARCO". Respondemos en maximo <strong>20 dias habiles</strong>.</p>
+      <h3>6. Seguridad</h3>
+      <p>Implementamos HTTPS/TLS, acceso restringido y controles basados en roles.</p>
+      <h3>7. Ley aplicable</h3>
+      <p>Rige la <strong>LFPDPPP</strong>. Autoridad competente: <strong>INAI</strong> (inai.org.mx).</p>
+      <p style="margin-top:24px;font-size:0.75rem;color:#8888A8;">Ryventis Solutions - Puebla, Mexico - contacto@ryventis.mx - ryventis.mx</p>
+    </div>
+  </div>
+</div>
+
+<footer class="footer">
     <div class="wrap footer-inner">
       <div class="footer-logo">Ryventis<span class="accent">.</span></div>
       <div class="footer-links">
-        <a href="index.html" class="footer-link">Aviso legal</a>
-        <a href="index.html" class="footer-link">Privacidad</a>
-        <a href="https://linkedin.com" class="footer-link" rel="noopener noreferrer">LinkedIn</a>
-        <a href="https://tiktok.com" class="footer-link" rel="noopener noreferrer">TikTok</a>
-        <a href="https://instagram.com" class="footer-link" rel="noopener noreferrer">Instagram</a>
+        <a href="#" class="footer-link" onclick="openModal('modal-aviso');return false;">Aviso legal</a>
+        <a href="#" class="footer-link" onclick="openModal('modal-privacidad');return false;">Privacidad</a>
+        <a href="https://www.linkedin.com/in/ryventis-solutions-7b1504405/" class="footer-link" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://www.tiktok.com/@ryventis.solution?_r=1&_t=ZS-95lJy5jKBBl" class="footer-link" rel="noopener noreferrer">TikTok</a>
+        <a href="https://www.instagram.com/ryventis_ia" class="footer-link" rel="noopener noreferrer">Instagram</a>
       </div>
       <p class="footer-copy">© 2026 Ryventis Solutions</p>
     </div>
@@ -988,7 +1106,26 @@
       }, { threshold: 0.1 });
       els.forEach(function (el) { obs.observe(el); });
     })();
-  </script>
+  
+  // Modales legales
+  function openModal(id) {
+    var m = document.getElementById(id);
+    m.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    setTimeout(function() { m.querySelector('.modal-close').focus(); }, 50);
+  }
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.querySelectorAll('.modal-overlay').forEach(function(m) {
+    m.addEventListener('click', function(e) { if (e.target === m) closeModal(m.id); });
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(function(m) { closeModal(m.id); });
+  });
+
+</script>
 
 </body>
 </html>
