@@ -57,9 +57,9 @@ echo -e "${YELLOW}Archivos modificados:${NC}"
 git status --short
 echo ""
 
-# ---- Stage todos los cambios ----
+# ---- Stage solo la carpeta Web ----
 echo -e "${CYAN}[1/3] Staging cambios...${NC}"
-git add -A
+git add Web/
 echo -e "${GREEN}✓ Cambios staged${NC}"
 
 # ---- Commit ----

@@ -1,11 +1,10 @@
-# Herramientas de Agentes e IA
-Anthropic-Cybersecurity-Skills/
-browser-use/
-everything-claude-contexts/
-superpowers/
-claude-mem/
+# Solo Web/ y deploy.sh van al repo de GitHub
+# Todo lo demás es interno de la agencia
 
-# Archivos de sistema y entorno
-node_modules/
-.env
-.DS_Store
+# Ignorar todo por defecto
+/*
+
+# Excepciones: lo que SÍ debe estar en el repo
+!Web/
+!deploy.sh
+!.gitignore

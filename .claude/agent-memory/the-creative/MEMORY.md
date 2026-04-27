@@ -1,2 +1,0 @@
-- [project_feed_instagram.md](project_feed_instagram.md) — Brief visual v2.0 del feed de @ryventis_ia: paleta extendida, 3 templates Canva, grid de 9 posts y guía semanal
-- [project_content_patterns.md](project_content_patterns.md) — Patrones de contenido validados: hooks, formatos ganadores y CTAs por columna de feed
