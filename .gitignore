@@ -1,10 +1,16 @@
-# Solo Web/ y deploy.sh van al repo de GitHub
-# Todo lo demás es interno de la agencia
+# Solo los archivos del sitio web van al repo
+# Todo lo interno de la agencia se ignora
 
 # Ignorar todo por defecto
 /*
 
-# Excepciones: lo que SÍ debe estar en el repo
-!Web/
+# Excepciones: archivos del sitio web en raíz
+!index.html
+!servicios.html
+!como-funciona.html
+!nosotros.html
+!contacto.html
+!assets/
+!assets/**
 !deploy.sh
 !.gitignore
