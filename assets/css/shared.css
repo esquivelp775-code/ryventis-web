@@ -1,0 +1,318 @@
+/* =====================================================
+   Ryventis Solutions — Estilos Compartidos v2
+   Paleta, tipografía, nav, footer, botones, animaciones
+   ===================================================== */
+
+/* ---- Google Fonts ---- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+/* ---- Variables globales ---- */
+:root {
+  --bg:          #0F0F0F;
+  --surface:     #181818;
+  --surface-2:   #212121;
+  --surface-3:   #2A2A2A;
+  --accent:      #00E5CC;
+  --accent-dark: #00B8A3;
+  --gold:        #F59E0B;
+  --gold-dark:   #D97706;
+  --depth:       #7C3AED;
+  --text:        #F5F5F0;
+  --muted:       #888888;
+  --border:      rgba(255,255,255,0.08);
+  --border-dim:  rgba(255,255,255,0.04);
+  --font-head:   'Plus Jakarta Sans', sans-serif;
+  --font-body:   'DM Sans', sans-serif;
+  --radius:      14px;
+  --radius-sm:   8px;
+  --radius-lg:   20px;
+  --transition:  200ms ease-out;
+  --max-w:       1180px;
+  --nav-h:       68px;
+}
+
+/* ---- Reset ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font: 400 1rem/1.75 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  opacity: 0;
+  animation: pageIn 400ms ease forwards;
+}
+img { max-width: 100%; display: block; }
+a   { color: inherit; text-decoration: none; }
+::selection { background: var(--accent); color: #000; }
+
+/* ---- Tipografía unificada ---- */
+h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
+
+/* ---- Contenedor ---- */
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem; }
+
+/* ============================================
+   ANIMACIONES BASE
+   ============================================ */
+@keyframes pageIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeUp   { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes splashExit { to { transform: translateY(-100%); opacity: 0; } }
+@keyframes splashLoad { to { width: 100%; } }
+@keyframes orbFloat {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); }
+  50%       { transform: translate(-50%, calc(-50% - 28px)) scale(1.04); }
+}
+
+/* ============================================
+   SPLASH SCREEN — solo index.html
+   ============================================ */
+#splash {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 1.5rem;
+  animation: splashExit 0.55s ease 2s forwards;
+}
+.splash-logo {
+  font: 800 clamp(2.5rem, 6vw, 4rem)/1 var(--font-head);
+  color: var(--text);
+  opacity: 0;
+  letter-spacing: -0.02em;
+  animation: fadeUp 0.7s ease 0.2s forwards;
+}
+.sl-dot { color: var(--accent); }
+.splash-tag {
+  font: 300 1rem/1.5 var(--font-body);
+  color: var(--muted);
+  opacity: 0;
+  text-align: center;
+  animation: fadeIn 0.5s ease 0.9s forwards;
+}
+.splash-bar {
+  width: 120px; height: 2px;
+  background: var(--border); border-radius: 2px; overflow: hidden;
+}
+.splash-progress {
+  height: 100%; background: var(--accent); width: 0;
+  animation: splashLoad 1.6s ease 0.4s forwards;
+}
+
+/* ============================================
+   HERO ORB
+   ============================================ */
+.hero-orb {
+  position: absolute; pointer-events: none;
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,229,204,0.05) 0%, transparent 68%);
+  animation: orbFloat 9s ease-in-out infinite;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ============================================
+   NAVEGACIÓN
+   ============================================ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: rgba(15,15,15,0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-dim);
+  transition: background 0.3s, border-color 0.3s;
+}
+.nav.scrolled {
+  background: rgba(15,15,15,0.97);
+  border-color: var(--border);
+}
+.nav-inner {
+  max-width: var(--max-w); margin: 0 auto; padding: 0 1.5rem;
+  height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 2rem;
+}
+.nav-logo {
+  font: 800 1.25rem/1 var(--font-head);
+  color: var(--text); letter-spacing: -0.02em; flex-shrink: 0;
+}
+.nav-logo span, .nav-logo .accent { color: var(--accent); }
+.nav-links {
+  display: flex; align-items: center; gap: 0.25rem;
+  list-style: none; margin: 0 auto;
+}
+.nav-link {
+  font: 500 0.875rem/1 var(--font-body);
+  color: var(--muted);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition), background var(--transition);
+  position: relative;
+}
+.nav-link:hover  { color: var(--text); background: rgba(255,255,255,0.04); }
+.nav-link.active { color: var(--accent); }
+.nav-link.active::after {
+  content: ''; position: absolute;
+  bottom: 2px; left: 50%; transform: translateX(-50%);
+  width: 20px; height: 2px;
+  background: var(--accent); border-radius: 2px;
+}
+.nav-cta { display: flex; align-items: center; gap: 0.75rem; flex-shrink: 0; }
+
+/* ============================================
+   BOTONES
+   ============================================ */
+.btn, .btn-primary, .btn-ghost, .btn-outline, .btn-sm {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  font: 600 0.875rem/1 var(--font-body);
+  border-radius: var(--radius-sm);
+  padding: 0.625rem 1.25rem;
+  cursor: pointer; border: none;
+  transition: all var(--transition);
+  white-space: nowrap; text-decoration: none;
+}
+.btn-primary {
+  background: var(--accent); color: #000;
+  position: relative; overflow: hidden;
+}
+.btn-primary::after {
+  content: ''; position: absolute;
+  top: 0; left: -120%; width: 60%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.18), transparent);
+  transition: left 0.45s ease;
+}
+.btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn-primary:hover::after { left: 160%; }
+
+.btn-ghost, .btn-outline {
+  background: transparent;
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btn-ghost:hover, .btn-outline:hover {
+  border-color: rgba(0,229,204,0.4);
+  color: var(--accent);
+  background: rgba(0,229,204,0.04);
+}
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.8125rem; }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer { padding: 2.5rem 0; border-top: 1px solid var(--border-dim); }
+.footer-inner {
+  display: flex; flex-wrap: wrap;
+  align-items: center; justify-content: space-between; gap: 1rem;
+}
+.footer-logo {
+  font: 800 1.1rem/1 var(--font-head);
+  color: var(--text); letter-spacing: -0.02em;
+}
+.footer-logo .accent, .footer-logo span { color: var(--accent); }
+.footer-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1.5rem; }
+.footer-link {
+  font: 400 0.8125rem/1 var(--font-body);
+  color: var(--muted);
+  transition: color var(--transition);
+}
+.footer-link:hover { color: var(--text); }
+.footer-copy {
+  font: 400 0.8125rem/1 var(--font-body);
+  color: var(--muted);
+  width: 100%; text-align: center;
+  padding-top: 1rem; margin-top: 0.5rem;
+  border-top: 1px solid var(--border-dim);
+}
+
+/* ============================================
+   SCROLL REVEAL
+   ============================================ */
+.reveal {
+  opacity: 0; transform: translateY(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-left {
+  opacity: 0; transform: translateX(-24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-right {
+  opacity: 0; transform: translateX(24px);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+.reveal-scale {
+  opacity: 0; transform: scale(0.95);
+  transition: opacity 600ms ease, transform 600ms ease;
+}
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+
+/* ============================================
+   SECCIÓN DIFERENCIADORES (nosotros.html)
+   ============================================ */
+.differentiators { padding: 6rem 0; }
+.diff-label {
+  font: 600 0.75rem/1 var(--font-head);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--gold); margin-bottom: 1rem;
+}
+.diff-title { margin-bottom: 0.75rem; }
+.diff-sub { max-width: 540px; margin-bottom: 3rem; }
+.diff-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.25rem;
+}
+.diff-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.diff-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(245,158,11,0.35);
+  box-shadow: 0 16px 48px rgba(245,158,11,0.06);
+}
+.diff-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(245,158,11,0.1);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.25rem;
+  color: var(--gold);
+}
+.diff-card h3 { margin-bottom: 0.625rem; }
+
+/* ============================================
+   RESPONSIVE GENERAL
+   ============================================ */
+@media (max-width: 780px) {
+  .nav-links  { display: none; }
+  .nav-cta .btn-ghost, .nav-cta .btn-outline { display: none; }
+  .footer-inner { flex-direction: column; align-items: center; text-align: center; }
+  .footer-links { justify-content: center; }
+  .diff-grid { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   ACCESIBILIDAD — reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  .reveal, .reveal-left, .reveal-right, .reveal-scale {
+    opacity: 1 !important; transform: none !important;
+  }
+  #splash { animation: none !important; display: none !important; }
+}

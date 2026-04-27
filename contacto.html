@@ -11,6 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
     /* ── Reset ── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -18,18 +19,34 @@
 
     /* ── Tokens ── */
     :root {
-      --bg:       #0A0A0F;
-      --surface:  #111118;
-      --surface2: #1C1C28;
-      --accent:   #00E5CC;
-      --accent-dk:#00B8A3;
-      --depth:    #7C3AED;
-      --text:     #F0F0F8;
-      --muted:    #8888A8;
-      --radius-md:12px;
-      --radius-lg:16px;
-      --transition:200ms ease-out;
+      --bg:          #0F0F0F;
+      --surface:     #181818;
+      --surface-2:   #212121;
+      --surface-3:   #2A2A2A;
+      --accent:      #00E5CC;
+      --accent-dark: #00B8A3;
+      --gold:        #F59E0B;
+      --gold-dark:   #D97706;
+      --depth:       #7C3AED;
+      --text:        #F5F5F0;
+      --muted:       #888888;
+      --border:      rgba(255,255,255,0.08);
+      --border-dim:  rgba(255,255,255,0.04);
+      --font-head:   'Plus Jakarta Sans', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius:      14px;
+      --radius-sm:   8px;
+      --radius-lg:   20px;
+      --transition:  200ms ease-out;
+      --max-w:       1180px;
+      --nav-h:       68px;
     }
+
+    /* ── Typography ── */
+    h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+    h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+    h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+    p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
 
     /* ── Base ── */
     body {
@@ -60,17 +77,17 @@
       align-items: center;
       gap: 8px;
       background: var(--accent);
-      color: #0A0A0F;
+      color: var(--bg);
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
       border: none;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       cursor: pointer;
       text-decoration: none;
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     }
     .btn-primary:hover {
-      background: var(--accent-dk);
+      background: var(--accent-dark);
       transform: translateY(-1px);
       box-shadow: 0 8px 24px rgba(0,229,204,0.25);
     }
@@ -85,7 +102,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
       border: 1px solid rgba(255,255,255,0.15);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       cursor: pointer;
       text-decoration: none;
       transition: border-color var(--transition), color var(--transition), background var(--transition);
@@ -309,9 +326,9 @@
     select,
     textarea {
       width: 100%;
-      background: var(--surface2);
+      background: var(--surface-2);
       border: 1px solid rgba(255,255,255,0.1);
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       color: var(--text);
       font-family: 'DM Sans', sans-serif;
       font-size: 0.9375rem;
@@ -345,7 +362,7 @@
       border-top: 6px solid var(--muted);
       pointer-events: none;
     }
-    select option { background: var(--surface2); color: var(--text); }
+    select option { background: var(--surface-2); color: var(--text); }
     select option[value=""] { color: var(--muted); }
 
     /* Custom block (conditional) */
@@ -363,9 +380,9 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
       background: var(--accent);
-      color: #0A0A0F;
+      color: var(--bg);
       border: none;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       cursor: pointer;
       display: flex;
       align-items: center;
@@ -374,7 +391,7 @@
       transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
     }
     .btn-submit:hover {
-      background: var(--accent-dk);
+      background: var(--accent-dark);
       transform: translateY(-1px);
       box-shadow: 0 8px 24px rgba(0,229,204,0.25);
     }
@@ -445,7 +462,7 @@
       text-decoration: none;
       transition: color var(--transition);
     }
-    .info-value a:hover { color: var(--accent-dk); }
+    .info-value a:hover { color: var(--accent-dark); }
 
     /* WhatsApp CTA in sidebar */
     .wa-sidebar-msg {
@@ -466,7 +483,7 @@
       font-family: 'DM Sans', sans-serif;
       font-weight: 500;
       font-size: 0.9375rem;
-      border-radius: var(--radius-md);
+      border-radius: var(--radius);
       text-decoration: none;
       transition: background var(--transition), transform var(--transition);
     }
@@ -539,7 +556,7 @@
     }
     .modal-overlay.open { opacity: 1; pointer-events: all; }
     .modal-panel {
-      background: #111118;
+      background: var(--surface);
       width: 100%; max-width: 800px; max-height: 86vh;
       border-radius: 10px 10px 0 0;
       border: 1px solid rgba(255,255,255,0.06); border-bottom: none;
@@ -554,23 +571,23 @@
       display: flex; align-items: center; justify-content: space-between;
       flex-shrink: 0;
     }
-    .modal-header h3 { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; color: #F0F0F8; }
+    .modal-header h3 { font-size: 0.95rem; font-weight: 700; letter-spacing: -0.01em; color: var(--text); }
     .modal-close {
-      background: none; border: none; color: #8888A8;
+      background: none; border: none; color: var(--muted);
       cursor: pointer; font-size: 1.3rem; line-height: 1;
       width: 34px; height: 34px;
       display: flex; align-items: center; justify-content: center;
       border-radius: 50%; transition: color 0.18s, background 0.18s;
     }
-    .modal-close:hover { color: #F0F0F8; background: #1C1C28; }
+    .modal-close:hover { color: var(--text); background: var(--surface-2); }
     .modal-body { padding: 28px 32px; overflow-y: auto; flex: 1; }
-    .modal-body .modal-meta { font-size: 0.72rem; color: #8888A8; margin-bottom: 28px; letter-spacing: 0.04em; }
+    .modal-body .modal-meta { font-size: 0.72rem; color: var(--muted); margin-bottom: 28px; letter-spacing: 0.04em; }
     .modal-body h3 { font-size: 0.9rem; color: #00E5CC; margin: 24px 0 8px; letter-spacing: 0.04em; text-transform: uppercase; font-weight: 700; }
-    .modal-body p { font-size: 0.875rem; color: #8888A8; margin-bottom: 10px; line-height: 1.75; }
-    .modal-body strong { color: #F0F0F8; font-weight: 500; }
+    .modal-body p { font-size: 0.875rem; color: var(--muted); margin-bottom: 10px; line-height: 1.75; }
+    .modal-body strong { color: var(--text); font-weight: 500; }
     .modal-body table { width: 100%; border-collapse: collapse; margin-bottom: 16px; font-size: 0.82rem; }
     .modal-body table th { text-align: left; color: #00E5CC; border-bottom: 1px solid rgba(255,255,255,0.06); padding: 8px 10px; font-size: 0.72rem; letter-spacing: 0.06em; text-transform: uppercase; }
-    .modal-body table td { color: #8888A8; padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+    .modal-body table td { color: var(--muted); padding: 8px 10px; border-bottom: 1px solid rgba(255,255,255,0.06); }
     .modal-drag { width: 40px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
     @media (max-width: 640px) { .modal-body { padding: 20px; } .modal-header { padding: 18px 20px; } }
 
@@ -756,7 +773,7 @@
             <div class="info-text">
               <p class="info-label">WhatsApp</p>
               <p class="info-value">
-                <a href="https://wa.me/522271200295" rel="noopener noreferrer">+52 227 120 0295</a>
+                <a href="https://wa.me/522271200295" rel="noopener noreferrer">+52 227-120-0295</a>
               </p>
             </div>
           </div>
@@ -865,7 +882,7 @@
       <p>Implementamos HTTPS/TLS, acceso restringido y controles basados en roles.</p>
       <h3>7. Ley aplicable</h3>
       <p>Rige la <strong>LFPDPPP</strong>. Autoridad competente: <strong>INAI</strong> (inai.org.mx).</p>
-      <p style="margin-top:24px;font-size:0.75rem;color:#8888A8;">Ryventis Solutions - Puebla, Mexico - contacto@ryventis.mx - ryventis.mx</p>
+      <p style="margin-top:24px;font-size:0.75rem;color:var(--muted);">Ryventis Solutions - Puebla, Mexico - contacto@ryventis.mx - ryventis.mx</p>
     </div>
   </div>
 </div>
@@ -896,23 +913,6 @@
           toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
         });
       }
-    })();
-
-    // ── Scroll reveal ──
-    (function () {
-      var els = document.querySelectorAll('.reveal');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var delay = parseInt(entry.target.dataset.delay) || 0;
-            setTimeout(function () {
-              entry.target.classList.add('visible');
-            }, delay);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(function (el) { obs.observe(el); });
     })();
 
     // ── Conditional textarea: "Mi situación es diferente" ──
@@ -994,6 +994,7 @@
   });
 
 </script>
+  <script src="assets/js/shared.js" defer></script>
 
 </body>
 </html>

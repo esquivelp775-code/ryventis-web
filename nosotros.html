@@ -21,31 +21,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
 
   <style>
     /* ============================================================
        DESIGN SYSTEM — RYVENTIS SOLUTIONS
     ============================================================ */
     :root {
-      --bg:          #0A0A0F;
-      --surface:     #111118;
-      --surface-2:   #1C1C28;
+      --bg:          #0F0F0F;
+      --surface:     #181818;
+      --surface-2:   #212121;
+      --surface-3:   #2A2A2A;
       --accent:      #00E5CC;
       --accent-dark: #00B8A3;
+      --gold:        #F59E0B;
+      --gold-dark:   #D97706;
       --depth:       #7C3AED;
-      --text:        #F0F0F8;
-      --muted:       #8888A8;
-      --border:      rgba(0, 229, 204, 0.10);
-      --border-dim:  rgba(255,255,255,0.06);
-
-      --font-head: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-
-      --max-w: 1180px;
-      --nav-h: 68px;
-      --radius: 12px;
-      --radius-lg: 16px;
-      --gap: 1.5rem;
+      --text:        #F5F5F0;
+      --muted:       #888888;
+      --border:      rgba(255,255,255,0.08);
+      --border-dim:  rgba(255,255,255,0.04);
+      --font-head:   'Plus Jakarta Sans', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius:      14px;
+      --radius-sm:   8px;
+      --radius-lg:   20px;
+      --transition:  200ms ease-out;
+      --max-w:       1180px;
+      --nav-h:       68px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -86,15 +89,10 @@
     }
 
     /* ---- Tipografía ---- */
-    h1, h2, h3 {
-      font-family: var(--font-head);
-      line-height: 1.05;
-      letter-spacing: 0.04em;
-    }
-    h1 { font-size: clamp(3rem, 8vw, 6.5rem); font-weight: 800; }
-    h2 { font-size: clamp(2rem, 4.5vw, 3.8rem); font-weight: 800; }
-    h3 { font-size: clamp(1rem, 2vw, 1.2rem); font-weight: 700; }
-    p  { font-size: 1rem; line-height: 1.85; color: var(--muted); font-weight: 300; }
+    h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+    h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+    h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+    p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
     a  { color: inherit; text-decoration: none; }
 
     /* ---- Layout ---- */
@@ -624,31 +622,6 @@
       margin-top: 8px;
     }
 
-    /* ================================================================
-       FLOATING WHATSAPP
-    ================================================================ */
-    .wa-float {
-      position: fixed;
-      bottom: 28px; right: 28px;
-      width: 52px; height: 52px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
-      z-index: 998;
-      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-    }
-    .wa-float:hover {
-      transform: translateY(-3px) scale(1.05);
-      box-shadow: 0 8px 32px rgba(37,211,102,0.45);
-    }
-    .wa-float svg { width: 26px; height: 26px; }
-
-    @media (max-width: 640px) {
-      .wa-float { bottom: 20px; right: 20px; width: 46px; height: 46px; }
-    }
-
-  
     /* --- Modales legales --- */
     .modal-overlay {
       position: fixed; inset: 0; z-index: 2000;
@@ -772,7 +745,7 @@
             No somos consultores que entregan reportes. Somos implementadores: <span class="text-accent">llegamos, entendemos, construimos y nos quedamos para que funcione.</span>
           </p>
           <p>
-            Trabajamos con PYMEs en Puebla que saben que hay una forma más eficiente de operar — y que solo necesitan a alguien que lo construya para ellas sin complicaciones ni tecnicismos.
+            Trabajamos con empresas que quieren crecer y saben que hay una forma más eficiente de operar — y que solo necesitan a alguien que lo construya para ellas sin complicaciones ni tecnicismos.
           </p>
         </div>
       </div>
@@ -924,6 +897,53 @@
     </div>
   </section>
 
+  <!-- DIFERENCIADORES -->
+  <section class="differentiators">
+    <div class="wrap">
+      <p class="diff-label">Lo que nos hace diferentes</p>
+      <h2 class="diff-title">Por qué elegir Ryventis</h2>
+      <p class="diff-sub">No somos la única opción. Pero sí la que implementa, prueba y se queda contigo.</p>
+      <div class="diff-grid">
+        <div class="diff-card reveal" data-delay="0">
+          <div class="diff-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+            </svg>
+          </div>
+          <h3>Implementamos, no consultamos</h3>
+          <p>No entregamos reportes. Construimos la solución y la dejamos funcionando sin que tengas que tocar nada.</p>
+        </div>
+        <div class="diff-card reveal" data-delay="80">
+          <div class="diff-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+            </svg>
+          </div>
+          <h3>Diagnóstico siempre primero</h3>
+          <p>Nunca cotizamos sin entender tu operación. El diagnóstico es gratuito porque ahí empieza la confianza.</p>
+        </div>
+        <div class="diff-card reveal" data-delay="160">
+          <div class="diff-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+          </div>
+          <h3>QA antes de lanzar, siempre</h3>
+          <p>Ningún entregable sale sin pruebas. Preferimos tardarnos un día más que fallarte en producción.</p>
+        </div>
+        <div class="diff-card reveal" data-delay="240">
+          <div class="diff-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <h3>Resultados medibles o no lo prometemos</h3>
+          <p>Si no podemos medir el impacto, no lo vendemos. Solo tiempo ahorrado y dinero recuperado, sin tecnicismos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================================================================
        SECTION 5: CIERRE
   ================================================================ -->
@@ -942,6 +962,7 @@
         <a href="contacto.html" class="btn btn-primary">Agenda una conversación &rarr;</a>
         <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
       </div>
+      <p style="margin-top:1.25rem; font-size:0.9rem; color:var(--muted);">O llámanos: <a href="tel:+522271200295" style="color:var(--accent);">+52 227-120-0295</a></p>
     </div>
   </section>
 
@@ -1034,79 +1055,9 @@
   </footer>
 
   <!-- ================================================================
-       FLOATING WHATSAPP
-  ================================================================ -->
-  <a
-    class="wa-float"
-    href="https://wa.me/522271200295?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios."
-    rel="noopener noreferrer"
-    aria-label="Contactar por WhatsApp"
-    target="_blank"
-  >
-    <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M16 3C9.373 3 4 8.373 4 15c0 2.385.668 4.61 1.832 6.504L4 29l7.734-1.798A12.94 12.94 0 0016 28c6.627 0 12-5.373 12-12S22.627 3 16 3z" fill="white"/>
-      <path d="M21.707 18.507c-.31-.155-1.833-.904-2.117-.007-.282.093-.744.904-.913 1.086-.17.182-.34.204-.65.068-.31-.136-1.31-.483-2.494-1.537-.921-.82-1.544-1.834-1.724-2.144-.18-.31-.019-.477.135-.63.138-.138.31-.36.465-.54.155-.18.206-.31.31-.515.103-.206.05-.386-.026-.54-.077-.156-.913-2.2-1.25-3.01-.33-.79-.665-.684-.913-.697-.236-.012-.503-.015-.77-.015-.267 0-.7.1-1.068.515-.367.414-1.4 1.368-1.4 3.336s1.433 3.87 1.633 4.136c.2.265 2.822 4.31 6.836 6.044.955.412 1.7.659 2.281.844.959.305 1.832.262 2.522.159.769-.115 2.366-.967 2.7-1.9.334-.934.334-1.735.234-1.9-.1-.165-.367-.265-.677-.42z" fill="#25D366"/>
-    </svg>
-  </a>
-
-  <!-- ================================================================
        JAVASCRIPT
   ================================================================ -->
   <script>
-    // ---- Nav scroll state ----
-    (function () {
-      var nav = document.getElementById('nav');
-      function onScroll() {
-        if (window.scrollY > 12) {
-          nav.classList.add('scrolled');
-        } else {
-          nav.classList.remove('scrolled');
-        }
-      }
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-    })();
-
-    // ---- Mobile drawer ----
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var drawer = document.getElementById('navDrawer');
-      var close  = document.getElementById('navClose');
-
-      toggle.addEventListener('click', function () {
-        drawer.classList.add('open');
-        document.body.style.overflow = 'hidden';
-      });
-      function closeDrawer() {
-        drawer.classList.remove('open');
-        document.body.style.overflow = '';
-      }
-      close.addEventListener('click', closeDrawer);
-      drawer.addEventListener('click', function (e) {
-        if (e.target === drawer) closeDrawer();
-      });
-      document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape') closeDrawer();
-      });
-    })();
-
-    // ---- Scroll reveal ----
-    (function () {
-      var els = document.querySelectorAll('.reveal, .reveal-left');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var d = parseInt(entry.target.dataset.delay) || 0;
-            setTimeout(function () {
-              entry.target.classList.add('visible');
-            }, d);
-            obs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(function (el) { obs.observe(el); });
-    })();
-  
   // Modales legales
   function openModal(id) {
     var m = document.getElementById(id);
@@ -1126,6 +1077,8 @@
   });
 
 </script>
+
+  <script src="assets/js/shared.js" defer></script>
 
 </body>
 </html>

@@ -7,26 +7,37 @@
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none';">
   <title>Servicios — Ryventis Solutions</title>
-  <meta name="description" content="Automatización con IA para PYMES en Puebla. Chatbots inteligentes, automatización de procesos, agentes autónomos y análisis de datos.">
+  <meta name="description" content="Servicios de IA para empresas: chatbots, automatizaciones y agentes autónomos. Ryventis Solutions.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
     /* ─── Reset & Base ─── */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:        #0A0A0F;
-      --surface:   #111118;
-      --surface2:  #1C1C28;
-      --accent:    #00E5CC;
-      --accent-dk: #00B8A3;
-      --depth:     #7C3AED;
-      --text:      #F0F0F8;
-      --muted:     #8888A8;
-      --radius:    14px;
-      --radius-sm: 8px;
-      --transition: 200ms ease-out;
+      --bg:          #0F0F0F;
+      --surface:     #181818;
+      --surface-2:   #212121;
+      --surface-3:   #2A2A2A;
+      --accent:      #00E5CC;
+      --accent-dark: #00B8A3;
+      --gold:        #F59E0B;
+      --gold-dark:   #D97706;
+      --depth:       #7C3AED;
+      --text:        #F5F5F0;
+      --muted:       #888888;
+      --border:      rgba(255,255,255,0.08);
+      --border-dim:  rgba(255,255,255,0.04);
+      --font-head:   'Plus Jakarta Sans', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius:      14px;
+      --radius-sm:   8px;
+      --radius-lg:   20px;
+      --transition:  200ms ease-out;
+      --max-w:       1180px;
+      --nav-h:       68px;
     }
 
     html { scroll-behavior: smooth; }
@@ -43,11 +54,10 @@
 
     @keyframes pageIn { from { opacity: 0; } to { opacity: 1; } }
 
-    h1, h2, h3, h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      letter-spacing: 0.04em;
-      line-height: 1.15;
-    }
+    h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+    h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+    h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+    p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
 
     a { text-decoration: none; color: inherit; }
     ul { list-style: none; }
@@ -378,16 +388,26 @@
       text-align: center;
       position: relative;
       padding: 0 12px;
+      transition: transform 250ms ease-out, box-shadow 250ms ease-out, border-color 250ms ease-out;
+    }
+    .step-item:hover {
+      transform: scale(1.07);
+      z-index: 2;
+      box-shadow: 0 24px 64px rgba(0,229,204,0.12);
+      border-color: rgba(0,229,204,0.35);
     }
 
     .step-connector {
       flex: 1;
       max-width: 60px;
       height: 2px;
-      background: linear-gradient(90deg, rgba(0,229,204,0.4), rgba(124,58,237,0.4));
       margin-top: 36px;
       flex-shrink: 0;
+      width: 0;
+      transition: width 500ms ease;
+      background: linear-gradient(90deg, var(--accent), var(--depth));
     }
+    .step-connector.visible { width: 60px; }
 
     .step-icon {
       width: 52px;
@@ -797,27 +817,6 @@
     @media (max-width: 640px) {
       .footer-inner { flex-direction: column; align-items: flex-start; }
       .footer-copy { text-align: left; }
-    }
-
-    /* ─── WhatsApp Float ─── */
-    .whatsapp-float {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      width: 52px;
-      height: 52px;
-      background: #25D366;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 20px rgba(37,211,102,0.35);
-      z-index: 200;
-      transition: transform var(--transition), box-shadow var(--transition);
-    }
-    .whatsapp-float:hover {
-      transform: scale(1.1);
-      box-shadow: 0 8px 28px rgba(37,211,102,0.45);
     }
 
     /* ─── Responsive tweaks ─── */
@@ -1286,6 +1285,7 @@
         <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
       </svg>
     </a>
+    <p style="margin-top:1rem; font-size:0.9rem; color:var(--muted);">O llámanos: <a href="tel:+522271200295" style="color:var(--accent);">+52 227-120-0295</a></p>
   </section>
 
   <!-- ─── Footer ─── -->
@@ -1374,23 +1374,8 @@
     </div>
   </footer>
 
-  <!-- ─── WhatsApp Float ─── -->
-  <a href="https://wa.me/522271200295?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios." class="whatsapp-float" aria-label="WhatsApp" rel="noopener noreferrer">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-    </svg>
-  </a>
-
   <!-- ─── Scripts ─── -->
   <script>
-    // Nav scroll behavior
-    (function () {
-      const nav = document.getElementById('nav');
-      window.addEventListener('scroll', function () {
-        nav.classList.toggle('scrolled', window.scrollY > 20);
-      }, { passive: true });
-    })();
-
     // Mobile hamburger
     (function () {
       const toggle = document.getElementById('navToggle');
@@ -1402,23 +1387,6 @@
       });
     })();
 
-    // Scroll reveal
-    (function () {
-      const els = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-      const obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) {
-            const d = parseInt(e.target.dataset.delay) || 0;
-            setTimeout(function () {
-              e.target.classList.add('visible');
-            }, d);
-            obs.unobserve(e.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(function (el) { obs.observe(el); });
-    })();
-  
   // Modales legales
   function openModal(id) {
     var m = document.getElementById(id);
@@ -1438,6 +1406,8 @@
   });
 
 </script>
+
+  <script src="assets/js/shared.js" defer></script>
 
 </body>
 </html>

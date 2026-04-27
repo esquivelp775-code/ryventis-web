@@ -22,6 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
 
   <script type="application/ld+json">
   {
@@ -47,25 +48,27 @@
        DESIGN SYSTEM — RYVENTIS SOLUTIONS · Paleta Original
     ============================================================ */
     :root {
-      /* Paleta de marca */
-      --bg:          #0A0A0F;
-      --surface:     #111118;
-      --surface-2:   #1C1C28;
+      --bg:          #0F0F0F;
+      --surface:     #181818;
+      --surface-2:   #212121;
+      --surface-3:   #2A2A2A;
       --accent:      #00E5CC;
       --accent-dark: #00B8A3;
+      --gold:        #F59E0B;
+      --gold-dark:   #D97706;
       --depth:       #7C3AED;
-      --text:        #F0F0F8;
-      --muted:       #8888A8;
-      --border:      rgba(0, 229, 204, 0.10);
-      --border-dim:  rgba(255,255,255,0.06);
-
-      --font-head: 'Plus Jakarta Sans', sans-serif;
-      --font-body: 'DM Sans', sans-serif;
-
-      --max-w: 1180px;
-      --nav-h: 68px;
-      --radius: 4px;
-      --gap: 1.5rem;
+      --text:        #F5F5F0;
+      --muted:       #888888;
+      --border:      rgba(255,255,255,0.08);
+      --border-dim:  rgba(255,255,255,0.04);
+      --font-head:   'Plus Jakarta Sans', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius:      14px;
+      --radius-sm:   8px;
+      --radius-lg:   20px;
+      --transition:  200ms ease-out;
+      --max-w:       1180px;
+      --nav-h:       68px;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -81,11 +84,10 @@
     }
 
     /* ---- Tipografía editorial ---- */
-    h1, h2, h3 { font-family: var(--font-head); line-height: 1.08; letter-spacing: -0.02em; }
-    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 800; }
-    h2 { font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; }
-    h3 { font-size: clamp(1.1rem, 2vw, 1.3rem); font-weight: 700; }
-    p  { font-size: 1rem; line-height: 1.8; color: var(--muted); font-weight: 300; }
+    h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+    h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+    h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+    p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
     a  { color: inherit; text-decoration: none; }
 
     /* ---- Layout ---- */
@@ -116,7 +118,14 @@
       border: 1px solid transparent; cursor: pointer; transition: all 0.22s ease;
       white-space: nowrap; letter-spacing: 0.01em;
     }
-    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+    .btn-primary { background: var(--accent); color: var(--bg); border-color: var(--accent); position: relative; overflow: hidden; }
+    .btn-primary::after {
+      content: ''; position: absolute;
+      top: 0; left: -120%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+      transition: left 0.45s ease;
+    }
+    .btn-primary:hover::after { left: 160%; }
     .btn-primary:hover { background: var(--accent-dark); border-color: var(--accent-dark); transform: translateY(-1px); box-shadow: 0 12px 40px rgba(0,229,204,0.22); }
     .btn-outline { background: transparent; color: var(--text); border-color: rgba(255,255,255,0.18); }
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
@@ -530,19 +539,6 @@
     .footer-copy { font-size: 0.78rem; color: var(--muted); font-weight: 300; }
 
     /* ================================================================
-       FLOTANTE WHATSAPP
-    ================================================================ */
-    .wsp-float {
-      position: fixed; bottom: 28px; right: 28px; z-index: 990;
-      width: 52px; height: 52px; border-radius: 50%;
-      background: #25D366; display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 4px 24px rgba(37,211,102,0.35);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
-    .wsp-float:hover { transform: scale(1.08); box-shadow: 0 8px 32px rgba(37,211,102,0.5); }
-    .wsp-float svg { width: 26px; height: 26px; }
-
-    /* ================================================================
        UTILIDADES EXTRA
     ================================================================ */
     .text-accent { color: var(--accent); }
@@ -690,13 +686,17 @@
       margin-top:8px;
     }
 
-    /* h1/h2 slight positive letter-spacing (editorial) */
-    h1 { letter-spacing:0.02em; }
-    h2 { letter-spacing:0.02em; }
 
   </style>
+  <script src="assets/js/shared.js" defer></script>
 </head>
 <body>
+
+<div id="splash" aria-hidden="true">
+  <div class="splash-logo">Ry<span class="sl-ventis">ventis</span><span class="sl-dot">.</span></div>
+  <p class="splash-tag">Tecnología que piensa, soluciones que ejecutan.</p>
+  <div class="splash-bar"><div class="splash-progress"></div></div>
+</div>
 
 <!-- ================================================================
      NAVEGACIÓN
@@ -739,6 +739,8 @@
      HERO
 ================================================================ -->
 <section id="hero">
+
+<div class="hero-orb" aria-hidden="true"></div>
 
   <div class="hero-bg">
     <img src="assets/img/hero/hero-main.jpg" alt="Equipo Ryventis trabajando con IA" fetchpriority="high">
@@ -1029,7 +1031,7 @@
 
         <div class="contact-detail">
           <span class="label">WhatsApp</span>
-          <a href="https://wa.me/522271200295" target="_blank" rel="noopener noreferrer">+52 227 120 0295</a>
+          <a href="https://wa.me/522271200295" target="_blank" rel="noopener noreferrer">+52 227-120-0295</a>
         </div>
         <div class="contact-detail">
           <span class="label">Correo</span>
@@ -1205,22 +1207,14 @@
   </div>
 </footer>
 
-<!-- WhatsApp flotante -->
-<a class="wsp-float" href="https://wa.me/522271200295?text=Hola%2C%20vi%20su%20p%C3%A1gina%20y%20me%20interesa%20el%20diagn%C3%B3stico%20gratuito" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-  <svg viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 3C8.82 3 3 8.82 3 16c0 2.36.63 4.57 1.73 6.49L3 29l6.72-1.7C11.53 28.39 13.72 29 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm6.42 18.42c-.27.76-1.56 1.45-2.14 1.54-.56.08-1.27.12-2.05-.13-.47-.15-1.08-.35-1.85-.69-3.25-1.4-5.37-4.68-5.53-4.9-.16-.22-1.3-1.73-1.3-3.3 0-1.57.82-2.34 1.11-2.66.29-.32.64-.4.85-.4l.61.01c.2.01.46-.07.72.55.27.63.92 2.24.99 2.4.08.16.13.35.03.56-.1.21-.15.34-.3.52-.15.18-.32.4-.45.54-.15.15-.31.31-.13.61.18.3.8 1.32 1.72 2.13 1.18 1.05 2.17 1.38 2.48 1.53.31.15.49.13.67-.08.18-.21.77-.9.98-1.21.2-.31.41-.26.69-.16.28.1 1.79.84 2.1.99.31.15.52.22.6.35.08.13.08.76-.19 1.52z"/>
-  </svg>
-</a>
-
 <!-- ================================================================
      JAVASCRIPT
 ================================================================ -->
 <script>
-  // Nav scroll effect
-  const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 40);
-  }, { passive: true });
+  // Splash
+  document.querySelector('#splash')?.addEventListener('animationend', function(e){
+    if(e.animationName==='splashExit') e.target.remove();
+  });
 
   // Drawer móvil
   function openDrawer()  { document.getElementById('drawer').classList.add('open'); document.body.style.overflow = 'hidden'; }
@@ -1240,22 +1234,6 @@
     const text = `Hola, soy ${name} de ${biz}.\n\nServicio de interés: ${service || 'Sin especificar'}\n\nMi mayor problema hoy: ${msg || '(sin detalle adicional)'}`;
     window.open(`https://wa.me/522271200295?text=${encodeURIComponent(text)}`, '_blank', 'noopener,noreferrer');
   }
-
-  // Scroll reveal — fade + slide, con stagger por data-delay
-  (function () {
-    const revealEls = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
-    if (!revealEls.length) return;
-    const obs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const delay = parseInt(entry.target.dataset.delay) || 0;
-          setTimeout(() => entry.target.classList.add('visible'), delay);
-          obs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-    revealEls.forEach(el => obs.observe(el));
-  })();
 
   // Modales legales
   function openModal(id) {

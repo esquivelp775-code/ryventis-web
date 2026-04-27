@@ -11,7 +11,35 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/shared.css">
   <style>
+    /* ===========================
+       CSS VARIABLES
+    =========================== */
+    :root {
+      --bg:          #0F0F0F;
+      --surface:     #181818;
+      --surface-2:   #212121;
+      --surface-3:   #2A2A2A;
+      --accent:      #00E5CC;
+      --accent-dark: #00B8A3;
+      --gold:        #F59E0B;
+      --gold-dark:   #D97706;
+      --depth:       #7C3AED;
+      --text:        #F5F5F0;
+      --muted:       #888888;
+      --border:      rgba(255,255,255,0.08);
+      --border-dim:  rgba(255,255,255,0.04);
+      --font-head:   'Plus Jakarta Sans', sans-serif;
+      --font-body:   'DM Sans', sans-serif;
+      --radius:      14px;
+      --radius-sm:   8px;
+      --radius-lg:   20px;
+      --transition:  200ms ease-out;
+      --max-w:       1180px;
+      --nav-h:       68px;
+    }
+
     /* ===========================
        RESET & BASE
     =========================== */
@@ -60,11 +88,10 @@
     /* ===========================
        TYPOGRAPHY
     =========================== */
-    h1, h2, h3, h4 {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      letter-spacing: 0.04em;
-      line-height: 1.15;
-    }
+    h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
+    h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
+    h3 { font: 700 clamp(1.1rem, 1.8vw, 1.35rem)/1.3 var(--font-head); color: var(--text); }
+    p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
     .accent { color: #00E5CC; }
     .muted { color: #8888A8; }
 
@@ -343,11 +370,13 @@
       flex-shrink: 0;
       position: relative;
       z-index: 1;
-      transition: border-color 200ms ease-out, background 200ms ease-out;
+      transition: transform 250ms ease-out, background 250ms ease-out, border-color 250ms ease-out, box-shadow 250ms ease-out;
     }
     .timeline-item:hover .timeline-number {
-      background: rgba(0, 229, 204, 0.1);
-      border-color: #00E5CC;
+      transform: scale(1.15);
+      background: rgba(0,229,204,0.15);
+      border-color: var(--accent);
+      box-shadow: 0 0 20px rgba(0,229,204,0.25);
     }
     .timeline-content {
       padding-top: 10px;
@@ -592,30 +621,6 @@
     .footer-copy {
       color: #8888A8;
       font-size: 0.82rem;
-    }
-
-    /* ===========================
-       WHATSAPP FLOAT
-    =========================== */
-    .wa-float {
-      position: fixed;
-      bottom: 28px;
-      right: 28px;
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: #25D366;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      box-shadow: 0 4px 20px rgba(37, 211, 102, 0.35);
-      z-index: 200;
-      transition: transform 200ms ease-out, box-shadow 200ms ease-out;
-    }
-    .wa-float:hover {
-      transform: scale(1.08);
-      box-shadow: 0 6px 28px rgba(37, 211, 102, 0.5);
     }
 
     /* ===========================
@@ -957,6 +962,7 @@
           Agenda tu diagnóstico gratuito
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
         </a>
+        <p style="margin-top:1rem; font-size:0.9rem; color:var(--muted);">O llámanos: <a href="tel:+522271200295" style="color:var(--accent);">+52 227-120-0295</a></p>
       </div>
     </div>
   </section>
@@ -1050,16 +1056,6 @@
   </footer>
 
   <!-- ========================
-       WHATSAPP FLOAT
-  ========================= -->
-  <a href="https://wa.me/522271200295?text=Hola%2C%20me%20interesa%20saber%20m%C3%A1s%20sobre%20sus%20servicios." class="wa-float" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-    <svg width="26" height="26" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
-      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.12 1.531 5.845L.044 23.956l6.275-1.464A11.944 11.944 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 0 1-5.006-1.369l-.359-.213-3.724.869.937-3.629-.233-.372A9.79 9.79 0 0 1 2.182 12C2.182 6.57 6.57 2.182 12 2.182c5.43 0 9.818 4.388 9.818 9.818 0 5.43-4.388 9.818-9.818 9.818z"/>
-    </svg>
-  </a>
-
-  <!-- ========================
        JAVASCRIPT
   ========================= -->
   <script>
@@ -1074,21 +1070,6 @@
       }
     })();
 
-    // Scroll reveal
-    (function () {
-      var els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-      var obs = new IntersectionObserver(function (entries) {
-        entries.forEach(function (i) {
-          if (i.isIntersecting) {
-            var d = parseInt(i.target.dataset.delay) || 0;
-            setTimeout(function () { i.target.classList.add('visible'); }, d);
-            obs.unobserve(i.target);
-          }
-        });
-      }, { threshold: 0.1 });
-      els.forEach(function (el) { obs.observe(el); });
-    })();
-  
   // Modales legales
   function openModal(id) {
     var m = document.getElementById(id);
@@ -1108,6 +1089,7 @@
   });
 
 </script>
+  <script src="assets/js/shared.js" defer></script>
 
 </body>
 </html>
