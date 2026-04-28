@@ -479,3 +479,38 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   margin-bottom: 1.1rem;
   width: fit-content;
 }
+
+/* ---- Barra de prueba social (debajo del hero) ---- */
+.proof-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0.9rem var(--gutter);
+  background: var(--surface);
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+}
+.proof-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font: 500 0.75rem var(--font-head);
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.4rem 1.25rem;
+  white-space: nowrap;
+}
+.proof-item svg { color: var(--accent); flex-shrink: 0; }
+.proof-divider {
+  width: 1px;
+  height: 1rem;
+  background: var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 640px) {
+  .proof-bar { gap: 0.25rem 0; }
+  .proof-divider { display: none; }
+  .proof-item { padding: 0.3rem 0.6rem; font-size: 0.7rem; }
+}
