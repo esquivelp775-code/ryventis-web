@@ -316,3 +316,166 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   }
   #splash { animation: none !important; display: none !important; }
 }
+
+/* ============================================================
+   DYSRUPT-STYLE ADDITIONS v3
+   ============================================================ */
+
+/* ---- Texto con gradiente teal → violeta ---- */
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--depth) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---- Número de sección grande outline (01, 02, 03) ---- */
+.num-label {
+  display: block;
+  font: 800 clamp(3rem, 7vw, 6rem)/1 var(--font-head);
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(0, 229, 204, 0.18);
+  letter-spacing: -0.03em;
+  margin-bottom: 0.25rem;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* ---- Métrica enorme con dorado ---- */
+.metric-huge {
+  font: 800 clamp(3rem, 7vw, 5.5rem)/1 var(--font-head);
+  color: var(--gold);
+  letter-spacing: -0.03em;
+  display: block;
+}
+.metric-label {
+  font: 500 0.8rem/1 var(--font-body);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 0.5rem;
+  display: block;
+}
+
+/* ---- Tag dorado de sección ---- */
+.tag-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font: 600 0.7rem var(--font-head);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  margin-bottom: 1rem;
+  width: fit-content;
+}
+
+/* ---- Marquee — ticker horizontal de logos/stack ---- */
+.marquee-section {
+  padding: 1.75rem 0;
+  overflow: hidden;
+  border-top: 1px solid var(--border-dim);
+  border-bottom: 1px solid var(--border-dim);
+  background: var(--surface);
+  mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 3.5rem;
+  width: max-content;
+  animation: marqueeScroll 32s linear infinite;
+  align-items: center;
+}
+.marquee-section:hover .marquee-track { animation-play-state: paused; }
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  opacity: 0.4;
+  transition: opacity 200ms ease;
+  white-space: nowrap;
+  font: 600 0.85rem var(--font-head);
+  color: var(--text);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.marquee-item:hover { opacity: 0.85; }
+.marquee-item svg { color: var(--accent); flex-shrink: 0; }
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ---- Tarjeta expandible (acordeón) ---- */
+.expand-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  margin-bottom: 0.75rem;
+}
+.expand-card:hover { border-color: rgba(0, 229, 204, 0.2); }
+.expand-card.open  { border-color: rgba(0, 229, 204, 0.35); box-shadow: 0 8px 32px rgba(0, 229, 204, 0.06); }
+.expand-trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 1.75rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: var(--text);
+  gap: 1rem;
+  text-align: left;
+}
+.expand-trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.expand-num {
+  font: 800 1.4rem/1 var(--font-head);
+  color: var(--accent);
+  min-width: 2ch;
+  opacity: 0.45;
+  transition: opacity var(--transition);
+}
+.expand-card.open .expand-num { opacity: 1; }
+.expand-title {
+  font: 700 1.05rem/1.3 var(--font-head);
+  color: var(--text);
+}
+.expand-icon {
+  color: var(--muted);
+  transition: transform 320ms ease, color 320ms ease;
+  flex-shrink: 0;
+}
+.expand-card.open .expand-icon { transform: rotate(45deg); color: var(--accent); }
+.expand-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 420ms cubic-bezier(0.4, 0, 0.2, 1);
+  padding: 0 1.75rem;
+}
+.expand-card.open .expand-body { max-height: 800px; padding-bottom: 1.75rem; }
+.expand-body p { margin-bottom: 0.75rem; }
+.expand-body p:last-child { margin-bottom: 0; }
+.expand-tag {
+  display: inline-flex;
+  align-items: center;
+  font: 500 0.78rem var(--font-head);
+  color: var(--gold);
+  background: rgba(245, 158, 11, 0.08);
+  border: 1px solid rgba(245, 158, 11, 0.2);
+  border-radius: 100px;
+  padding: 0.3rem 0.9rem;
+  margin-bottom: 1.1rem;
+  width: fit-content;
+}
