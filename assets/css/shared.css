@@ -514,3 +514,62 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   .proof-divider { display: none; }
   .proof-item { padding: 0.3rem 0.6rem; font-size: 0.7rem; }
 }
+
+/* ---- Case study / impact cards ---- */
+.cs-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+.cs-card {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 2rem 2rem 1.75rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color var(--transition), transform var(--transition);
+}
+.cs-card:hover {
+  border-color: rgba(0, 229, 204, 0.2);
+  transform: translateY(-3px);
+}
+.cs-sector-tag {
+  font: 600 0.7rem var(--font-head);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.cs-problem {
+  font: 400 0.95rem/1.7 var(--font-body);
+  color: var(--muted);
+  flex: 1;
+  margin-bottom: 2rem;
+}
+.cs-bottom {
+  border-top: 1px solid var(--border-dim);
+  padding-top: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.cs-metric-val {
+  font: 800 clamp(2.5rem, 5vw, 3.5rem)/1 var(--font-head);
+  color: var(--gold);
+  letter-spacing: -0.03em;
+}
+.cs-metric-desc {
+  font: 500 0.72rem/1.4 var(--font-head);
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  max-width: 12ch;
+  text-align: right;
+}
+@media (max-width: 900px) {
+  .cs-grid { grid-template-columns: 1fr; }
+  .cs-card:hover { transform: none; }
+}
