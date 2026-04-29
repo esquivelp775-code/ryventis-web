@@ -83,6 +83,37 @@
       overflow-x: hidden;
     }
 
+    /* ---- Cursor personalizado ---- */
+    @media (pointer: fine) {
+      body { cursor: none; }
+      a, button, [role="button"], label, select, .expand-trigger { cursor: none; }
+    }
+    #cursor-dot {
+      position: fixed; top: 0; left: 0; z-index: 99999;
+      width: 6px; height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.2s, height 0.2s, background 0.2s, opacity 0.3s;
+      will-change: transform;
+    }
+    #cursor-ring {
+      position: fixed; top: 0; left: 0; z-index: 99998;
+      width: 36px; height: 36px;
+      border: 1.5px solid rgba(0, 229, 204, 0.5);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      transition: width 0.25s, height 0.25s, border-color 0.25s, opacity 0.3s;
+      will-change: transform;
+    }
+    body.cursor-hover #cursor-dot { width: 10px; height: 10px; background: var(--gold); }
+    body.cursor-hover #cursor-ring { width: 52px; height: 52px; border-color: rgba(245, 158, 11, 0.45); }
+    body.cursor-clicking #cursor-dot { width: 4px; height: 4px; }
+    body.cursor-clicking #cursor-ring { width: 28px; height: 28px; }
+    @media (pointer: coarse) { #cursor-dot, #cursor-ring { display: none; } }
+
     /* ---- Tipografía editorial ---- */
     h1 { font: 800 clamp(2.8rem, 6vw, 5rem)/1.15 var(--font-head); letter-spacing: -0.02em; color: var(--text); }
     h2 { font: 800 clamp(2rem, 4vw, 3.2rem)/1.2  var(--font-head); letter-spacing: -0.01em; color: var(--text); }
@@ -753,6 +784,9 @@
   <script src="assets/js/shared.js" defer></script>
 </head>
 <body>
+
+<div id="cursor-dot" aria-hidden="true"></div>
+<div id="cursor-ring" aria-hidden="true"></div>
 
 <div id="splash" aria-hidden="true">
   <div class="splash-logo">Ry<span class="sl-ventis">ventis</span><span class="sl-dot">.</span></div>
@@ -1460,6 +1494,36 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
   });
+
+  // Cursor personalizado — dot exacto + ring con lerp
+  (function() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    const dot  = document.getElementById('cursor-dot');
+    const ring = document.getElementById('cursor-ring');
+    if (!dot || !ring) return;
+    let mx = -100, my = -100, rx = -100, ry = -100;
+    const LERP = 0.12;
+    document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+    document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+    document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+    const hoverTargets = 'a, button, [role="button"], label, select, .expand-trigger, .marquee-item';
+    document.addEventListener('mouseover', e => {
+      if (e.target.closest(hoverTargets)) document.body.classList.add('cursor-hover');
+    });
+    document.addEventListener('mouseout', e => {
+      if (e.target.closest(hoverTargets)) document.body.classList.remove('cursor-hover');
+    });
+    document.addEventListener('mousedown', () => document.body.classList.add('cursor-clicking'));
+    document.addEventListener('mouseup',   () => document.body.classList.remove('cursor-clicking'));
+    function loop() {
+      dot.style.transform  = `translate(calc(${mx}px - 50%), calc(${my}px - 50%))`;
+      rx += (mx - rx) * LERP;
+      ry += (my - ry) * LERP;
+      ring.style.transform = `translate(calc(${rx}px - 50%), calc(${ry}px - 50%))`;
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  })();
 
   // Count-up animado en métricas
   (function() {
