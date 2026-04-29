@@ -742,6 +742,46 @@
     }
 
     /* ================================================================
+       CTA FINAL — full-width cierre de journey
+    ================================================================ */
+    #cta-final {
+      padding: clamp(100px, 12vw, 160px) 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 60% at 50% 110%, rgba(0,229,204,0.07) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 40% at 20% -10%, rgba(124,58,237,0.09) 0%, transparent 60%),
+        var(--bg);
+      border-top: 1px solid var(--border-dim);
+    }
+    .cta-final-tag { margin-bottom: 1.5rem; }
+    .cta-final-h {
+      font: 800 clamp(2.5rem, 6vw, 5rem)/1.05 var(--font-head);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.25rem;
+      max-width: 780px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .cta-final-sub {
+      font: 400 1.05rem/1.7 var(--font-body);
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 2.5rem;
+    }
+    .cta-final-actions {
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .cta-final-note {
+      margin-top: 1.25rem;
+      font: 400 0.78rem var(--font-body);
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+
+    /* ================================================================
        CHALLENGE — dolor del mercado antes de Ryventis
     ================================================================ */
     #challenge {
@@ -1401,6 +1441,35 @@
           <p style="font-size:0.78rem;text-align:center;margin-top:8px;">Te respondemos en menos de 2 horas en horario laboral.</p>
         </form>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     CTA FINAL — cierre de journey
+================================================================ -->
+<section id="cta-final">
+  <div class="wrap">
+    <div class="reveal">
+      <div class="cta-final-tag">
+        <span class="tag-gold">Sin compromiso</span>
+      </div>
+      <h2 class="cta-final-h">
+        Tu primer diagnóstico<br>
+        es <em class="gradient-text">completamente gratis</em>.
+      </h2>
+      <p class="cta-final-sub">
+        60 minutos. Identificamos 3 procesos que puedes automatizar ahora mismo. Sin tecnicismos, sin compromiso de compra.
+      </p>
+      <div class="cta-final-actions">
+        <a href="contacto.html" class="btn btn-primary" style="padding:0.9rem 2.2rem;font-size:1rem;">
+          Agendar diagnóstico gratuito →
+        </a>
+        <a href="servicios.html" class="btn btn-outline" style="padding:0.9rem 2.2rem;font-size:1rem;">
+          Ver servicios
+        </a>
+      </div>
+      <p class="cta-final-note">Te respondemos en menos de 2 horas · Sin spam · Sin compromiso</p>
     </div>
   </div>
 </section>
