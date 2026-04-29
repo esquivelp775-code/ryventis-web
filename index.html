@@ -1017,21 +1017,21 @@
       </div>
     </div>
 
-    <div class="stats-grid reveal" style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-dim);">
+    <div class="stats-grid reveal" id="proceso-stats" style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border-dim);">
       <div class="stat-item">
-        <span class="metric-huge">60<small style="font-size:0.45em;vertical-align:middle;">min</small></span>
+        <span class="metric-huge"><span data-count="60">0</span><small style="font-size:0.45em;vertical-align:middle;">min</small></span>
         <span class="metric-label">Diagnóstico inicial gratuito</span>
       </div>
       <div class="stat-item">
-        <span class="metric-huge">10</span>
+        <span class="metric-huge" data-count="10">0</span>
         <span class="metric-label">Puntos de control QA</span>
       </div>
       <div class="stat-item">
-        <span class="metric-huge">24/7</span>
+        <span class="metric-huge metric-pop">24/7</span>
         <span class="metric-label">Tu sistema opera solo</span>
       </div>
       <div class="stat-item">
-        <span class="metric-huge">0</span>
+        <span class="metric-huge metric-pop">0</span>
         <span class="metric-label">Líneas que escribes tú</span>
       </div>
     </div>
@@ -1364,6 +1364,35 @@
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
   });
+
+  // Count-up animado en métricas
+  (function() {
+    const grid = document.getElementById('proceso-stats');
+    if (!grid) return;
+    function easeOutQuart(t) { return 1 - Math.pow(1 - t, 4); }
+    function countUp(el, target, duration) {
+      const start = performance.now();
+      function tick(now) {
+        const t = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(easeOutQuart(t) * target);
+        if (t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    }
+    let fired = false;
+    const obs = new IntersectionObserver(entries => {
+      if (fired || !entries[0].isIntersecting) return;
+      fired = true;
+      obs.disconnect();
+      grid.querySelectorAll('[data-count]').forEach(el => {
+        countUp(el, parseInt(el.dataset.count, 10), 1500);
+      });
+      grid.querySelectorAll('.metric-pop').forEach((el, i) => {
+        setTimeout(() => el.classList.add('popped'), i * 120);
+      });
+    }, { threshold: 0.3 });
+    obs.observe(grid);
+  })();
 
   // Nav transparente → sólida en scroll
   (function() {

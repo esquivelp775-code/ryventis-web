@@ -364,6 +364,14 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   letter-spacing: -0.03em;
   display: block;
 }
+@keyframes metricPop {
+  0%   { opacity: 0; transform: scale(0.75); }
+  60%  { transform: scale(1.06); }
+  100% { opacity: 1; transform: scale(1); }
+}
+.metric-pop.popped {
+  animation: metricPop 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
 .metric-label {
   font: 500 0.8rem/1 var(--font-body);
   color: var(--muted);
