@@ -440,7 +440,7 @@
     .step:first-child { padding-left: 0; }
     .step:first-child .step-dot { left: 0; }
     .step:hover .step-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 14px rgba(0,229,204,0.4); }
-    .step-num { font: 800 clamp(1.8rem, 3vw, 2.5rem)/1 var(--font-head); color: var(--gold); letter-spacing: -0.02em; margin-bottom: 6px; }
+    .step-num { font: 800 clamp(1.8rem, 3vw, 2.5rem)/1 var(--font-head); color: var(--accent); letter-spacing: -0.02em; margin-bottom: 6px; }
     .step-label { font: 600 0.62rem var(--font-head); color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 10px; }
     .step-title { font-family: var(--font-head); font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
     .step-text { font-size: 0.82rem; color: var(--muted); line-height: 1.6; font-weight: 300; }
@@ -840,6 +840,20 @@
     /* Service row — prices shown on servicios.html, hidden here */
     .service-price { display:none; }
 
+    /* Link discreto dentro del expand-body del acordeón de servicios */
+    .svc-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font: 600 0.8rem var(--font-head);
+      color: var(--accent);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-top: 0.75rem;
+      transition: gap 180ms;
+    }
+    .svc-link:hover { gap: 0.6rem; }
+
     /* Row 06 custom CTA inline */
     .service-cta-inline { display:flex; align-items:center; padding:24px 32px 24px 0; }
     @media(max-width:700px){ .service-cta-inline { padding:0 0 24px 0; } }
@@ -966,8 +980,6 @@
     <span class="proof-divider"></span>
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>7 días de soporte post-deploy</span>
     <span class="proof-divider"></span>
-    <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Implementación en menos de 72h</span>
-    <span class="proof-divider"></span>
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Atención 24/7 garantizada</span>
     <span class="proof-divider"></span>
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>Stack tecnológico de primer nivel</span>
@@ -978,8 +990,6 @@
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Diagnóstico gratuito</span>
     <span class="proof-divider"></span>
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>7 días de soporte post-deploy</span>
-    <span class="proof-divider"></span>
-    <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Implementación en menos de 72h</span>
     <span class="proof-divider"></span>
     <span class="proof-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Atención 24/7 garantizada</span>
     <span class="proof-divider"></span>
@@ -1200,9 +1210,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Desde $9,500 MXN setup · $2,500/mes retainer</span>
           <p>Atención 24/7 en WhatsApp y web. Responde preguntas, califica leads y agenda citas automáticamente — sin intervención de tu equipo.</p>
-          <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
+          <a href="servicios.html" class="svc-link">Ver detalles completos →</a>
         </div>
       </div>
 
@@ -1215,9 +1224,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Desde $8,000 MXN setup · $2,000/mes retainer</span>
           <p>Conecta tus herramientas (WhatsApp, Google Sheets, CRM) para que los procesos se ejecuten solos — sin intervención manual.</p>
-          <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
+          <a href="servicios.html" class="svc-link">Ver detalles completos →</a>
         </div>
       </div>
 
@@ -1230,9 +1238,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Desde $18,000 MXN setup · $4,500/mes retainer</span>
-          <p>Un agente que califica leads, hace seguimiento y escala al humano solo cuando es necesario. Ideal para inmobiliarias y clínicas con alto volumen de prospectos.</p>
-          <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
+          <p>Un agente que califica leads, hace seguimiento y escala al humano solo cuando es necesario. Ideal para inmobiliarias y clínicas.</p>
+          <a href="servicios.html" class="svc-link">Ver detalles completos →</a>
         </div>
       </div>
 
@@ -1245,9 +1252,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Desde $12,000 MXN setup · $2,800/mes retainer</span>
           <p>Dashboard interactivo con KPIs clave y alertas automáticas. Decisiones en segundos, no en horas.</p>
-          <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
+          <a href="servicios.html" class="svc-link">Ver detalles completos →</a>
         </div>
       </div>
 
@@ -1260,9 +1266,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Desde $16,000 MXN setup · $3,500/mes retainer</span>
           <p>Chatbot + automatización en un solo paquete. La forma más rápida de ver resultados reales — incluye 1 mes de soporte.</p>
-          <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
+          <a href="servicios.html" class="svc-link">Ver detalles completos →</a>
         </div>
       </div>
 
@@ -1275,9 +1280,8 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <span class="expand-tag">Cotización personalizada según alcance</span>
-          <p>Compártenos tu situación. Analizamos tu operación y diseñamos una solución desde cero, adaptada exactamente a lo que tu negocio necesita.</p>
-          <a href="contacto.html" class="btn btn-outline btn-sm" style="margin-top:1rem;display:inline-flex;">Cuéntanos tu caso →</a>
+          <p>Compártenos tu situación. Analizamos tu operación y diseñamos una solución desde cero, adaptada a lo que tu negocio necesita.</p>
+          <a href="contacto.html" class="svc-link">Cuéntanos tu caso →</a>
         </div>
       </div>
 

@@ -511,6 +511,23 @@
       font-weight: 300;
     }
 
+    /* ─── Hover-reveal para cards de servicios ─── */
+    .services .expand-card { cursor: default; }
+    .services .expand-card .expand-body {
+      max-height: 0;
+      overflow: hidden;
+      padding-bottom: 0;
+      transition: max-height 380ms cubic-bezier(0.4, 0, 0.2, 1), padding-bottom 380ms ease;
+    }
+    .services .expand-card:hover .expand-body {
+      max-height: 300px;
+      padding-bottom: 1.75rem;
+    }
+    .services .expand-card:hover { border-color: rgba(0, 229, 204, 0.35); }
+    .services .expand-card:hover .expand-num { opacity: 1; }
+    .services .expand-card:hover .expand-icon { transform: rotate(45deg); color: var(--accent); }
+    .services .expand-trigger { cursor: default; pointer-events: none; }
+
     /* ─── Service Row ─── */
     .service-row {
       display: grid;
@@ -1021,9 +1038,6 @@
         </button>
         <div class="expand-body">
           <p>Atención al cliente 24/7, calificación de leads y agendado de citas sin intervención humana. Tu negocio responde aunque estés durmiendo.</p>
-          <p><strong>Canal:</strong> WhatsApp Business · Web</p>
-          <p><strong>Para quien es:</strong> Clínicas, consultorios, despachos, inmobiliarias — cualquier negocio con alto volumen de mensajes repetitivos.</p>
-          <p><strong>Proceso:</strong> Mapeo de flujos de conversación → Configuración de WhatsApp Business API + Calendar → Entrenamiento con tus procesos reales → QA con escenarios reales → Monitoreo activo post-lanzamiento.</p>
           <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
         </div>
       </div>
@@ -1038,9 +1052,6 @@
         </button>
         <div class="expand-body">
           <p>Conectar todas tus herramientas para que la información fluya sola — sin copiar y pegar, sin errores manuales, sin tiempo perdido.</p>
-          <p><strong>Canal:</strong> n8n · Make · Zapier</p>
-          <p><strong>Para quien es:</strong> Cualquier empresa con procesos repetitivos entre múltiples plataformas (WhatsApp + Sheets, CRM + email, y más).</p>
-          <p><strong>Proceso:</strong> Inventario de herramientas actuales → Diseño del mapa de automatización → Construcción con puntos de verificación → Pruebas con datos reales → Documentación completa + capacitación.</p>
           <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
         </div>
       </div>
@@ -1055,9 +1066,6 @@
         </button>
         <div class="expand-body">
           <p>Un agente que califica leads, hace seguimiento, responde preguntas frecuentes y escala al humano solo cuando es necesario. Sin dejar que ningún prospecto se enfríe.</p>
-          <p><strong>Canal:</strong> WhatsApp · CRM · Calendar</p>
-          <p><strong>Para quien es:</strong> Inmobiliarias, clínicas con alto volumen de leads, negocios donde la velocidad de respuesta define la conversión.</p>
-          <p><strong>Proceso:</strong> Definición de criterios de calificación → Diseño del flujo de conversación y reglas de escalamiento → Integración CRM + WhatsApp + Calendar → Entrenamiento con objeciones reales → Monitoreo y optimización continua.</p>
           <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
         </div>
       </div>
@@ -1072,9 +1080,6 @@
         </button>
         <div class="expand-body">
           <p>Transformar los datos que ya tienes en información accionable — sin consultores, sin reportes manuales, sin esperar fin de mes para saber cómo van tus números.</p>
-          <p><strong>Canal:</strong> Google Sheets · Airtable · Dashboard</p>
-          <p><strong>Para quien es:</strong> Empresas con datos dispersos en múltiples hojas o sistemas que necesitan visibilidad operativa en tiempo real.</p>
-          <p><strong>Proceso:</strong> Auditoría de fuentes de datos → Diseño del dashboard con KPIs clave → Conexión de fuentes + reportes automatizados → Alertas automáticas ante variaciones → Reporte ejecutivo mensual generado automáticamente.</p>
           <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
         </div>
       </div>
@@ -1088,10 +1093,7 @@
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
         <div class="expand-body">
-          <p>El punto de entrada ideal para empresas que quieren resultados rápidos sin comprometerse a un proyecto de gran escala. Dos entregables, un solo proceso.</p>
-          <p><strong>Canal:</strong> Chatbot + Automatización</p>
-          <p><strong>Incluye:</strong> Chatbot Inteligente + 1 Automatización de Procesos + 1 mes de soporte incluido.</p>
-          <p><strong>Proceso:</strong> Diagnóstico conjunto → Blueprint del chatbot + automatización en paralelo → Construcción secuenciada → QA integral de los dos sistemas → 30 días de soporte post-entrega.</p>
+          <p>El punto de entrada ideal para empresas que quieren resultados rápidos sin comprometerse a un proyecto de gran escala. Chatbot Inteligente + 1 Automatización + 1 mes de soporte incluido.</p>
           <a href="contacto.html" class="btn btn-primary btn-sm" style="margin-top:1rem;display:inline-flex;">Diagnóstico gratuito →</a>
         </div>
       </div>
@@ -1247,32 +1249,7 @@
     if (e.key === 'Escape') document.querySelectorAll('.modal-overlay.open').forEach(function(m) { closeModal(m.id); });
   });
 
-  // Acordeón de servicios
-  (function() {
-    var cards = document.querySelectorAll('.expand-card');
-    cards.forEach(function(card) {
-      var btn = card.querySelector('.expand-trigger');
-      if (!btn) return;
-      btn.addEventListener('click', function() {
-        var isOpen = card.classList.contains('open');
-        cards.forEach(function(c) {
-          c.classList.remove('open');
-          var b = c.querySelector('.expand-trigger');
-          if (b) b.setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          card.classList.add('open');
-          btn.setAttribute('aria-expanded', 'true');
-        }
-      });
-    });
-    // Primer card abierto por defecto
-    if (cards.length) {
-      cards[0].classList.add('open');
-      var b = cards[0].querySelector('.expand-trigger');
-      if (b) b.setAttribute('aria-expanded', 'true');
-    }
-  })();
+  // Servicios: hover-reveal vía CSS — no se requiere JS de acordeón
 
 </script>
 

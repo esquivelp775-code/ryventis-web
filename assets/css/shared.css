@@ -516,6 +516,7 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
 }
 .proof-track {
   display: flex;
+  flex-wrap: nowrap;
   align-items: center;
   width: max-content;
   animation: proofScroll 28s linear infinite;
@@ -527,6 +528,7 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
 }
 .proof-item {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   gap: 0.45rem;
   font: 500 0.75rem var(--font-head);
@@ -555,24 +557,33 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
 .cs-card {
   background: var(--surface-2);
   border: 1px solid var(--border);
+  border-top: 2px solid rgba(0, 229, 204, 0.25);
   border-radius: var(--radius);
   padding: 2rem 2rem 1.75rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+  transition: border-color var(--transition), border-top-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .cs-card:hover {
-  border-color: rgba(0, 229, 204, 0.3);
+  border-color: rgba(0, 229, 204, 0.2);
+  border-top-color: var(--accent);
   transform: translateY(-4px);
   box-shadow: 0 16px 48px rgba(0, 229, 204, 0.10), 0 0 0 1px rgba(0, 229, 204, 0.08);
 }
 .cs-sector-tag {
-  font: 600 0.7rem var(--font-head);
+  display: inline-flex;
+  align-items: center;
+  font: 600 0.68rem var(--font-head);
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--accent);
+  background: rgba(0, 229, 204, 0.07);
+  border: 1px solid rgba(0, 229, 204, 0.18);
+  border-radius: 100px;
+  padding: 0.3rem 0.85rem;
   margin-bottom: 1.25rem;
+  width: fit-content;
 }
 .cs-problem {
   font: 400 0.95rem/1.7 var(--font-body);
