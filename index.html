@@ -208,53 +208,37 @@
     }
 
     /* ================================================================
-       HERO
+       HERO — tipográfico puro (sin imagen)
     ================================================================ */
     #hero {
       min-height: 100svh;
-      display: flex; flex-direction: column; justify-content: flex-end;
+      display: flex; flex-direction: column; justify-content: center;
       padding-top: var(--nav-h);
       position: relative; overflow: hidden;
-    }
-
-    /* Imagen de fondo del hero */
-    .hero-bg {
-      position: absolute; inset: 0; z-index: 0;
-    }
-    .hero-bg img {
-      width: 100%; height: 100%; object-fit: cover;
-      filter: brightness(0.35);
-    }
-    /* Gradiente sobre la imagen para que el texto sea legible */
-    .hero-bg::after {
-      content: '';
-      position: absolute; inset: 0;
-      background: linear-gradient(to top, var(--bg) 18%, transparent 60%);
-    }
-    /* Si no hay imagen, fondo sólido con textura sutil */
-    .hero-bg-fallback {
-      position: absolute; inset: 0; z-index: 0;
       background:
-        radial-gradient(ellipse 60% 50% at 70% 30%, rgba(124,58,237,0.14) 0%, transparent 70%),
-        radial-gradient(ellipse 50% 40% at 20% 70%, rgba(0,229,204,0.06) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 45% at 75% 25%, rgba(124,58,237,0.12) 0%, transparent 65%),
+        radial-gradient(ellipse 45% 35% at 15% 75%, rgba(0,229,204,0.05) 0%, transparent 55%),
         var(--bg);
     }
 
     .hero-content {
       position: relative; z-index: 1;
-      padding-bottom: clamp(60px, 10vw, 120px);
+      padding-top: clamp(32px, 5vw, 64px);
+      padding-bottom: clamp(48px, 8vw, 96px);
     }
     .hero-eyebrow {
       display: flex; align-items: center; gap: 12px;
       margin-bottom: 28px;
     }
     .hero-title {
-      max-width: 840px;
+      font-size: clamp(3.6rem, 9vw, 7.5rem);
+      max-width: 960px;
       margin-bottom: 32px;
+      line-height: 1.0;
+      letter-spacing: -0.03em;
     }
     .hero-title em {
       font-style: normal;
-      color: var(--accent);
     }
     .hero-sub {
       max-width: 520px;
@@ -741,10 +725,6 @@
 <section id="hero">
 
 <div class="hero-orb" aria-hidden="true"></div>
-
-  <div class="hero-bg">
-    <img src="assets/img/hero/hero-main.jpg" alt="Equipo Ryventis trabajando con IA" fetchpriority="high">
-  </div>
 
   <div class="wrap hero-content">
     <span class="hero-slogan">Tecnología que piensa, soluciones que ejecutan.</span>
