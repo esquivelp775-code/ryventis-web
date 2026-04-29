@@ -436,8 +436,8 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   transition: border-color var(--transition), box-shadow var(--transition);
   margin-bottom: 0.75rem;
 }
-.expand-card:hover { border-color: rgba(0, 229, 204, 0.2); }
-.expand-card.open  { border-color: rgba(0, 229, 204, 0.35); box-shadow: 0 8px 32px rgba(0, 229, 204, 0.06); }
+.expand-card:hover { border-color: rgba(0, 229, 204, 0.25); box-shadow: 0 8px 32px rgba(0, 229, 204, 0.08); }
+.expand-card.open  { border-color: rgba(0, 229, 204, 0.4); box-shadow: 0 12px 40px rgba(0, 229, 204, 0.12), 0 0 0 1px rgba(0, 229, 204, 0.08); }
 .expand-trigger {
   width: 100%;
   display: flex;
@@ -545,11 +545,12 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   display: flex;
   flex-direction: column;
   position: relative;
-  transition: border-color var(--transition), transform var(--transition);
+  transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
 }
 .cs-card:hover {
-  border-color: rgba(0, 229, 204, 0.2);
-  transform: translateY(-3px);
+  border-color: rgba(0, 229, 204, 0.3);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(0, 229, 204, 0.10), 0 0 0 1px rgba(0, 229, 204, 0.08);
 }
 .cs-sector-tag {
   font: 600 0.7rem var(--font-head);
