@@ -657,6 +657,59 @@
     @media(max-width:860px){ .benefits-grid{grid-template-columns:repeat(2,1fr);} }
     @media(max-width:500px){ .benefits-grid{grid-template-columns:1fr;} }
 
+    /* ================================================================
+       POR QUÉ RYVENTIS — secciones narrativas /01 /02 /03
+    ================================================================ */
+    #por-que { padding: clamp(60px, 8vw, 120px) 0; }
+    .narrative-header {
+      display: flex; flex-direction: column; align-items: flex-start;
+      margin-bottom: 4rem;
+    }
+    .narrative-header h2 {
+      font: 800 clamp(2rem, 4vw, 3rem)/1.1 var(--font-head);
+      letter-spacing: -0.025em;
+      max-width: 640px;
+    }
+    .narrative-list { list-style: none; }
+    .narrative-item {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem 5rem;
+      align-items: start;
+      padding: 3.5rem 0;
+      border-top: 1px solid var(--border-dim);
+    }
+    .narrative-item:last-child { border-bottom: 1px solid var(--border-dim); }
+    .narrative-num {
+      font: 800 clamp(4rem, 7vw, 6.5rem)/1 var(--font-head);
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(0, 229, 204, 0.22);
+      letter-spacing: -0.04em;
+      user-select: none;
+      padding-top: 0.1em;
+      transition: -webkit-text-stroke-color 0.3s;
+    }
+    .narrative-item:hover .narrative-num {
+      -webkit-text-stroke-color: rgba(0, 229, 204, 0.55);
+    }
+    .narrative-tag {
+      font: 600 0.68rem var(--font-head); letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--accent);
+      margin-bottom: 0.75rem; display: block;
+    }
+    .narrative-title {
+      font: 800 clamp(1.5rem, 2.5vw, 2.2rem)/1.2 var(--font-head);
+      letter-spacing: -0.02em; margin-bottom: 1rem; color: var(--text);
+    }
+    .narrative-body {
+      font: 400 1rem/1.8 var(--font-body);
+      color: var(--muted); max-width: 580px;
+    }
+    @media (max-width: 720px) {
+      .narrative-item { grid-template-columns: 1fr; gap: 0.75rem; padding: 2.25rem 0; }
+      .narrative-num { font-size: clamp(3rem, 12vw, 4rem); }
+    }
+
     /* Service row — prices shown on servicios.html, hidden here */
     .service-price { display:none; }
 
@@ -859,6 +912,49 @@
       </div>
 
     </div>
+  </div>
+</section>
+
+<!-- ================================================================
+     POR QUÉ RYVENTIS — secciones narrativas
+================================================================ -->
+<section id="por-que">
+  <div class="wrap">
+    <div class="narrative-header reveal">
+      <span class="tag-gold">Por qué Ryventis</span>
+      <h2>No somos otra herramienta.<br>Somos tu operación funcionando sola.</h2>
+    </div>
+
+    <ul class="narrative-list">
+
+      <li class="narrative-item reveal" data-delay="0">
+        <span class="narrative-num">/01</span>
+        <div class="narrative-content">
+          <span class="narrative-tag">Entregamos sistemas, no software</span>
+          <h3 class="narrative-title">No te damos acceso a una plataforma.<br>Te dejamos una operación corriendo.</h3>
+          <p class="narrative-body">Otras agencias te dan licencias y manuales. Nosotros diseñamos, construimos y dejamos activo un sistema adaptado exactamente a tu negocio — desde el primer diagnóstico hasta el primer cliente atendido de forma automática.</p>
+        </div>
+      </li>
+
+      <li class="narrative-item reveal" data-delay="80">
+        <span class="narrative-num">/02</span>
+        <div class="narrative-content">
+          <span class="narrative-tag">Cero curva de aprendizaje</span>
+          <h3 class="narrative-title">Tu equipo no necesita<br>saber de tecnología.</h3>
+          <p class="narrative-body">El sistema se integra a cómo ya trabajas — WhatsApp, correo, hojas de cálculo. Sin cambiar hábitos, sin capacitar personal, sin manuales de 80 páginas. Si lo usabas antes, sigue usándolo. Ahora solo ocurre solo.</p>
+        </div>
+      </li>
+
+      <li class="narrative-item reveal" data-delay="160">
+        <span class="narrative-num">/03</span>
+        <div class="narrative-content">
+          <span class="narrative-tag">Valor medible desde el día uno</span>
+          <h3 class="narrative-title">Cada automatización tiene<br>métricas claras.</h3>
+          <p class="narrative-body">Tiempo ahorrado, leads respondidos, errores eliminados. No trabajamos con promesas vagas — establecemos indicadores desde el diagnóstico y los medimos contigo. Si no genera valor real, lo ajustamos.</p>
+        </div>
+      </li>
+
+    </ul>
   </div>
 </section>
 
