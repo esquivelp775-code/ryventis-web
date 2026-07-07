@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
@@ -668,6 +668,12 @@
     .modal-drag { width: 40px; height: 4px; background: rgba(255,255,255,0.06); border-radius: 2px; margin: 10px auto 0; flex-shrink: 0; }
     @media (max-width: 640px) { .modal-body { padding: 20px; } .modal-header { padding: 18px 20px; } }
 
+      /* --- Banda editorial de imagen --- */
+    .media-band { max-width: 1160px; margin: 0 auto; padding: 8px 24px 56px; }
+    .media-band figure { position: relative; margin: 0; border-radius: 20px; overflow: hidden; border: 1px solid rgba(255,255,255,0.06); }
+    .media-band img { display: block; width: 100%; height: clamp(240px, 38vw, 440px); object-fit: cover; filter: saturate(0.7) brightness(0.85); }
+    .media-band figure::after { content: ""; position: absolute; inset: 0; background: linear-gradient(160deg, rgba(124,58,237,0.22) 0%, rgba(15,15,15,0.55) 100%); pointer-events: none; }
+    .media-band figcaption { position: absolute; left: 22px; bottom: 18px; z-index: 1; font-family: "DM Sans", sans-serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.09em; text-transform: uppercase; color: rgba(245,245,240,0.8); }
   </style>
 </head>
 <body>
@@ -713,11 +719,11 @@
         <span class="label">Sobre nosotros</span>
       </div>
       <h1 class="hero-title reveal" data-delay="80">
-        Inteligencia<br>
-        <span class="line-muted">en movimiento.</span>
+        Pensamos contigo,<br>
+        <span class="line-muted">construimos por ti.</span>
       </h1>
       <p class="hero-subtitle reveal" data-delay="180">
-        Somos una agencia de inteligencia artificial especializada en implementar soluciones que hacen funcionar negocios solos.
+        Somos un ecosistema de crecimiento para PYMES: acompañamiento estratégico y automatización con IA, en una sola relación.
       </p>
     </div>
   </section>
@@ -739,18 +745,26 @@
         <!-- Right col: body copy -->
         <div class="quienes-right reveal" data-delay="100">
           <p>
-            Ryventis Solutions es una agencia de IA para empresas que quieren crecer sin depender de procesos manuales. Diseñamos, construimos e implementamos sistemas de automatización, chatbots y agentes de inteligencia artificial adaptados exactamente a la operación de cada cliente.
+            Ryventis Solutions nació como una agencia de automatización con IA. Con el tiempo entendimos que muchos negocios no necesitaban un bot primero -- necesitaban orden. Por eso hoy somos dos capacidades en un solo organismo: acompañamiento estratégico con metodología continua, y ejecución técnica con inteligencia artificial.
           </p>
           <p>
-            No somos consultores que entregan reportes. Somos implementadores: <span class="text-accent">llegamos, entendemos, construimos y nos quedamos para que funcione.</span>
+            No somos consultores que entregan reportes ni una agencia que solo instala software. Somos implementadores: <span class="text-accent">diagnosticamos, acompañamos si hace falta, construimos y nos quedamos para que funcione.</span>
           </p>
           <p>
-            Trabajamos con empresas que quieren crecer y saben que hay una forma más eficiente de operar — y que solo necesitan a alguien que lo construya para ellas sin complicaciones ni tecnicismos.
+            Trabajamos con empresas en cualquier punto de su camino -- desde las que aún no tienen procesos definidos hasta las que ya saben exactamente qué automatizar. Ambas terminan en el mismo lugar: una operación que funciona sola.
           </p>
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Banda editorial: acompañamiento -->
+  <div class="media-band reveal">
+    <figure>
+      <img src="assets/img/proceso/mentoria-01.jpg" alt="Dos personas trabajando lado a lado en una asesoría de negocio" width="1600" height="1067" loading="lazy">
+      <figcaption>Pensamos contigo, lado a lado</figcaption>
+    </figure>
+  </div>
 
   <div class="rule"></div>
 
@@ -984,7 +998,7 @@
       <button class="modal-close" onclick="closeModal('modal-aviso')" aria-label="Cerrar">&#x2715;</button>
     </div>
     <div class="modal-body">
-      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 22 de abril de 2026</p>
+      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 7 de julio de 2026</p>
       <h3>1. Titular del sitio web</h3>
       <p>El sitio web <strong>ryventis.mx</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, Mexico. Correo: <strong>contacto@ryventis.mx</strong></p>
       <h3>2. Objeto del sitio</h3>
@@ -1014,7 +1028,7 @@
       <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">&#x2715;</button>
     </div>
     <div class="modal-body">
-      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 22 de abril de 2026 - Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
+      <p class="modal-meta">Version 2.0 - Ultima actualizacion: 7 de julio de 2026 - Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
       <h3>1. Responsable del tratamiento</h3>
       <p><strong>Ryventis Solutions</strong> - Puebla de Zaragoza, Puebla, Mexico - contacto@ryventis.mx</p>
       <h3>2. Datos personales que recabamos</h3>
@@ -1031,7 +1045,7 @@
         <tr><td>n8n GmbH</td><td>Orquestacion de flujos</td></tr>
         <tr><td>Supabase Inc.</td><td>Almacenamiento de configuracion</td></tr>
         <tr><td>Google LLC</td><td>Integracion con Calendar y Gmail</td></tr>
-        <tr><td>Twilio Inc.</td><td>Mensajes via WhatsApp Business API</td></tr>
+        <tr><td>WhatsApp Business API (Meta)</td><td>Mensajes via WhatsApp Business API</td></tr>
         <tr><td>Railway Corp.</td><td>Hospedaje de infraestructura</td></tr>
       </table>
       <h3>5. Derechos ARCO</h3>

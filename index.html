@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
@@ -6,12 +6,12 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'none'; frame-src 'none'; object-src 'none'; frame-ancestors 'none';">
-  <meta name="description" content="Ryventis Solutions — Implementamos chatbots, automatizaciones y agentes de IA adaptados a tu empresa. Sin tecnicismos, sin complicaciones.">
+  <meta name="description" content="Ryventis Solutions — Acompañamiento estratégico y automatización con IA para PYMES. Diagnosticamos, ordenamos y construimos operaciones que funcionan solas.">
   <meta name="keywords" content="inteligencia artificial empresas, chatbot WhatsApp, automatización n8n México, agencia IA">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Ryventis Solutions">
   <meta property="og:title" content="Ryventis Solutions — IA que trabaja para ti">
-  <meta property="og:description" content="Operaciones que funcionan solas. Chatbots, automatizaciones y agentes de IA adaptados a tu empresa.">
+  <meta property="og:description" content="Pensamos contigo. Construimos por ti. Acompañamiento estratégico y automatización con IA para PYMES.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://ryventis.mx">
   <meta property="og:image" content="https://ryventis.mx/assets/img/og/og-cover.jpg">
@@ -23,6 +23,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/shared.css">
+  <link rel="preload" as="image" href="assets/img/hero/hero-main.jpg">
 
   <script type="application/ld+json">
   {
@@ -201,7 +202,7 @@
       letter-spacing: -0.01em; color: var(--text);
     }
     .nav-logo span { color: var(--accent); }
-    .nav-links { display: flex; align-items: center; gap: 40px; }
+    .nav-links { display: flex; align-items: center; gap: 40px; list-style: none; } .nav-links li { display: flex; } .nav-link.active { color: var(--accent); }
     .nav-links a {
       font-size: 0.85rem; font-weight: 400; color: var(--muted);
       transition: color 0.2s; letter-spacing: 0.01em;
@@ -261,6 +262,8 @@
       background:
         radial-gradient(ellipse 55% 45% at 75% 25%, rgba(124,58,237,0.12) 0%, transparent 65%),
         radial-gradient(ellipse 45% 35% at 15% 75%, rgba(0,229,204,0.05) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(15,15,15,0.86) 0%, rgba(15,15,15,0.93) 55%, rgba(15,15,15,0.99) 100%),
+        url("assets/img/hero/hero-main.jpg") center 35% / cover no-repeat,
         var(--bg);
     }
 
@@ -911,12 +914,13 @@
   <div class="wrap nav-inner">
     <a class="nav-logo" href="/">Ryventis<span>.</span></a>
 
-    <div class="nav-links">
-      <a href="servicios.html">Servicios</a>
-      <a href="como-funciona.html">Cómo funciona</a>
-      <a href="nosotros.html">Nosotros</a>
-      <a href="contacto.html">Contacto</a>
-    </div>
+    <ul class="nav-links">
+      <li><a href="/" class="nav-link active">Inicio</a></li>
+      <li><a href="servicios.html" class="nav-link">Servicios</a></li>
+      <li><a href="como-funciona.html" class="nav-link">Cómo funciona</a></li>
+      <li><a href="nosotros.html" class="nav-link">Nosotros</a></li>
+      <li><a href="contacto.html" class="nav-link">Contacto</a></li>
+    </ul>
 
     <div class="nav-cta">
       <a href="https://wa.me/522271200295?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20gratuito" class="btn btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
@@ -949,7 +953,7 @@
 <div class="hero-orb" aria-hidden="true"></div>
 
   <div class="wrap hero-content">
-    <span class="hero-slogan">Tecnología que piensa, soluciones que ejecutan.</span>
+    <span class="hero-slogan">Pensamos contigo. Construimos por ti.</span>
     <div class="hero-eyebrow">
       <span class="accent-line"></span>
       <span class="label">Inteligencia artificial para empresas</span>
@@ -961,7 +965,7 @@
     </h1>
 
     <p class="hero-sub">
-      Implementamos chatbots, automatizaciones y agentes de IA adaptados a tu negocio. Sin tecnicismos, sin complicaciones.
+      Diagnosticamos tu negocio, te acompañamos con metodología, y solo entonces implementamos IA. Sin tecnicismos, sin complicaciones.
     </p>
 
     <div class="hero-actions">
@@ -1187,6 +1191,41 @@
 </section>
 
 <!-- ================================================================
+     DOS PUERTAS -- Acompanamiento y Tecnica
+================================================================ -->
+<section id="dos-puertas" class="section">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:48px;">
+      <span class="label"><span class="accent-line"></span>Como trabajamos</span>
+      <h2 class="mt-4">Dos formas de empezar,<br>un mismo resultado.</h2>
+      <p class="mt-4" style="max-width:640px;color:var(--muted)">No todos los negocios llegan al mismo punto. Por eso hay dos puertas de entrada -- y ambas terminan en el mismo lugar: una operacion que funciona sola.</p>
+    </div>
+
+    <div class="reveal" style="display:grid;gap:24px;grid-template-columns:1fr;margin-bottom:24px;" data-delay="80">
+      <style>
+        @media(min-width:760px){ #dos-puertas .doors-grid { grid-template-columns: 1fr 1fr !important; } }
+      </style>
+      <div class="doors-grid" style="display:grid;gap:24px;grid-template-columns:1fr;">
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--depth);">
+          <span style="font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--depth);font-weight:700;">Puerta Acompañamiento</span>
+          <h3 style="margin-top:12px;font-size:1.3rem;">¿No sabes por dónde empezar?</h3>
+          <p style="margin-top:12px;color:var(--muted);font-size:.95rem;">Diagnosticamos tu operación completa y te acompañamos con una metodología continua para ordenar procesos, finanzas y decisiones -- antes de hablar de tecnología.</p>
+        </div>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--accent);">
+          <span style="font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:700;">Puerta Técnica</span>
+          <h3 style="margin-top:12px;font-size:1.3rem;">¿Ya sabes qué necesitas automatizar?</h3>
+          <p style="margin-top:12px;color:var(--muted);font-size:.95rem;">Vamos directo a construir: diagnóstico técnico, cálculo de retorno, y la solución de IA funcionando en tu operación.</p>
+        </div>
+      </div>
+    </div>
+
+    <p class="reveal" style="text-align:center;color:var(--muted);font-size:.92rem;max-width:600px;margin:0 auto;" data-delay="140">
+      Ambas puertas llevan al mismo lugar. Si empiezas ordenando, cuando surja una necesidad técnica ya tendremos el diagnóstico hecho.
+    </p>
+  </div>
+</section>
+
+<!-- ================================================================
      SERVICIOS
 ================================================================ -->
 <section id="servicios" class="section">
@@ -1205,7 +1244,7 @@
         <button class="expand-trigger" aria-expanded="true">
           <div class="expand-trigger-left">
             <span class="expand-num">01</span>
-            <span class="expand-title">Chatbot Inteligente</span>
+            <span class="expand-title">CRM Conversacional con IA</span>
           </div>
           <svg class="expand-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
         </button>
@@ -1493,7 +1532,7 @@
             <label class="form-label">¿Qué necesitas?</label>
             <select class="form-select form-input" id="f-service">
               <option value="">Selecciona un servicio</option>
-              <option>Chatbot Inteligente</option>
+              <option>CRM Conversacional con IA</option>
               <option>Automatización de procesos</option>
               <option>Agente Autónomo</option>
               <option>Pack Starter IA</option>
@@ -1553,7 +1592,7 @@
       <button class="modal-close" onclick="closeModal('modal-aviso')" aria-label="Cerrar">✕</button>
     </div>
     <div class="modal-body">
-      <p class="modal-meta">Versión 2.0 · Última actualización: 22 de abril de 2026</p>
+      <p class="modal-meta">Versión 2.0 · Última actualización: 7 de julio de 2026</p>
 
       <h3>1. Titular del sitio web</h3>
       <p>El sitio web <strong>ryventis.mx</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, México. Correo de contacto: <strong>contacto@ryventis.mx</strong></p>
@@ -1567,7 +1606,7 @@
 
       <h3>4. Limitación de responsabilidad</h3>
       <p><strong>Resultados:</strong> Ryventis no garantiza resultados específicos sin que previamente se haya realizado un diagnóstico formal y se hayan establecido métricas de referencia por escrito. Todo resultado proyectado en propuestas comerciales representa una estimación, no una promesa contractual.</p>
-      <p><strong>Disponibilidad:</strong> Las interrupciones de servicio atribuibles a terceros (Anthropic, Twilio, Google, Railway, etc.) no generan responsabilidad para Ryventis, sin perjuicio de las obligaciones de soporte establecidas en el contrato de servicio.</p>
+      <p><strong>Disponibilidad:</strong> Las interrupciones de servicio atribuibles a terceros (Anthropic, Meta/WhatsApp Business API, Google, Railway, etc.) no generan responsabilidad para Ryventis, sin perjuicio de las obligaciones de soporte establecidas en el contrato de servicio.</p>
       <p><strong>Contenido de terceros:</strong> El sitio puede contener enlaces a recursos externos. Ryventis no asume responsabilidad por su contenido, políticas de privacidad o funcionamiento.</p>
 
       <h3>5. Titularidad del código entregado al cliente</h3>
@@ -1599,7 +1638,7 @@
       <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
     </div>
     <div class="modal-body">
-      <p class="modal-meta">Versión 2.0 · Última actualización: 22 de abril de 2026 · Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
+      <p class="modal-meta">Versión 2.0 · Última actualización: 7 de julio de 2026 · Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
 
       <h3>1. Responsable del tratamiento</h3>
       <p><strong>Ryventis Solutions</strong> — Puebla de Zaragoza, Puebla, México · contacto@ryventis.mx · Agencia de implementación de inteligencia artificial para PYMEs.</p>
@@ -1622,7 +1661,7 @@
         <tr><td>n8n GmbH</td><td>Orquestación de flujos de automatización</td></tr>
         <tr><td>Supabase Inc.</td><td>Almacenamiento de datos de configuración</td></tr>
         <tr><td>Google LLC</td><td>Integración con Google Calendar y Gmail</td></tr>
-        <tr><td>Twilio Inc.</td><td>Envío de mensajes vía WhatsApp Business API</td></tr>
+        <tr><td>WhatsApp Business API (Meta)</td><td>Envío y recepción de mensajes de WhatsApp</td></tr>
         <tr><td>Railway Corp.</td><td>Hospedaje de infraestructura de bots</td></tr>
       </table>
 
