@@ -1,4 +1,4 @@
-/* =====================================================
+﻿/* =====================================================
    Ryventis Solutions — Estilos Compartidos v2
    Paleta, tipografía, nav, footer, botones, animaciones
    ===================================================== */
@@ -616,3 +616,89 @@ p  { font: 400 1rem/1.75 var(--font-body); color: var(--muted); }
   .cs-grid { grid-template-columns: 1fr; }
   .cs-card:hover { transform: none; }
 }
+
+
+/* ============================================================
+   MOVIMIENTO APPLE-CALIBER v4 — utilidades centralizadas
+   Todo controlado por assets/js/shared.js. Reduce-motion apaga todo.
+   ============================================================ */
+
+:root {
+  --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-1: 700ms;
+  --dur-2: 1100ms;
+}
+
+/* ---- Barra de progreso de scroll ---- */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 100%;
+  transform: scaleX(0); transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--depth) 50%, var(--gold) 100%);
+  z-index: 200; pointer-events: none;
+  will-change: transform;
+}
+
+/* ---- Revelado por línea de titulares ---- */
+.reveal-lines .line-mask { display: block; overflow: hidden; padding-bottom: 0.12em; }
+.reveal-lines .line-inner {
+  display: block;
+  transform: translateY(115%);
+  transition: transform var(--dur-2) var(--ease-apple);
+  transition-delay: var(--line-delay, 0ms);
+}
+.reveal-lines.visible .line-inner { transform: translateY(0); }
+
+/* ---- Clip-reveal de imágenes/bandas al entrar ---- */
+.clip-reveal { clip-path: inset(0 0 100% 0); transition: clip-path var(--dur-2) var(--ease-apple); }
+.clip-reveal.visible { clip-path: inset(0 0 0 0); }
+.clip-reveal img, .clip-reveal .parallax-img {
+  transform: scale(1.08);
+  transition: transform 1600ms var(--ease-apple);
+}
+.clip-reveal.visible img, .clip-reveal.visible .parallax-img { transform: scale(1); }
+
+/* ---- Parallax (movido por JS con --parallax-y) ---- */
+[data-parallax] { will-change: transform; }
+.parallax-inner { transform: translate3d(0, var(--parallax-y, 0px), 0); will-change: transform; }
+
+/* ---- Fade-rise reutilizable con stagger (data-delay lo maneja el observer) ---- */
+.rise { opacity: 0; transform: translateY(28px); transition: opacity var(--dur-1) var(--ease-apple), transform var(--dur-1) var(--ease-apple); }
+.rise.visible { opacity: 1; transform: none; }
+
+/* ---- Spotlight en tarjetas (glow que sigue el cursor) ---- */
+.spotlight { position: relative; overflow: hidden; }
+.spotlight::after {
+  content: ""; position: absolute; inset: 0; z-index: 3;
+  border-radius: inherit; opacity: 0;
+  transition: opacity 300ms ease;
+  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(0,229,204,0.14), transparent 62%);
+}
+.spotlight:hover::after { opacity: 1; }
+.spotlight.spot-violet::after { background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%), rgba(124,58,237,0.18), transparent 62%); }
+
+/* En touch (sin pointer fino): glow estático suave */
+@media (hover: none) {
+  .spotlight::after { opacity: 0.5; background: radial-gradient(420px circle at 50% 0%, rgba(0,229,204,0.08), transparent 60%); }
+}
+
+/* ---- Strip de sectores (imágenes) ---- */
+.sector-strip { max-width: var(--max-w); margin: 0 auto; padding: 24px 1.5rem 8px; }
+.sector-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.sector-item { position: relative; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--border-dim); aspect-ratio: 4 / 3; }
+.sector-item img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.8) brightness(0.7); transition: transform 700ms var(--ease-apple), filter 700ms ease; }
+.sector-item::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(15,15,15,0.85) 100%); }
+.sector-item span { position: absolute; left: 16px; bottom: 14px; z-index: 1; font: 600 0.9rem/1.2 var(--font-head); letter-spacing: 0.01em; color: var(--text); }
+.sector-item:hover img { transform: scale(1.06); filter: saturate(1) brightness(0.85); }
+@media (max-width: 760px) { .sector-grid { grid-template-columns: 1fr; } .sector-item { aspect-ratio: 16 / 7; } }
+
+/* ---- Interruptor maestro de accesibilidad ---- */
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress { display: none !important; }
+  .reveal-lines .line-inner,
+  .clip-reveal, .clip-reveal img, .clip-reveal .parallax-img,
+  .rise, .parallax-inner {
+    transform: none !important; opacity: 1 !important; clip-path: none !important;
+  }
+  .spotlight::after { display: none !important; }
+}
+

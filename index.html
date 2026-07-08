@@ -1125,7 +1125,7 @@
       <!-- IMAGEN LATERAL -->
       <!-- Recomendado: foto de alguien usando WhatsApp en un negocio, o pantalla de dashboard -->
       <!-- Dimensiones sugeridas: 800×1000px (vertical) -->
-      <div class="img-block editorial-img">
+      <div class="img-block editorial-img clip-reveal">
         <img src="assets/img/proceso/negocio-01.jpg" alt="Dueña de un negocio atendiendo en su mostrador con sistema digital" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
       </div>
 
@@ -1148,7 +1148,7 @@
 <!-- IMAGEN FULL-WIDTH (entre secciones, estilo editorial Article) -->
 <!-- imagen: mentoria-01 (acompañamiento) -->
 <!-- Puede ser: oficina, equipo trabajando, ciudad de Puebla, dashboard en pantalla -->
-<div class="full-img">
+<div class="full-img clip-reveal">
   <img src="assets/img/proceso/mentoria-01.jpg" alt="" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(0.7) brightness(0.85);" loading="lazy">
 </div>
 
@@ -1206,12 +1206,12 @@
         @media(min-width:760px){ #dos-puertas .doors-grid { grid-template-columns: 1fr 1fr !important; } }
       </style>
       <div class="doors-grid" style="display:grid;gap:24px;grid-template-columns:1fr;">
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--depth);">
+        <div class="spotlight spot-violet" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--depth);cursor:default;">
           <span style="font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--depth);font-weight:700;">Puerta Acompañamiento</span>
           <h3 style="margin-top:12px;font-size:1.3rem;">¿No sabes por dónde empezar?</h3>
           <p style="margin-top:12px;color:var(--muted);font-size:.95rem;">Diagnosticamos tu operación completa y te acompañamos con una metodología continua para ordenar procesos, finanzas y decisiones -- antes de hablar de tecnología.</p>
         </div>
-        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--accent);">
+        <div class="spotlight" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;border-top:3px solid var(--accent);cursor:default;">
           <span style="font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--accent);font-weight:700;">Puerta Técnica</span>
           <h3 style="margin-top:12px;font-size:1.3rem;">¿Ya sabes qué necesitas automatizar?</h3>
           <p style="margin-top:12px;color:var(--muted);font-size:.95rem;">Vamos directo a construir: diagnóstico técnico, cálculo de retorno, y la solución de IA funcionando en tu operación.</p>
@@ -1222,6 +1222,25 @@
     <p class="reveal" style="text-align:center;color:var(--muted);font-size:.92rem;max-width:600px;margin:0 auto;" data-delay="140">
       Ambas puertas llevan al mismo lugar. Si empiezas ordenando, cuando surja una necesidad técnica ya tendremos el diagnóstico hecho.
     </p>
+  </div>
+</section>
+
+<!-- ================================================================
+     SECTORES — para negocios como el tuyo
+================================================================ -->
+<section class="section" style="padding-top:0;">
+  <div class="wrap">
+    <div class="reveal" style="margin-bottom:28px;">
+      <span class="label"><span class="accent-line"></span>Para negocios como el tuyo</span>
+      <h2 class="mt-4" style="max-width:640px;">Sabemos cómo opera<br>tu industria.</h2>
+    </div>
+  </div>
+  <div class="sector-strip reveal" data-delay="80">
+    <div class="sector-grid">
+      <figure class="sector-item"><img src="assets/img/clientes/clinica-01.jpg" alt="Recepción de una clínica atendiendo con sistema digital" width="1100" height="825" loading="lazy"><span>Clínicas</span></figure>
+      <figure class="sector-item"><img src="assets/img/clientes/inmobiliaria-01.jpg" alt="Llaves y maqueta de casa sobre un escritorio de agencia inmobiliaria" width="1100" height="733" loading="lazy"><span>Inmobiliarias</span></figure>
+      <figure class="sector-item"><img src="assets/img/clientes/taller-01.jpg" alt="Mecánico dando servicio al motor de un auto en su taller" width="1100" height="733" loading="lazy"><span>Talleres</span></figure>
+    </div>
   </div>
 </section>
 
