@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es-MX">
 <head>
   <meta charset="UTF-8">
@@ -13,10 +13,10 @@
   <meta property="og:title" content="Ryventis Solutions — IA que trabaja para ti">
   <meta property="og:description" content="Pensamos contigo. Construimos por ti. Acompañamiento estratégico y automatización con IA para PYMES.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://ryventis.mx">
-  <meta property="og:image" content="https://ryventis.mx/assets/img/og/og-cover.jpg">
+  <meta property="og:url" content="https://ryventis.com">
+  <meta property="og:image" content="https://ryventis.com/assets/img/og/og-cover.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://ryventis.mx">
+  <link rel="canonical" href="https://ryventis.com">
   <title>Ryventis Solutions — Tecnología que trabaja para ti</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,7 +31,7 @@
     "@type": "ProfessionalService",
     "name": "Ryventis Solutions",
     "description": "Agencia de Inteligencia Artificial para empresas",
-    "url": "https://ryventis.mx",
+    "url": "https://ryventis.com",
     "telephone": "+52-227-120-0295",
     "address": {
       "@type": "PostalAddress",
@@ -247,7 +247,7 @@
     .drawer a:hover { color: var(--accent); }
 
     @media (max-width: 860px) {
-      .nav-links, .nav-cta .btn-outline { display: none; }
+      .nav-links { display: none; }
       .hamburger { display: flex; }
     }
 
@@ -515,25 +515,6 @@
       .pricing-grid { grid-template-columns: 1fr; }
     }
 
-    /* ================================================================
-       SECTORES
-    ================================================================ */
-    .sectors-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr);
-      gap: 1px; background: var(--border-dim);
-      border: 1px solid var(--border-dim);
-    }
-    .sector-card {
-      background: var(--bg); padding: 40px 28px;
-      transition: background 0.2s;
-    }
-    .sector-card:hover { background: var(--surface); }
-    .sector-icon { font-size: 1.6rem; margin-bottom: 16px; opacity: 0.8; }
-    .sector-name { font-family: var(--font-head); font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
-    .sector-roi { font-size: 0.78rem; color: var(--accent); font-weight: 500; }
-
-    @media (max-width: 760px) { .sectors-grid { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 440px) { .sectors-grid { grid-template-columns: 1fr; } }
 
     /* ================================================================
        CONTACTO
@@ -886,11 +867,6 @@
       margin-bottom:40px; margin-top:16px;
     }
 
-    /* Sector problem text */
-    .sector-problem {
-      font-size:0.82rem; color:var(--muted); line-height:1.55;
-      margin-top:8px;
-    }
 
 
   </style>
@@ -923,7 +899,6 @@
     </ul>
 
     <div class="nav-cta">
-      <a href="https://wa.me/522271200295?text=Hola%2C%20quiero%20un%20diagn%C3%B3stico%20gratuito" class="btn btn-outline" target="_blank" rel="noopener noreferrer">WhatsApp</a>
       <a href="contacto.html" class="btn btn-primary">Agenda diagnóstico</a>
     </div>
 
@@ -1226,20 +1201,32 @@
 </section>
 
 <!-- ================================================================
-     SECTORES — para negocios como el tuyo
+     SECTORES — unificado (antes: dos secciones repetidas)
 ================================================================ -->
 <section class="section" style="padding-top:0;">
   <div class="wrap">
     <div class="reveal" style="margin-bottom:28px;">
-      <span class="label"><span class="accent-line"></span>Para negocios como el tuyo</span>
-      <h2 class="mt-4" style="max-width:640px;">Sabemos cómo opera<br>tu industria.</h2>
+      <span class="label"><span class="accent-line"></span>Sectores</span>
+      <h2 class="mt-4" style="max-width:640px;">Trabajamos con negocios<br>como el tuyo.</h2>
     </div>
   </div>
   <div class="sector-strip reveal" data-delay="80">
     <div class="sector-grid">
-      <figure class="sector-item"><img src="assets/img/clientes/clinica-01.jpg" alt="Recepción de una clínica atendiendo con sistema digital" width="1100" height="825" loading="lazy"><span>Clínicas</span></figure>
-      <figure class="sector-item"><img src="assets/img/clientes/inmobiliaria-01.jpg" alt="Llaves y maqueta de casa sobre un escritorio de agencia inmobiliaria" width="1100" height="733" loading="lazy"><span>Inmobiliarias</span></figure>
-      <figure class="sector-item"><img src="assets/img/clientes/taller-01.jpg" alt="Mecánico dando servicio al motor de un auto en su taller" width="1100" height="733" loading="lazy"><span>Talleres</span></figure>
+      <figure class="sector-item">
+        <img src="assets/img/clientes/clinica-01.jpg" alt="Recepción de una clínica atendiendo con sistema digital" width="1100" height="825" loading="lazy">
+        <span class="s-name">Clínicas</span>
+        <span class="s-desc">Citas perdidas, seguimiento manual</span>
+      </figure>
+      <figure class="sector-item">
+        <img src="assets/img/clientes/inmobiliaria-01.jpg" alt="Llaves y maqueta de casa sobre un escritorio de agencia inmobiliaria" width="1100" height="733" loading="lazy">
+        <span class="s-name">Inmobiliarias</span>
+        <span class="s-desc">Leads que se enfrían sin respuesta</span>
+      </figure>
+      <figure class="sector-item">
+        <img src="assets/img/clientes/taller-01.jpg" alt="Mecánico dando servicio al motor de un auto en su taller" width="1100" height="733" loading="lazy">
+        <span class="s-name">Talleres</span>
+        <span class="s-desc">Citas sin confirmar, cero seguimiento</span>
+      </figure>
     </div>
   </div>
 </section>
@@ -1432,39 +1419,6 @@
   </div>
 </section>
 
-<!-- ================================================================
-     SECTORES
-================================================================ -->
-<section class="section">
-  <div class="wrap">
-    <div style="margin-bottom:56px;" class="reveal">
-      <span class="label"><span class="accent-line"></span>Sectores</span>
-      <h2 class="mt-4">Trabajamos con<br>negocios como el tuyo.</h2>
-    </div>
-    <div class="sectors-grid reveal">
-      <div class="sector-card">
-        <div class="sector-icon">🏥</div>
-        <div class="sector-name">Clínicas y consultorios</div>
-        <div class="sector-problem">Citas perdidas, seguimiento manual y pacientes sin respuesta en tiempo real</div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-icon">🏠</div>
-        <div class="sector-name">Inmobiliarias</div>
-        <div class="sector-problem">Leads que se enfrían antes de recibir una primera respuesta</div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-icon">🔧</div>
-        <div class="sector-name">Talleres mecánicos</div>
-        <div class="sector-problem">Citas sin confirmar y clientes sin seguimiento post-visita</div>
-      </div>
-      <div class="sector-card">
-        <div class="sector-icon">📊</div>
-        <div class="sector-name">Despachos contables</div>
-        <div class="sector-problem">Documentos repetitivos y comunicación reactiva que consume horas</div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ================================================================
      IMPACTO POR SECTOR (case study cards)
@@ -1614,10 +1568,10 @@
       <p class="modal-meta">Versión 2.0 · Última actualización: 7 de julio de 2026</p>
 
       <h3>1. Titular del sitio web</h3>
-      <p>El sitio web <strong>ryventis.mx</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, México. Correo de contacto: <strong>contacto@ryventis.mx</strong></p>
+      <p>El sitio web <strong>ryventis.com</strong> y todos sus subdominios son propiedad de <strong>Ryventis Solutions</strong>, con domicilio en Puebla de Zaragoza, Puebla, México. Correo de contacto: <strong>contacto@ryventis.com</strong></p>
 
       <h3>2. Objeto del sitio</h3>
-      <p>El sitio ryventis.mx tiene carácter <strong>informativo y comercial</strong>. Permite conocer los servicios de automatización con inteligencia artificial que ofrece Ryventis Solutions a pequeñas y medianas empresas, y facilita el contacto comercial. No constituye una oferta contractual vinculante. Los precios y condiciones mostrados son referenciales y están sujetos a confirmación mediante propuesta formal.</p>
+      <p>El sitio ryventis.com tiene carácter <strong>informativo y comercial</strong>. Permite conocer los servicios de automatización con inteligencia artificial que ofrece Ryventis Solutions a pequeñas y medianas empresas, y facilita el contacto comercial. No constituye una oferta contractual vinculante. Los precios y condiciones mostrados son referenciales y están sujetos a confirmación mediante propuesta formal.</p>
 
       <h3>3. Propiedad intelectual</h3>
       <p>Todos los elementos del sitio, incluyendo el nombre comercial <strong>Ryventis Solutions</strong>, el tagline <em>"Tecnología que trabaja para ti"</em>, el logotipo, textos, imágenes, videos, diseños y código, son propiedad exclusiva de Ryventis Solutions o se utilizan bajo licencia, y están protegidos por la legislación mexicana de derechos de autor y propiedad industrial.</p>
@@ -1635,13 +1589,13 @@
       <p>Al interactuar con los servicios de Ryventis usted se compromete a no utilizar los sistemas para enviar spam o contenido ilegal, no intentar comprometer la seguridad de la infraestructura, y no utilizar los bots para finalidades distintas a las acordadas. El incumplimiento faculta a Ryventis para suspender el servicio sin responsabilidad.</p>
 
       <h3>7. Protección de datos personales</h3>
-      <p>El tratamiento de datos personales recabados a través de ryventis.mx se rige por la <strong>Política de Privacidad</strong> de Ryventis Solutions, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
+      <p>El tratamiento de datos personales recabados a través de ryventis.com se rige por la <strong>Política de Privacidad</strong> de Ryventis Solutions, conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP).</p>
 
       <h3>8. Ley aplicable y jurisdicción</h3>
       <p>Este Aviso Legal se rige por las leyes de los <strong>Estados Unidos Mexicanos</strong>. Para cualquier controversia, las partes se someten expresamente a la jurisdicción de los <strong>Tribunales competentes de la ciudad de Puebla de Zaragoza, Puebla, México</strong>, renunciando a cualquier otro fuero.</p>
 
       <h3>9. Contacto</h3>
-      <p><strong>Ryventis Solutions</strong> · contacto@ryventis.mx · Puebla de Zaragoza, Puebla, México · ryventis.mx</p>
+      <p><strong>Ryventis Solutions</strong> · contacto@ryventis.com · Puebla de Zaragoza, Puebla, México · ryventis.com</p>
     </div>
   </div>
 </div>
@@ -1657,10 +1611,10 @@
       <button class="modal-close" onclick="closeModal('modal-privacidad')" aria-label="Cerrar">✕</button>
     </div>
     <div class="modal-body">
-      <p class="modal-meta">Versión 2.0 · Última actualización: 7 de julio de 2026 · Aplicable a ryventis.mx y todos los servicios de Ryventis Solutions</p>
+      <p class="modal-meta">Versión 2.0 · Última actualización: 7 de julio de 2026 · Aplicable a ryventis.com y todos los servicios de Ryventis Solutions</p>
 
       <h3>1. Responsable del tratamiento</h3>
-      <p><strong>Ryventis Solutions</strong> — Puebla de Zaragoza, Puebla, México · contacto@ryventis.mx · Agencia de implementación de inteligencia artificial para PYMEs.</p>
+      <p><strong>Ryventis Solutions</strong> — Puebla de Zaragoza, Puebla, México · contacto@ryventis.com · Agencia de implementación de inteligencia artificial para PYMEs.</p>
 
       <h3>2. Datos personales que recabamos</h3>
       <p><strong>Datos de identificación:</strong> nombre completo, correo electrónico, número de teléfono (incluyendo WhatsApp), nombre o razón social de su empresa y cargo.</p>
@@ -1670,7 +1624,7 @@
 
       <h3>3. Finalidades del tratamiento</h3>
       <p><strong>Finalidades primarias:</strong> atender solicitudes de cotización, realizar diagnóstico operativo previo a la propuesta, formalizar y ejecutar el contrato de servicios, configurar y mantener los servicios contratados, y emitir facturación.</p>
-      <p><strong>Finalidades secundarias (puede oponerse en cualquier momento):</strong> envío de comunicaciones sobre nuevos servicios, invitación a eventos y solicitud de testimonio. Para oponerse: envíe correo a contacto@ryventis.mx con asunto <em>"Oposición a finalidades secundarias"</em>.</p>
+      <p><strong>Finalidades secundarias (puede oponerse en cualquier momento):</strong> envío de comunicaciones sobre nuevos servicios, invitación a eventos y solicitud de testimonio. Para oponerse: envíe correo a contacto@ryventis.com con asunto <em>"Oposición a finalidades secundarias"</em>.</p>
 
       <h3>4. Transferencia de datos</h3>
       <p>Ryventis Solutions <strong>no vende, cede ni transfiere</strong> sus datos con fines comerciales propios. Sus datos pueden compartirse únicamente con los siguientes proveedores bajo acuerdos de confidencialidad:</p>
@@ -1685,7 +1639,7 @@
       </table>
 
       <h3>5. Derechos ARCO</h3>
-      <p>Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar y Oponerse</strong> al tratamiento de sus datos. Envíe su solicitud a <strong>contacto@ryventis.mx</strong> con asunto <em>"Solicitud ARCO"</em>, incluyendo nombre completo, datos de contacto, copia de identificación oficial y descripción del derecho a ejercer. Responderemos en un máximo de <strong>20 días hábiles</strong>.</p>
+      <p>Usted tiene derecho a <strong>Acceder, Rectificar, Cancelar y Oponerse</strong> al tratamiento de sus datos. Envíe su solicitud a <strong>contacto@ryventis.com</strong> con asunto <em>"Solicitud ARCO"</em>, incluyendo nombre completo, datos de contacto, copia de identificación oficial y descripción del derecho a ejercer. Responderemos en un máximo de <strong>20 días hábiles</strong>.</p>
 
       <h3>6. Uso de cookies</h3>
       <p><strong>Cookies necesarias:</strong> para el funcionamiento básico del sitio (sesión, seguridad). No pueden desactivarse.</p>
@@ -1693,18 +1647,18 @@
 
       <h3>7. Tratamiento automatizado con inteligencia artificial</h3>
       <p>Para la prestación de nuestros servicios, Ryventis utiliza la API de Claude de Anthropic. Los prompts y configuraciones pueden contener fragmentos de información del negocio que usted nos proporcione. Dicha información se almacena por un período máximo de <strong>12 meses</strong> desde la terminación del contrato, tras lo cual se elimina de forma permanente. Anthropic declara que no utiliza datos de la API para entrenar sus modelos por defecto.</p>
-      <p>Si prefiere configuración sin uso de IA generativa, puede solicitarlo a contacto@ryventis.mx — evaluaremos la viabilidad técnica caso por caso.</p>
+      <p>Si prefiere configuración sin uso de IA generativa, puede solicitarlo a contacto@ryventis.com — evaluaremos la viabilidad técnica caso por caso.</p>
 
       <h3>8. Seguridad de los datos</h3>
       <p>Implementamos comunicaciones cifradas mediante HTTPS/TLS, acceso restringido por personal autorizado, controles de acceso basados en roles, y almacenamiento en infraestructura con certificaciones de seguridad reconocidas. En caso de brecha de seguridad, le notificaremos en los plazos establecidos por la legislación aplicable.</p>
 
       <h3>9. Cambios a esta política</h3>
-      <p>Ryventis se reserva el derecho de modificar esta Política en cualquier momento. Los cambios serán publicados en ryventis.mx. Para cambios sustanciales, le notificaremos por correo con al menos 30 días de anticipación.</p>
+      <p>Ryventis se reserva el derecho de modificar esta Política en cualquier momento. Los cambios serán publicados en ryventis.com. Para cambios sustanciales, le notificaremos por correo con al menos 30 días de anticipación.</p>
 
       <h3>10. Ley aplicable y autoridad competente</h3>
       <p>Esta política se rige por la <strong>Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP)</strong>. La autoridad competente para atender quejas es el <strong>INAI</strong> (inai.org.mx).</p>
 
-      <p style="margin-top:24px;font-size:0.75rem;color:var(--muted);">Ryventis Solutions · Puebla, México · contacto@ryventis.mx · ryventis.mx</p>
+      <p style="margin-top:24px;font-size:0.75rem;color:var(--muted);">Ryventis Solutions · Puebla, México · contacto@ryventis.com · ryventis.com</p>
     </div>
   </div>
 </div>
